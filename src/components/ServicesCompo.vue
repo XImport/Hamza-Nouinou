@@ -1,9 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
-  <div
-    class="carousel-container bg-background container"
-    style="margin-top: 0px; background-color: aqua"
-  >
+
+  <div class="carousel-container container">
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
@@ -41,16 +39,19 @@
         </v-img>
 
         <div class="card-footer pa-4">
-          <span class="text-white text-subtitle-1 d-block text-center">{{
-            card.title
-          }}</span>
+          <span
+            class="text-white text-subtitle-1 d-block text-center"
+            style="font-size: 25px !important"
+            >{{ card.title }}</span
+          >
           <div class="d-flex align-center mt-1 justify-center mx-auto">
-            <v-icon color="primary" size="small" class="mr-1 text-center"
-              >mdi-heart</v-icon
-            >
-            <span class="text-white text-center text-underline">{{
-              card.price
-            }}</span>
+            <v-rating
+              hover
+              :length="5"
+              :size="32"
+              :model-value="5"
+              active-color="primary"
+            />
           </div>
         </div>
       </v-card>
@@ -76,46 +77,34 @@ const currentIndex = ref(0);
 const cards = ref([
   {
     image: "Gym.jpg",
-    title: "Gym WebSite",
+    title: "Web Development",
     price: "9/10",
-    Img: "https://i.pinimg.com/736x/bc/13/34/bc133461ff9e73cd0f526cce750b83d4.jpg",
+    Img: "https://i.pinimg.com/736x/ad/02/12/ad02120ba7161dcaed70b45b17b6dbb0.jpg",
   },
   {
     image: "owl.jpg",
-    title: "Barbber Shop",
+    title: "Desktop Applications",
     price: "8.5/10",
-    Img: "https://i.pinimg.com/736x/94/ae/55/94ae55c1f332ccd3db689f29b7a2ed25.jpg",
+    Img: "https://i.pinimg.com/736x/7f/09/38/7f093826903ef6b4150a38627b1d7bd5.jpg",
   },
 
   {
     image: "owl.jpg",
-    title: "Construction Work Shop",
+    title: "Mobile Applications",
     price: "10/10",
-    Img: "https://i.pinimg.com/736x/8a/01/1c/8a011c2dc9f49698029448accb6a291c.jpg",
+    Img: "https://i.pinimg.com/736x/ec/c4/aa/ecc4aab161156ed08dd39416a3373f41.jpg",
   },
   {
     image: "owl.jpg",
-    title: "E Commerce Site",
+    title: "Scripts Automations",
     price: "10/10",
-    Img: "https://i.pinimg.com/736x/20/9d/c7/209dc70010121e950dc61299013dc1c2.jpg",
+    Img: "https://i.pinimg.com/736x/c6/1c/3f/c61c3fee0280c5494ef569318c945fcf.jpg",
   },
   {
     image: "owl.jpg",
-    title: "WebMedia Digital Agency",
+    title: "Excel Sheets",
     price: "9.2/10",
-    Img: "https://i.pinimg.com/736x/5e/19/b5/5e19b56ea73458169a0542a49e8b06d8.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "All In One United",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/ff/7c/91/ff7c9142d0ea572ecda608b3cc4be457.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "Men's Barber",
-    price: "8.3/10",
-    Img: "https://i.pinimg.com/736x/bf/01/92/bf019263d0cce2bb3afe973bfb893c73.jpg",
+    Img: "https://i.pinimg.com/736x/1c/85/ab/1c85ab54a80d41dbb773982eaa9f2e86.jpg",
   },
 
   // Add more cards...
@@ -133,8 +122,6 @@ const getCardClass = (index) => {
     "is-next": position === 1,
     "is-far-previous": position === totalPages.value - 2,
     "is-far-next": position === 2,
-    "is-far-previous-2": position === totalPages.value - 3,
-    "is-far-next-2": position === 3,
   };
 };
 
@@ -159,7 +146,6 @@ const prev = () => {
   overflow: hidden;
   height: 600px !important;
   /* padding-bottom: 20%; */
-  /* background-color: #ddf247 !important; */
 }
 
 .cards-wrapper {
@@ -172,7 +158,7 @@ const prev = () => {
 
 .nft-card {
   position: absolute;
-  width: 300px;
+  width: 450px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -180,6 +166,7 @@ const prev = () => {
   opacity: 0;
   border-radius: 16px;
   background: #000000;
+  height: 100%;
 }
 
 /* Updated transform values for card positions */
@@ -287,7 +274,7 @@ const prev = () => {
 .left-arrow {
   left: 20px;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 .left-arrow:hover {
@@ -300,7 +287,7 @@ const prev = () => {
 
 .right-arrow {
   right: 20px;
-  margin-right: 10%;
+  margin-right: 8%;
 }
 
 .pagination-container {
@@ -310,7 +297,6 @@ const prev = () => {
   justify-content: center;
   gap: 8px;
   margin-top: 20px;
-  /* background-color: #ddf247; */
 }
 
 .pagination-dot {

@@ -7,14 +7,11 @@
 <script>
 export default {
   // No need to import HomePage here since routes handle component rendering
-}
+};
 </script>
 
-<style  scoped>
-
-#app{
+<style scoped>
+/* #app{
   background-color: #161616 !important;
-}
-
-
+} */
 </style>
