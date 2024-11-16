@@ -115,9 +115,8 @@
               </v-sheet>
 
               <v-btn
-                class="text-capitalize bg-lime-accent-3 ml-2"
+                class="text-capitalize bg-lime-accent-3 ml-2 rounded-xl pl-6 pr-6"
                 size="large"
-                rounded
               >
                 Get Started
                 <v-icon end>mdi-arrow-right</v-icon>

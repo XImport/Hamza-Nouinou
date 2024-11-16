@@ -83,17 +83,18 @@ const cards = ref([
   },
   {
     image: "owl.jpg",
-    title: "Desktop Applications",
-    price: "8.5/10",
-    Img: "https://i.pinimg.com/736x/7f/09/38/7f093826903ef6b4150a38627b1d7bd5.jpg",
+    title: "Mobile Applications",
+    price: "10/10",
+    Img: "https://i.pinimg.com/736x/f8/17/06/f81706632ce4a8938f347d15a801e47d.jpg ",
   },
 
   {
     image: "owl.jpg",
-    title: "Mobile Applications",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/ec/c4/aa/ecc4aab161156ed08dd39416a3373f41.jpg",
+    title: "Excel Sheets",
+    price: "9.2/10",
+    Img: "https://i.pinimg.com/736x/1c/85/ab/1c85ab54a80d41dbb773982eaa9f2e86.jpg",
   },
+
   {
     image: "owl.jpg",
     title: "Scripts Automations",
@@ -102,11 +103,10 @@ const cards = ref([
   },
   {
     image: "owl.jpg",
-    title: "Excel Sheets",
-    price: "9.2/10",
-    Img: "https://i.pinimg.com/736x/1c/85/ab/1c85ab54a80d41dbb773982eaa9f2e86.jpg",
+    title: "Desktop Applications",
+    price: "8.5/10",
+    Img: "https://i.ibb.co/xg7FVG0/screenshot.png",
   },
-
   // Add more cards...
 ]);
 
