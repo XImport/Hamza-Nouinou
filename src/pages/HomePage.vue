@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-lines">
     <AppBar />
 
     <HeaderCompo />
@@ -168,13 +168,13 @@
 </template>
 
 <script>
-import AppBar from "../components/AppBar";
-import HeaderCompo from "../components/HeaderCompo.vue";
-import SilderCompo from "../components/SildersCompo.vue";
-import ServicesCompo from "@/components/ServicesCompo.vue";
-import BannerCompo from "@/components/BannerCompo.vue";
-import StatisticsCompo from "@/components/StatisticsCompo.vue";
-import FooterCompo from "@/components/FooterCompo.vue";
+import AppBar from "../components/HomeUI/AppBar";
+import HeaderCompo from "../components/HomeUI/HeaderCompo.vue";
+import SilderCompo from "../components/HomeUI/SildersCompo.vue";
+import ServicesCompo from "@/components/HomeUI/ServicesCompo.vue";
+import BannerCompo from "@/components/HomeUI/BannerCompo.vue";
+import StatisticsCompo from "@/components/HomeUI/StatisticsCompo.vue";
+import FooterCompo from "@/components/HomeUI/FooterCompo.vue";
 export default {
   components: {
     AppBar,
@@ -255,6 +255,12 @@ export default {
 </script>
 
 <style scoped>
+.bg-lines {
+  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
+  /* background-position: center; */
+  background-repeat: repeat;
+}
+
 .v-expansion-panel-title {
   font-style: normal;
   font-weight: 800;

@@ -1,7 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
 
-  <div class="carousel-container container">
+  <div class="carousel-container container bg-lines">
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
@@ -136,6 +136,12 @@ const prev = () => {
 </script>
 
 <style scoped>
+.bg-lines {
+  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
+  /* background-position: center; */
+  background-repeat: repeat;
+}
+
 /* Previous styles remain the same */
 .carousel-container {
   position: relative;

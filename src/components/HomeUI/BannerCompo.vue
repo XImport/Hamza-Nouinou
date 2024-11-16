@@ -36,10 +36,10 @@
         <!-- Moving images as background -->
         <div class="background-images">
           <div class="moving-img img-11">
-            <img src="../assets/Icons/flower.png" alt="logo" />
+            <img src="../../assets/Icons/flower.png" alt="logo" />
           </div>
           <div class="moving-img img-1">
-            <img src="../assets/Icons/blo.png" alt="logo" />
+            <img src="../../assets/Icons/blo.png" alt="logo" />
           </div>
           <div class="moving-img img-2">
             <img
@@ -48,30 +48,30 @@
             />
           </div>
           <div class="moving-img img-3">
-            <img src="../assets/Icons/css.png" alt="logo" width="50" />
+            <img src="../../assets/Icons/css.png" alt="logo" width="50" />
           </div>
           <div class="moving-img img-4">
-            <img src="../assets/Icons/flower.png" alt="logo" />
+            <img src="../../assets/Icons/flower.png" alt="logo" />
           </div>
 
           <!-- Dots with Fade In and Fade Out -->
           <div class="fade-dots img-5">
-            <img src="../assets/Icons/dots.png" alt="logo" />
+            <img src="../../assets/Icons/dots.png" alt="logo" />
           </div>
           <div class="fade-dots img-6">
-            <img src="../assets/Icons/dots.png" alt="logo" />
+            <img src="../../assets/Icons/dots.png" alt="logo" />
           </div>
           <div class="fade-dots img-7">
-            <img src="../assets/Icons/dots.png" alt="logo" />
+            <img src="../../assets/Icons/dots.png" alt="logo" />
           </div>
 
           <!-- More moving images -->
           <div class="moving-img img-8">
-            <img src="../assets/Icons/nft.png" alt="logo" width="50" />
+            <img src="../../assets/Icons/nft.png" alt="logo" width="50" />
           </div>
           <div class="moving-img img-9">
             <img
-              src="../assets/Icons/nft.png"
+              src="../../assets/Icons/nft.png"
               alt="logo"
               height="80"
               width="80"
@@ -79,7 +79,7 @@
           </div>
           <div class="moving-img img-10">
             <img
-              src="../assets/Icons/nuxt.png"
+              src="../../assets/Icons/nuxt.png"
               alt="logo"
               height="50"
               width="50"
