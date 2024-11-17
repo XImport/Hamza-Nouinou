@@ -1,50 +1,121 @@
 <template>
   <v-app style="max-height: 14vh">
+    <!-- Navigation Drawer for Mobile -->
+    <v-navigation-drawer v-model="drawer" app temporary dark color="background">
+      <v-list>
+        <v-list-item
+          v-for="(btn, index) in NavbarButtons"
+          :key="index"
+          :to="btn.link"
+          link
+        >
+          <v-list-item-title class="py-2">{{ btn.text }}</v-list-item-title>
+        </v-list-item>
+
+        <!-- Mobile Contact Button -->
+        <v-list-item>
+          <v-btn
+            block
+            class="bg-primary manrope-font mt-4"
+            style="font-size: small; font-weight: bolder"
+          >
+            Contact Me
+            <v-icon size="24" class="ml-2">mdi-phone-in-talk</v-icon>
+          </v-btn>
+        </v-list-item>
+
+        <!-- Mobile Action Icons -->
+        <v-list-item>
+          <v-row justify="space-around" class="mt-4">
+            <v-btn icon>
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+            <v-btn icon v-show="GetDarkThemeState">
+              <v-icon>mdi-weather-night</v-icon>
+            </v-btn>
+            <v-btn icon v-show="GetLightThemeState">
+              <v-icon>mdi-white-balance-sunny</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon>mdi-filter-variant</v-icon>
+            </v-btn>
+          </v-row>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
     <v-app-bar flat color="background" dark class="py-2" app>
+      <!-- Mobile Menu Button -->
+      <v-app-bar-nav-icon
+        @click="drawer = !drawer"
+        class="hidden-md-and-up"
+      ></v-app-bar-nav-icon>
+
+      <!-- Logo Section -->
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
-      <v-toolbar-title>
-        <img
-          src="https://themesflat.co/html/open9/assets/images/logo/logo.png"
-          alt="logo"
-        />
-        <!-- <span class="ml-3" style="color: #c7ff00; font-weight: bold;">OpeN9</span> -->
-      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-col cols="auto">
+        <v-toolbar-title>
+          <img
+            src="https://i.ibb.co/VLLC7CV/Untitled-1.png"
+            alt="logo"
+            height="63"
+          />
+        </v-toolbar-title>
+      </v-col>
 
       <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-      <!-- Nav Links -->
-      <div v-for="(btn, index) in NavbarButtons" :key="index">
-        <v-btn :to="btn.link" text style="text-transform: none">{{
-          btn.text
-        }}</v-btn>
+      <!-- Desktop Nav Links -->
+      <div class="hidden-sm-and-down">
+        <v-btn
+          v-for="(btn, index) in NavbarButtons"
+          :key="index"
+          :to="btn.link"
+          text
+          class="mx-1"
+          style="text-transform: none"
+        >
+          {{ btn.text }}
+        </v-btn>
       </div>
       <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-      <div class="ml-6">
+      <!-- Desktop Contact Button -->
+      <div class="ml-6 hidden-sm-and-down">
         <v-btn
-          class="bg-primary manrope-font"
+          class="bg-primary manrope-font px-4"
           style="font-size: small; font-weight: bolder"
         >
           Contact Me
-          <v-icon size="30">mdi-phone-in-talk</v-icon>
+          <v-icon size="24" class="ml-2">mdi-phone-in-talk</v-icon>
         </v-btn>
       </div>
 
-      <div>
-        <v-btn>
-          <v-icon size="30">mdi-magnify</v-icon>
+      <!-- Desktop Action Icons -->
+      <div class="hidden-sm-and-down ml-4">
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
         </v-btn>
-        <v-btn style="margin-left: -10%" v-show="GetDarkThemeState">
-          <v-icon size="30" color="white">mdi-weather-night</v-icon>
+        <v-btn icon class="ml-1" v-show="GetDarkThemeState">
+          <v-icon color="white">mdi-weather-night</v-icon>
         </v-btn>
-        <v-btn style="margin-left: -10%" v-show="GetLightThemeState">
-          <v-icon size="30" color="white">mdi-white-balance-sunny</v-icon>
+        <v-btn icon class="ml-1" v-show="GetLightThemeState">
+          <v-icon color="white">mdi-white-balance-sunny</v-icon>
         </v-btn>
-        <v-btn style="margin-left: -10%">
-          <v-icon size="30">mdi-filter-variant</v-icon>
+        <v-btn icon class="ml-1">
+          <v-icon>mdi-filter-variant</v-icon>
         </v-btn>
       </div>
+      <v-spacer></v-spacer>
       <v-spacer></v-spacer>
     </v-app-bar>
   </v-app>
@@ -54,13 +125,13 @@
 export default {
   data() {
     return {
+      drawer: false,
       NavbarButtons: [
         { text: "Home", link: "/" },
-        { text: "About Me", link: "/about" },
+        { text: "Services", link: "/services" },
         { text: "Explore", link: "/explore" },
-        { text: "Pages", link: "" },
+        { text: "About Me", link: "/about" },
         { text: "Blogs", link: "" },
-        { text: "Services", link: "" },
       ],
     };
   },
@@ -68,7 +139,6 @@ export default {
     GetLightThemeState() {
       return this.$store.getters.GetLightTheme;
     },
-
     GetDarkThemeState() {
       return this.$store.getters.GetdarkTheme;
     },
@@ -83,5 +153,23 @@ export default {
   box-shadow: none !important;
 }
 
-/* You can add custom styles for your navbar here */
+/* Responsive adjustments */
+.v-toolbar__content {
+  padding: 0 16px;
+}
+
+@media (max-width: 600px) {
+  .v-toolbar__content {
+    padding: 0 8px;
+  }
+}
+
+/* Smooth transitions */
+.v-navigation-drawer {
+  transition: transform 0.3s ease-in-out;
+}
+
+.v-btn {
+  transition: all 0.2s ease-in-out;
+}
 </style>

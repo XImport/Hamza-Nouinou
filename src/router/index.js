@@ -16,7 +16,16 @@ const router = createRouter({
       path: "/explore",
       component: () => import("../pages/ExplorerPage.vue"),
     },
+    {
+      path: "/services",
+      component: () => import("../pages/ServicesPage.vue"),
+    },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to the top of the page on navigation
+    window.scrollTo(0, 0); // Explicitly reset scroll
+    return { x: 0, y: 0 };
+  },
 });
 
 export default router;
