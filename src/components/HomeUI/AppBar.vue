@@ -57,7 +57,7 @@ export default {
       NavbarButtons: [
         { text: "Home", link: "/" },
         { text: "About Me", link: "/about" },
-        { text: "Explore", link: "" },
+        { text: "Explore", link: "/explore" },
         { text: "Pages", link: "" },
         { text: "Blogs", link: "" },
         { text: "Services", link: "" },

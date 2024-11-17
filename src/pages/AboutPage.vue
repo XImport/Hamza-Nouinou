@@ -41,7 +41,7 @@
               padding-bottom: 1%;
             "
           >
-            Meet <span style="color: yellow">Me</span>
+            Meet Me<span style="color: yellow"> AT :</span>
           </h1>
           <v-avatar color="grey" rounded="50" size="150" class="mx-auto">
             <v-img src="../assets/Me.png" cover class="mx-auto"></v-img>
