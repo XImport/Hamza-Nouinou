@@ -161,9 +161,10 @@ const cards = ref([
   },
   {
     image: "owl.jpg",
-    title: "SQL DataBase",
-    price: "SQL is a powerful, structured, and query-based database language.",
-    Img: "https://i.ibb.co/7QfyW5b/sql.png",
+    title: "Visual Basic",
+    price:
+      "for Applications (VBA) is a subset of Visual Basic integrated into Excel.",
+    Img: "https://i.ibb.co/9GwC73W/visualbasic.png",
   },
 
   {
@@ -175,11 +176,11 @@ const cards = ref([
   },
   {
     image: "owl.jpg",
-    title: "Python",
-    price:
-      "Python is a versatile, powerful, and easy-to-learn programming language.",
-    Img: "https://i.ibb.co/qMsNhRg/python.png",
+    title: "SQL DataBase",
+    price: "SQL is a powerful, structured, and query-based database language.",
+    Img: "https://i.ibb.co/7QfyW5b/sql.png",
   },
+
   // Add more cards...
 ]);
 

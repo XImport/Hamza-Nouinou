@@ -47,7 +47,7 @@
             :key="index"
             style="
               max-width: 400px;
-              max-height: 400px;
+              max-height: 420px;
               background-color: #232323;
             "
             class="rounded-xl pa-12 mx-auto justify-center align-center"
@@ -104,13 +104,16 @@
                 "
                 class="rounded-xl pa-12 mx-auto"
               >
-                <v-avatar class="mx-auto d-flex justify-center" size="120">
+                <v-avatar
+                  class="mx-auto d-flex justify-center hover-move"
+                  size="120"
+                >
                   <v-img
                     :src="card.Img"
                     height="500"
                     width="500"
                     rounded="50"
-                    class="mx-auto hover-move"
+                    class="mx-auto"
                   />
                 </v-avatar>
 
@@ -202,5 +205,37 @@ export default {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-home4.png");
   background-repeat: repeat;
   /* opacity: 0.5; */
+}
+
+.hover-move {
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Hover animation using keyframes */
+@keyframes moveLeftRight {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translatey(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation on hover */
+.hover-move:hover {
+  animation: moveLeftRight 1.5s ease-in-out infinite;
+}
+
+/* Optional: Add a smooth transition when animation ends */
+.hover-move:not(:hover) {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
 }
 </style>

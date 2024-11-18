@@ -57,11 +57,7 @@
       <v-spacer></v-spacer>
       <v-col cols="auto">
         <v-toolbar-title>
-          <img
-            src="https://i.ibb.co/VLLC7CV/Untitled-1.png"
-            alt="logo"
-            height="63"
-          />
+          <img src="../../assets/logo.png" alt="logo" height="63" />
         </v-toolbar-title>
       </v-col>
 
@@ -131,7 +127,7 @@ export default {
         { text: "Services", link: "/services" },
         { text: "Explore", link: "/explore" },
         { text: "About Me", link: "/about" },
-        { text: "Blogs", link: "" },
+        { text: "Blogs", link: "/blogs" },
       ],
     };
   },

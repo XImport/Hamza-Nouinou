@@ -8,9 +8,15 @@
           class="text-center text-center"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
-          Who Am <span style="color: yellow">I</span> ?
+          Who Am <span style="color: yellow">I ?</span>
         </h1>
         <v-container style="max-width: 50%" class="">
+          <div class="fade-dots img-5">
+            <img src="../assets/Icons/reactjs.png" alt="logo" width="120" />
+          </div>
+          <div class="fade-dots img-6">
+            <img src="../assets/Icons/python.png" alt="logo" width="120" />
+          </div>
           <h3 class="text-center pb-4 poppins-regular">
             "Full Stack Developer with expertise in building dynamic, end-to-end
             web applications. Skilled in both front-end and back-end
@@ -55,7 +61,7 @@
               :key="index"
               style="
                 max-width: 400px;
-                max-height: 380px;
+                max-height: 400px;
                 background-color: #232323;
               "
               class="rounded-xl pa-12 mx-auto justify-center align-center"
@@ -174,5 +180,44 @@ export default {
 .hover-move:not(:hover) {
   transform: translateX(0);
   transition: transform 0.3s ease-out;
+}
+
+.fade-dots {
+  position: absolute;
+  opacity: 0.3;
+
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes moveImg5 {
+  0%,
+  100% {
+    top: 65%;
+    left: 15%;
+  }
+  50% {
+    top: 75%;
+    left: 17%;
+  }
+}
+
+.img-5 {
+  animation-name: moveImg5;
+}
+
+@keyframes moveImg6 {
+  0%,
+  100% {
+    top: 65%;
+    left: 78%;
+  }
+  50% {
+    top: 75%;
+    left: 75%;
+  }
+}
+
+.img-6 {
+  animation-name: moveImg6;
 }
 </style>

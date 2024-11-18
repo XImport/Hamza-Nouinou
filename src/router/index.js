@@ -20,6 +20,10 @@ const router = createRouter({
       path: "/services",
       component: () => import("../pages/ServicesPage.vue"),
     },
+    {
+      path: "/blogs",
+      component: () => import("../pages/BlogsPage.vue"),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to the top of the page on navigation
