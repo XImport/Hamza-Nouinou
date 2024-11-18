@@ -1,28 +1,16 @@
 <template>
-  <div
-    style="
-      min-height: 3vh;
-      background-color: #161616 !important;
-      max-height: 90vh;
-      padding: 0px !important;
-    "
-  >
-    <div class="justify-center align-center py-2">
+  <div class="landing-container min-h-screen bg-background p-0">
+    <div class="flex flex-col items-center justify-center py-4 px-4 space-y-4">
       <h1
-        class="text-center manrope-font typing-effect text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
+        class="text-center font-manrope text-2xl xs:text-3xl sm:text-4xl font-extrabold capitalize"
       >
         Custom-Crafted Solutions for Your
-        <span style="color: yellow"> Needs </span>
+        <span class="text-yellow"> Needs </span>
       </h1>
-      <v-container style="width: 40%">
+
+      <div class="w-full max-w-xs xs:max-w-sm container--text">
         <p
-          class="text-center azeret-mono-font"
-          style="
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.53);
-          "
+          class="text-center font-azeret-mono text-xs sm:text-sm text-grey pb-4"
         >
           Welcome to My World of Innovation and Excellence. Discover expertly
           crafted digital solutions designed to bring your unique vision to
@@ -30,65 +18,62 @@
           web experiences, I deliver the tools to transform your ideas into
           reality.
         </p>
-      </v-container>
-
-      <div class="services-wrapper">
-        <!-- Moving images as background -->
-        <div class="background-images">
-          <div class="moving-img img-11">
-            <img src="../../assets/Icons/flower.png" alt="logo" />
-          </div>
-          <div class="moving-img img-1">
-            <img src="../../assets/Icons/blo.png" alt="logo" />
-          </div>
-          <div class="moving-img img-2">
-            <img
-              src="https://themesflat.co/html/open9/assets/images/item-background/item5.png"
-              alt="logo"
-            />
-          </div>
-          <div class="moving-img img-3">
-            <img src="../../assets/Icons/css.png" alt="logo" width="50" />
-          </div>
-          <div class="moving-img img-4">
-            <img src="../../assets/Icons/flower.png" alt="logo" />
-          </div>
-
-          <!-- Dots with Fade In and Fade Out -->
-          <div class="fade-dots img-5">
-            <img src="../../assets/Icons/dots.png" alt="logo" />
-          </div>
-          <div class="fade-dots img-6">
-            <img src="../../assets/Icons/dots.png" alt="logo" />
-          </div>
-          <div class="fade-dots img-7">
-            <img src="../../assets/Icons/dots.png" alt="logo" />
-          </div>
-
-          <!-- More moving images -->
-          <div class="moving-img img-8">
-            <img src="../../assets/Icons/nft.png" alt="logo" width="50" />
-          </div>
-          <div class="moving-img img-9">
-            <img
-              src="../../assets/Icons/nft.png"
-              alt="logo"
-              height="80"
-              width="80"
-            />
-          </div>
-          <div class="moving-img img-10">
-            <img
-              src="../../assets/Icons/nuxt.png"
-              alt="logo"
-              height="50"
-              width="50"
-            />
-          </div>
+      </div>
+      <div class="background-images bg-shades">
+        <div class="moving-img2 img-11">
+          <img src="../../assets/Icons/flower.png" alt="logo" />
+        </div>
+        <div class="moving-img2 img-1">
+          <img src="../../assets/Icons/blo.png" alt="logo" />
+        </div>
+        <div class="moving-img2 img-2">
+          <img
+            src="https://themesflat.co/html/open9/assets/images/item-background/item5.png"
+            alt="logo"
+          />
+        </div>
+        <div class="moving-img2 img-3">
+          <img src="../../assets/Icons/css.png" alt="logo" width="50" />
+        </div>
+        <div class="moving-img2 img-4">
+          <img src="../../assets/Icons/flower.png" alt="logo" />
         </div>
 
-        <!-- Services component -->
-        <ServicesCompo />
+        <!-- Dots with Fade In and Fade Out -->
+        <div class="fade-dots img-5">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+        <div class="fade-dots img-6">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+        <div class="fade-dots img-7">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+
+        <!-- More moving images -->
+        <div class="moving-img2 img-8">
+          <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
+        </div>
+        <div class="moving-img2 img-9">
+          <img
+            src="../../assets/Icons/nft.png"
+            alt="logo"
+            height="80"
+            width="80"
+          />
+        </div>
+        <div class="moving-img2 img-10">
+          <img
+            src="../../assets/Icons/nuxt.png"
+            alt="logo"
+            height="50"
+            width="50"
+          />
+        </div>
+      </div>
+
+      <div class="w-full max-w-full px-0 sm:px-4 md:px-8 lg:px-16">
+        <ServicesCompo class="w-full" />
       </div>
     </div>
   </div>
@@ -96,45 +81,19 @@
 
 <script>
 import ServicesCompo from "./ServicesCompo.vue";
+
 export default {
   components: { ServicesCompo },
 };
 </script>
+
 <style scoped>
-/* Base styles */
-.services-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.background-images {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Typing effect */
 .typing-effect {
-  font-family: "Manrope", sans-serif;
-  font-size: 54px;
-  font-weight: 800;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   border-right: 3px solid #fff;
-  display: inline-block;
-  width: 0;
   animation: typing 2s steps(40) 0.5s 1 normal forwards,
     blink-caret 0.2s step-end infinite;
-  text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 @keyframes typing {
@@ -142,7 +101,7 @@ export default {
     width: 0;
   }
   to {
-    width: 65%;
+    width: 100%;
   }
 }
 
@@ -152,8 +111,15 @@ export default {
   }
 }
 
+.container--text {
+  max-width: 50%;
+  margin: auto;
+}
+
+/* Animation  */
+
 /* Moving images animations */
-.moving-img {
+.moving-img2 {
   position: absolute;
   animation-duration: 6s;
   animation-timing-function: ease-in-out;
@@ -163,7 +129,7 @@ export default {
   transition: all 0.3s ease;
 }
 
-.moving-img:hover {
+.moving-img2:hover {
   opacity: 1;
   /* filter: blur(0); */
 }
@@ -178,13 +144,13 @@ export default {
 @keyframes moveImg1 {
   0%,
   100% {
-    top: 40%;
+    top: 120%;
     left: 70%;
     transform: translateY(-10px);
   }
   50% {
-    top: 50%;
-    left: 75%;
+    top: 118%;
+    left: 80%;
     transform: translateY(10px);
   }
 }
@@ -192,12 +158,12 @@ export default {
 @keyframes moveImg2 {
   0%,
   100% {
-    top: 10%;
-    left: 95%;
+    top: 120%;
+    left: 90%;
     transform: rotate(0deg);
   }
   50% {
-    top: 8%;
+    top: 118%;
     left: 90%;
     transform: rotate(10deg);
   }
@@ -206,12 +172,12 @@ export default {
 @keyframes moveImg3 {
   0%,
   100% {
-    top: 40%;
+    top: 130%;
     left: 15%;
     transform: scale(1);
   }
   50% {
-    top: 47%;
+    top: 125%;
     left: 8%;
     transform: scale(1.1);
   }
@@ -220,12 +186,12 @@ export default {
 @keyframes moveImg4 {
   0%,
   100% {
-    top: 30%;
+    top: 120%;
     left: 15%;
     transform: translateX(-5px);
   }
   50% {
-    top: 32%;
+    top: 115%;
     left: 17%;
     transform: translateX(5px);
   }
@@ -234,12 +200,12 @@ export default {
 @keyframes moveImg5 {
   0%,
   100% {
-    top: 15%;
+    top: 115%;
     left: 25%;
     opacity: 0.2;
   }
   50% {
-    top: 17%;
+    top: 114%;
     left: 27%;
     opacity: 0.6;
   }
@@ -248,12 +214,12 @@ export default {
 @keyframes moveImg6 {
   0%,
   100% {
-    top: 25%;
+    top: 115%;
     left: 60%;
     transform: scale(0.9);
   }
   50% {
-    top: 27%;
+    top: 114%;
     left: 62%;
     transform: scale(1);
   }
@@ -262,12 +228,12 @@ export default {
 @keyframes moveImg7 {
   0%,
   100% {
-    top: 40%;
+    top: 120%;
     left: 40%;
     transform: rotate(-5deg);
   }
   50% {
-    top: 42%;
+    top: 116%;
     left: 42%;
     transform: rotate(5deg);
   }
@@ -276,13 +242,13 @@ export default {
 @keyframes moveImg8 {
   0%,
   100% {
-    top: 65%;
-    left: 65%;
+    top: 140%;
+    left: 10%;
     transform: translateY(-8px);
   }
   50% {
-    top: 55%;
-    left: 67%;
+    top: 135%;
+    left: 5%;
     transform: translateY(8px);
   }
 }
@@ -290,12 +256,12 @@ export default {
 @keyframes moveImg9 {
   0%,
   100% {
-    top: 2%;
+    top: 170%;
     left: 5%;
     transform: scale(1) rotate(0deg);
   }
   50% {
-    top: 10%;
+    top: 165%;
     left: 7%;
     transform: scale(1.1) rotate(10deg);
   }
@@ -304,12 +270,12 @@ export default {
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 60%;
+    top: 115%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    top: 65%;
+    top: 110%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
   }
@@ -318,12 +284,12 @@ export default {
 @keyframes moveImg11 {
   0%,
   100% {
-    top: 30%;
+    top: 130%;
     left: 85%;
     transform: rotate(-10deg);
   }
   50% {
-    top: 32%;
+    top: 125%;
     left: 87%;
     transform: rotate(10deg);
   }
@@ -372,44 +338,5 @@ export default {
 }
 .img-11 {
   animation-name: moveImg11;
-}
-
-/* Font styles */
-.manrope-font {
-  font-family: "Manrope", sans-serif;
-}
-
-.azeret-mono-font {
-  font-family: "Azeret Mono", monospace;
-}
-
-/* Button styles */
-.DiscoverButton {
-  background-color: #ddf247;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.DiscoverButton:hover {
-  background-color: #fff;
-}
-
-.CollectionButton {
-  background-color: white;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.CollectionButton:hover {
-  background-color: #ffeb3b;
-}
-
-/* Background styles */
-.bg-background {
-  background: radial-gradient(circle at center, #121212, #0a0a0a);
-}
-
-/* Services component positioning */
-:deep(.ServicesCompo) {
-  position: relative;
-  z-index: 1;
 }
 </style>

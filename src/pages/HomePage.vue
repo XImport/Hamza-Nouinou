@@ -14,43 +14,52 @@
     </div>
     <div class="bg-background">
       <div>
-        <h1
-          class="text-center manrope-font typing-effect text-center"
-          style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-        >
-          Why Choose
-          <span style="color: yellow"> Me </span>
+        <!-- Title -->
+        <h1 class="text-center manrope-fontt typing-effect" style="">
+          Why Choose <span style="color: yellow"> Me </span>
         </h1>
+
+        <!-- Cards Section -->
         <v-container
-          class="mx-auto d-flex"
-          style="min-height: 50vh; max-width: 70%"
+          class="mx-auto d-flex cards-container justify-center align-center mx-auto"
+          style="min-height: 50vh"
         >
-          <v-card
-            v-for="(card, index) in Cards"
-            :key="index"
-            style="
-              max-width: 400px;
-              max-height: 350px;
-              background-color: #232323;
-            "
-            class="rounded-xl pa-12 mx-auto justify-center align-center"
-          >
-            <v-img :src="card.Img" height="120" width="120" class="mx-auto" />
-            <h2 class="text-center py-1">{{ card.title }}</h2>
-            <p class="text-center py-4">
-              {{ card.description }}
-            </p>
-          </v-card>
+          <v-row class="d-flex" style="gap: 16px; margin: 0">
+            <v-col
+              v-for="(card, index) in Cards"
+              :key="index"
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
+              class="d-flex"
+            >
+              <v-card
+                class="rounded-xl pa-12 justify-center align-center card"
+                style="background-color: #232323; margin: 0"
+              >
+                <v-img
+                  :src="card.Img"
+                  height="120"
+                  width="120"
+                  class="mx-auto"
+                />
+                <h2 class="text-center py-1">{{ card.title }}</h2>
+                <p class="text-center py-4">{{ card.description }}</p>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-container>
+
+        <!-- FAQ Section -->
         <h1
-          class="text-center manrope-font typing-effect text-center"
+          class="text-center manrope-font typing-effect"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
-          Frequently Asked
-          <span style="color: yellow"> Questions </span>
+          Frequently Asked <span style="color: yellow"> Questions </span>
         </h1>
-        <v-container class="bg-background" style="max-width: 70%">
-          <v-row no-gutters>
+        <v-container class="bg-background faq-container">
+          <v-row>
             <v-col
               v-for="(question, index) in Top10AskedQuestions"
               :key="index"
@@ -60,12 +69,9 @@
             >
               <v-expansion-panels>
                 <v-expansion-panel>
-                  <!-- Panel Title -->
                   <v-expansion-panel-title expand-icon="mdi-plus">
                     {{ question.Q }}
                   </v-expansion-panel-title>
-
-                  <!-- Panel Content -->
                   <v-expansion-panel-text>
                     {{ question.A }}
                   </v-expansion-panel-text>
@@ -74,46 +80,39 @@
             </v-col>
           </v-row>
           <h3
-            class="text-center manrope-font text-center py-4"
-            style="
-              font-style: normal;
-              font-weight: 800;
-              font-size: 18px;
-              line-height: 25px;
-            "
+            class="text-center manrope-font py-4"
+            style="font-weight: 800; font-size: 18px; line-height: 25px"
           >
-            Still have question?
+            Still have questions?
           </h3>
           <p
-            class="text-center manrope-font text-center py-2"
+            class="text-center manrope-font py-2"
             style="color: rgba(255, 255, 255, 0.53)"
           >
-            Can't find what you're looking for ? Please chat to my friendly
+            Can't find what you're looking for? Please chat with my friendly
             <span style="color: yellow"> Discord Server </span>
           </p>
         </v-container>
-        <div style="padding-top: 1.5% !important" />
+
+        <!-- Call-to-Action Section -->
         <v-container
-          class="pa-6 bg-black rounded-xl"
-          style="max-width: 70%; max-height: 40vh"
+          class="pa-6 bg-black rounded-xl cta-container d-none d-sm-flex"
+          style="max-width: 70%"
         >
           <v-row class="fill-height align-center justify-center">
-            <v-col cols="12" md="6" class="pa-8" style="margin-top: -20%">
+            <v-col cols="12" md="6" class="pa-8 cta-text">
               <div class="text-h4 font-weight-bold text-white mb-2">
                 Transform Your Business into the Future
                 <span class="d-block">
-                  In the
-                  <span class="text-lime-accent-3">Real World</span>
+                  In the <span class="text-lime-accent-3">Real World</span>
                 </span>
               </div>
-
               <v-sheet
                 class="pa-2 mb-6 rounded text-caption bg-black"
                 width="fit-content"
               >
                 Get Started with the Easiest and Most Secure Platform
               </v-sheet>
-
               <v-btn
                 class="text-capitalize bg-lime-accent-3 ml-2 rounded-xl pl-6 pr-6"
                 size="large"
@@ -123,20 +122,13 @@
               </v-btn>
             </v-col>
 
-            <v-col
-              cols="12"
-              md="6"
-              class="pa-8 position-relative"
-              style="margin-top: -5%"
-            >
+            <v-col cols="12" md="6" class="pa-8 cta-image">
               <v-img
                 src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
                 class="phone-image"
                 contain
                 height="600"
               />
-
-              <!-- Floating coin decorations -->
               <v-img
                 src="../assets/Icons/bitcoin.png"
                 class="floating-coin-1"
@@ -160,6 +152,7 @@
         </v-container>
       </div>
     </div>
+
     <div style="height: 15vh; background-color: #161616"></div>
     <div>
       <FooterCompo />
@@ -311,5 +304,73 @@ export default {
   100% {
     transform: translateY(0px);
   }
+}
+
+/* Cards Section */
+.cards-container {
+  max-width: 100%;
+  gap: 0px !important;
+  margin-left: 10% !important;
+  /* margin: auto !important; */
+}
+
+.card {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* FAQ Section */
+.faq-container {
+  max-width: 90%;
+}
+
+/* CTA Section */
+.cta-container {
+  max-width: 90%;
+}
+
+.cta-text {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cta-image {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.phone-image {
+  height: 300px !important;
+}
+
+.floating-coin-1,
+.floating-coin-2,
+.floating-coin-3 {
+  display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .cta-text {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+
+  .cta-image {
+    margin-top: 1rem;
+  }
+
+  .cards-container {
+    max-width: 100%;
+    gap: 0px !important;
+    margin-left: 0% !important;
+    /* margin: auto !important; */
+  }
+}
+
+.manrope-fontt {
+  font-size: 54px;
+  font-weight: 800;
+  text-transform: capitalize;
 }
 </style>

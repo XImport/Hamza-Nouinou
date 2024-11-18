@@ -1,17 +1,11 @@
 <template>
   <div class="bg-background bg-lines" style="min-height: 45vh">
     <div class="justify-center align-center py-2">
-      <h1
-        class="text-center manrope-font text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
+      <h1 class="text-center manrope-font text-center">
         Let’s Build Something Amazing
       </h1>
 
-      <h1
-        class="text-center manrope-font text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
+      <h1 class="text-center manrope-font text-center">
         Together | <span style="color: yellow">Contact Me</span>
       </h1>
 
@@ -206,6 +200,9 @@ export default {};
 
 .manrope-font {
   font-family: "Manrope", sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  text-transform: capitalize;
 }
 
 .azeret-mono-font {

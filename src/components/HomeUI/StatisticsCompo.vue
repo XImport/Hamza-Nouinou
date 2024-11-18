@@ -6,7 +6,8 @@
         :key="index"
         cols="12"
         sm="6"
-        md="3"
+        md="4"
+        lg="3"
         class="text-center"
         style="display: flex; align-items: center; justify-content: center"
       >
@@ -23,22 +24,17 @@
               <template #default="{ displayValue }">
                 <div class="value-display">
                   {{ displayValue }}
-                  <span class="plus-symbol">++</span>
+                  <span class="plus-symbol">+</span>
                 </div>
               </template>
             </count-up>
           </div>
           <!-- Label -->
           <div class="stat-label">{{ stat.label }}</div>
-          <div />
         </div>
 
         <!-- Horizontal Divider -->
-        <div
-          v-if="index !== stats.length - 1"
-          class="svg-divider"
-          style="margin: 0 1rem"
-        >
+        <div v-if="index !== stats.length - 1" class="svg-divider">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 10"
@@ -46,7 +42,7 @@
             class="divider-svg"
           >
             <line
-              x1=""
+              x1="0"
               y1="5"
               x2="100"
               y2="5"
@@ -73,17 +69,15 @@ export default {
     return {
       stats: [
         { value: 51, label: "Projects Completed" },
-        { value: +40, label: "Happy Clients" },
-        { value: +3, label: "Years of Experience" },
-        { value: +4, label: "Recognition & Achievements" },
+        { value: 40, label: "Happy Clients" },
+        { value: 3, label: "Years of Experience" },
+        { value: 4, label: "Recognition & Achievements" },
       ],
       countOptions: {
         useEasing: true,
         useGrouping: true,
         separator: ",",
         decimal: ".",
-        prefix: "",
-        suffix: "",
       },
     };
   },
@@ -94,7 +88,6 @@ export default {
 .stats-container {
   background-color: #161616;
   padding: 2rem 0;
-  position: relative;
 }
 
 .stats-row {
@@ -113,7 +106,7 @@ export default {
   line-height: 1.2;
   margin-bottom: 0.5rem;
   font-family: "Manrope", sans-serif;
-  color: #e2ff3d; /* Neon yellow color */
+  color: #e2ff3d;
   text-shadow: 0 0 10px rgba(226, 255, 61, 0.3);
   transition: all 0.3s ease;
 }
@@ -144,17 +137,6 @@ export default {
   margin-top: 0.5rem;
 }
 
-.divider-dot {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
 /* Responsive adjustments */
 @media (max-width: 960px) {
   .stat-number {
@@ -163,10 +145,6 @@ export default {
 
   .plus-symbol {
     font-size: 2rem;
-  }
-
-  .divider-dot {
-    display: none;
   }
 }
 
@@ -184,40 +162,22 @@ export default {
   }
 }
 
-/* Optional: Add hover effect on the entire stat wrapper */
-.stat-wrapper:hover .stat-label {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* New Styles for SVG Divider */
+/* Divider styles */
 .svg-divider {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .divider-svg {
   width: 100%;
-  max-width: 200px;
+  max-width: 150px;
   height: auto;
-}
-
-/* Adjust the divider size for smaller screens */
-@media (max-width: 960px) {
-  .divider-svg {
-    max-width: 150px;
-  }
 }
 
 @media (max-width: 600px) {
   .divider-svg {
     max-width: 100px;
   }
-}
-
-.div[data-v-cd89c869] {
-  justify-content: left !important;
 }
 </style>

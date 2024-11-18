@@ -1,8 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
   <div
-    class="carousel-container bg-background container"
-    style="margin-top: 0px; background-color: aqua"
+    class="carousel-container bg-background container bg-lines bg-background"
   >
     <v-btn
       icon="mdi-chevron-left"
@@ -162,6 +161,12 @@ const prev = () => {
   /* background-color: #ddf247 !important; */
 }
 
+.bg-lines {
+  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
+  /* background-position: center; */
+  background-repeat: repeat;
+  min-height: 35vh;
+}
 .cards-wrapper {
   position: relative;
   height: 100%;

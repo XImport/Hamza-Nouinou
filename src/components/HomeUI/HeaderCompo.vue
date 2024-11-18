@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-background bg-lines" style="min-height: 35vh">
+  <div class="bg-background bg-lines">
     <div class="justify-center align-center py-2">
       <h1
-        class="text-center manrope-font typing-effect text-center"
+        class="text-center manrope-font typing-effect"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
-        Good Evening <span style="color: yellow"> Everyone !!</span>
+        Good Evening <span style="color: yellow">Everyone!!</span>
       </h1>
-      <v-container style="width: 40%">
+      <v-container class="Buttons-container">
         <p
           class="text-center azeret-mono-font"
           style="
@@ -20,7 +20,6 @@
           hand-picked digital artists out there and find the hidden gem.
         </p>
       </v-container>
-
       <!-- Moving images -->
       <div class="moving-img img-11">
         <img src="../../assets/Icons/flower.png" alt="logo" />
@@ -40,7 +39,6 @@
       <div class="moving-img img-4">
         <img src="../../assets/Icons/flower.png" alt="logo" />
       </div>
-
       <!-- Dots with Fade In and Fade Out -->
       <div class="fade-dots img-5">
         <img src="../../assets/Icons/dots.png" alt="logo" />
@@ -51,7 +49,6 @@
       <div class="fade-dots img-7">
         <img src="../../assets/Icons/dots.png" alt="logo" />
       </div>
-
       <!-- More moving images -->
       <div class="moving-img img-8">
         <img src="../../assets/Icons/python.png" alt="logo" width="50" />
@@ -72,13 +69,7 @@
           width="50"
         />
       </div>
-
-      <v-row
-        class="my-2 mx-auto"
-        justify="center"
-        align="center"
-        style="max-width: 40%"
-      >
+      <v-row class="my-2 mx-auto" justify="center" align="center">
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
@@ -88,8 +79,7 @@
               text-transform: capitalize;
             "
           >
-            Discover More
-            <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
+            Discover More <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
           </v-btn>
         </v-col>
         <v-col cols="auto">
@@ -101,8 +91,7 @@
               text-transform: capitalize;
             "
           >
-            All Collections
-            <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
+            All Collections <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
           </v-btn>
         </v-col>
       </v-row>
@@ -120,6 +109,7 @@ export default {};
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   /* background-position: center; */
   background-repeat: repeat;
+  min-height: 35vh;
 }
 
 /* Typing effect */
@@ -350,6 +340,381 @@ export default {};
   animation-iteration-count: infinite;
 }
 
+.img-1 {
+  animation-name: moveImg1;
+}
+.img-2 {
+  animation-name: moveImg2;
+}
+.img-3 {
+  animation-name: moveImg3;
+}
+.img-4 {
+  animation-name: moveImg4;
+}
+.img-5 {
+  animation-name: moveImg5;
+}
+.img-6 {
+  animation-name: moveImg6;
+}
+.img-7 {
+  animation-name: moveImg7;
+}
+.img-8 {
+  animation-name: moveImg8;
+}
+.img-9 {
+  animation-name: moveImg9;
+}
+.img-10 {
+  animation-name: moveImg10;
+}
+.img-11 {
+  animation-name: moveImg11;
+}
+
+@media only screen and (max-width: 1440px) {
+  .moving-img,
+  .fade-dots {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .typing-effect {
+    font-size: 36px !important;
+    width: 80% !important;
+  }
+
+  v-container {
+    width: 80% !important;
+  }
+
+  v-row {
+    max-width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .bg-lines {
+    min-height: 50vh !important;
+  }
+
+  .typing-effect {
+    font-size: 28px !important;
+    width: 90% !important;
+  }
+
+  v-container {
+    width: 90% !important;
+  }
+
+  v-row {
+    max-width: 100% !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  v-col {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  v-btn {
+    width: 100%;
+  }
+}
+
+.Buttons-container {
+  max-width: 40%;
+}
+
+@media only screen and (max-width: 480px) {
+  .typing-effect {
+    font-size: 22px !important;
+  }
+
+  v-container {
+    width: 95% !important;
+  }
+
+  .bg-lines {
+    min-height: 60vh !important;
+  }
+  .Buttons-container {
+    max-width: 100%;
+  }
+  .bg-lines {
+    background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
+    /* background-position: center; */
+    background-repeat: repeat;
+    min-height: 8vh !important;
+  }
+}
+
+/* container-responsivity */
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  display: inline-block;
+  animation: typing 2s steps(40) 0.5s 1 normal forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+/* Responsive Animations */
+@keyframes moveElement {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+}
+
+.moving-img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  animation: moveElement 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+  .typing-effect {
+    font-size: 1.5rem !important;
+  }
+
+  .v-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Hide moving images on very small screens */
+  .animated-elements {
+    display: none;
+  }
+}
+
+/* Hover Effects */
+.v-btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* animation from here  */
+
+/* Moving images animations */
+.moving-img {
+  position: absolute;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0.6;
+  /* filter: blur(1px); */
+  transition: all 0.3s ease;
+}
+
+.moving-img:hover {
+  opacity: 1;
+  /* filter: blur(0); */
+}
+
+.fade-dots {
+  position: absolute;
+  opacity: 0.3;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+/* Animation keyframes for different positions */
+@keyframes moveImg1 {
+  0%,
+  100% {
+    top: 83%;
+    left: 70%;
+    transform: translateY(-10px);
+  }
+  50% {
+    top: 85%;
+    left: 80%;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes moveImg2 {
+  0%,
+  100% {
+    top: 10%;
+    left: 95%;
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 8%;
+    left: 90%;
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes moveImg3 {
+  0%,
+  100% {
+    top: 40%;
+    left: 15%;
+    transform: scale(1);
+  }
+  50% {
+    top: 47%;
+    left: 8%;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes moveImg4 {
+  0%,
+  100% {
+    top: 30%;
+    left: 15%;
+    transform: translateX(-5px);
+  }
+  50% {
+    top: 32%;
+    left: 17%;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes moveImg5 {
+  0%,
+  100% {
+    top: 15%;
+    left: 25%;
+    opacity: 0.2;
+  }
+  50% {
+    top: 17%;
+    left: 27%;
+    opacity: 0.6;
+  }
+}
+
+@keyframes moveImg6 {
+  0%,
+  100% {
+    top: 25%;
+    left: 60%;
+    transform: scale(0.9);
+  }
+  50% {
+    top: 27%;
+    left: 62%;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveImg7 {
+  0%,
+  100% {
+    top: 40%;
+    left: 40%;
+    transform: rotate(-5deg);
+  }
+  50% {
+    top: 42%;
+    left: 42%;
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes moveImg8 {
+  0%,
+  100% {
+    top: 85%;
+    left: 10%;
+    transform: translateY(-8px);
+  }
+  50% {
+    top: 90%;
+    left: 5%;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes moveImg9 {
+  0%,
+  100% {
+    top: 22%;
+    left: 5%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    top: 25%;
+    left: 7%;
+    transform: scale(1.1) rotate(10deg);
+  }
+}
+
+@keyframes moveImg10 {
+  0%,
+  100% {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes moveImg11 {
+  0%,
+  100% {
+    top: 30%;
+    left: 85%;
+    transform: rotate(-10deg);
+  }
+  50% {
+    top: 32%;
+    left: 87%;
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Apply animations to specific elements */
 .img-1 {
   animation-name: moveImg1;
 }
