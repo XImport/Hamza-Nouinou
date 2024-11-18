@@ -91,9 +91,9 @@
 </template>
 
 <script>
-import AppBar from "../components/AboutUI/AppBar.vue";
+import AppBar from "../components/GlobalComponents/AppBar.vue";
 import HeaderAboutCompo from "@/components/AboutUI/HeaderAboutCompo.vue";
-import FooterAboutCompo from "@/components/HomeUI/FooterCompo.vue";
+import FooterAboutCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: { AppBar, HeaderAboutCompo, FooterAboutCompo },
   data() {

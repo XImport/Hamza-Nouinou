@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppExplorerBar />
+    <AppBar />
     <div style="min-height: 50vh" class="bg-background bg-shades">
       <h1
         class="text-center text-center"
@@ -135,11 +135,11 @@
 </template>
 
 <script>
-import AppExplorerBar from "@/components/ExploreUI/AppBar.vue";
+import AppBar from "@/components/GlobalComponents/AppBar.vue";
 import SildersExplorCompo from "@/components/ExploreUI/SildersExplorCompo.vue";
-import FooterCompo from "@/components/HomeUI/FooterCompo.vue";
+import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
-  components: { AppExplorerBar, SildersExplorCompo, FooterCompo },
+  components: { AppBar, SildersExplorCompo, FooterCompo },
   data() {
     return {
       Cards: [

@@ -24,6 +24,10 @@ const router = createRouter({
       path: "/blogs",
       component: () => import("../pages/BlogsPage.vue"),
     },
+    {
+      path: "/contact",
+      component: () => import("../pages/ContactPage.vue"),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to the top of the page on navigation

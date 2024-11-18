@@ -66,6 +66,7 @@
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
       <!-- Desktop Nav Links -->
       <div class="hidden-sm-and-down">
@@ -79,17 +80,31 @@
         >
           {{ btn.text }}
         </v-btn>
+
+        <v-btn
+          v-show="$route.path == '/contact'"
+          class="manrope-font px-4"
+          style="font-size: small; font-weight: bolder; text-transform: none"
+          to="/contact"
+        >
+          Contact Me
+        </v-btn>
       </div>
+      <!-- <v-spacer v-if="$route.path == '/contact'" /> -->
+
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
 
       <!-- Desktop Contact Button -->
-      <div class="ml-6 hidden-sm-and-down">
+      <div class="ml-6 hidden-sm-and-down" v-show="$route.path != '/contact'">
         <v-btn
           class="bg-primary manrope-font px-4"
           style="font-size: small; font-weight: bolder"
+          to="/contact"
         >
           Contact Me
           <v-icon size="24" class="ml-2">mdi-phone-in-talk</v-icon>

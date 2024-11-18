@@ -1,6 +1,6 @@
 <template>
   <div class="bg-lines">
-    <AppHomeBar />
+    <AppBar />
 
     <HeaderCompo />
 
@@ -168,16 +168,16 @@
 </template>
 
 <script>
-import AppHomeBar from "../components/HomeUI/AppHomeBar.vue";
+import AppBar from "@/components/GlobalComponents/AppBar.vue";
 import HeaderCompo from "../components/HomeUI/HeaderCompo.vue";
 import SilderCompo from "../components/HomeUI/SildersCompo.vue";
 import ServicesCompo from "@/components/HomeUI/ServicesCompo.vue";
 import BannerCompo from "@/components/HomeUI/BannerCompo.vue";
 import StatisticsCompo from "@/components/HomeUI/StatisticsCompo.vue";
-import FooterCompo from "@/components/HomeUI/FooterCompo.vue";
+import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: {
-    AppHomeBar,
+    AppBar,
     HeaderCompo,
     SilderCompo,
     ServicesCompo,

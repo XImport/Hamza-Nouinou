@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import AppBar from "@/components/ServicesUI/AppBar.vue";
+import AppBar from "@/components/GlobalComponents/AppBar.vue";
 import HeaderServicesCompo from "@/components/ServicesUI/HeaderServicesCompo.vue";
-import FooterCompo from "@/components/HomeUI/FooterCompo.vue";
+import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: { AppBar, HeaderServicesCompo, FooterCompo },
   data() {

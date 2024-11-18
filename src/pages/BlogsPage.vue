@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import AppBlogsBar from "@/components/BlogsUI/AppBlogsBar.vue";
+import AppBlogsBar from "@/components/GlobalComponents/AppBar.vue";
 import HeaderBlogsCompo from "@/components/BlogsUI/HeaderBlogsCompo.vue";
 import BlogsCompoThambnail from "@/components/BlogsUI/BlogsCompoThambnail.vue";
-import FooterCompo from "@/components/HomeUI/FooterCompo.vue";
+import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: {
     AppBlogsBar,
