@@ -1,27 +1,36 @@
 <template>
   <div class="bg-background bg-lines" style="min-height: 35vh">
     <div class="justify-center align-center py-2">
-      <h1
-        class="text-center manrope-font typing-effect text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
-        Boost Your<span style="color: yellow"> Visibility </span>
-      </h1>
-      <v-container style="width: 40%">
-        <p
-          class="text-center azeret-mono-font"
-          style="
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.53);
-            z-index: 5 !important;
-          "
-        >
-          Boost your visibility and stand out with strategies that attract the
-          right audience and amplify your reach.
-        </p>
+      <v-container fluid class="page-container">
+        <v-row no-gutters justify="center" align="center" class="text-center">
+          <v-col cols="12">
+            <h1
+              class="typing-effect manrope-font"
+              :class="{
+                'text-h3': $vuetify.display.smAndDown,
+                'text-h1': $vuetify.display.mdAndUp,
+              }"
+            >
+              Boost Your <span class="text-primary">Visibility</span>
+            </h1>
+
+            <v-container
+              class="description-container"
+              :class="{
+                'px-4': $vuetify.display.smAndDown,
+                'px-16': $vuetify.display.mdAndUp,
+              }"
+            >
+              <p class="text-body-2 azeret-mono-font description">
+                Boost your visibility and stand out with strategies that attract
+                the right audience and amplify your reach.
+              </p>
+            </v-container>
+          </v-col>
+        </v-row>
       </v-container>
-      <v-container class="iphone">
+
+      <v-container class="iphone d-none d-sm-flex">
         <v-img
           src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
           class="phone-image"
@@ -34,7 +43,7 @@
       <!-- <div class="moving-img img-11">
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
       </div> -->
-      <div class="moving-img img-1">
+      <div class="moving-img img-1 d-none d-sm-flex">
         <img src="../../assets/Icons/python.png" alt="logo" height="50" />
       </div>
       <div class="moving-img img-2">
@@ -63,7 +72,7 @@
 
       <!-- More moving images -->
 
-      <div class="moving-img img-9">
+      <div class="moving-img img-9 d-none d-sm-flex">
         <img
           src="../../assets/Icons/js.png"
           alt="logo"
@@ -141,8 +150,6 @@ export default {};
     blink-caret 0.2s step-end infinite; /* Faster typing effect */
   text-align: center; /* Keep the text centered */
   position: relative;
-  left: 50%; /* Start the text from the center */
-  transform: translateX(-50%); /* Center the text horizontally */
 }
 
 /* Typing animation */
@@ -151,7 +158,62 @@ export default {};
     width: 0;
   }
   to {
-    width: 32%;
+    width: 60%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .typing-effect {
+    font-size: 25px !important; /* Smaller font size for smaller screens */
+    text-align: left !important;
+    margin-left: 0px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .typing-effect {
+    font-size: 32px; /* Smaller font size for smaller screens */
+    animation: typing-mobile 2s steps(30) 0.5s 1 normal forwards,
+      blink-caret 0.2s step-end infinite;
+  }
+
+  /* Mobile-specific typing animation */
+  @keyframes typing-mobile {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80%; /* Increase the width on mobile for better fit */
+    }
+  }
+}
+
+@media (max-width: 834px) {
+  .typing-effect {
+    font-size: 32px; /* Smaller font size for smaller screens */
+    animation: typing-mobile 2s steps(30) 0.5s 1 normal forwards,
+      blink-caret 0.2s step-end infinite;
+  }
+
+  /* Mobile-specific typing animation */
+  @keyframes typing-mobile {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80%; /* Increase the width on mobile for better fit */
+    }
   }
 }
 

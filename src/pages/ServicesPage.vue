@@ -17,19 +17,19 @@
         <span style="color: yellow">INTERNET</span>
       </h1>
     </div>
-    <v-container
-      class="d-flex justify-center align-center"
-      style="max-width: 70%"
-    >
+    <v-container class="d-flex justify-center align-center card-container">
       <v-row no-gutters>
-        <v-col v-for="(card, index) in Cards" :key="index" cols="12" sm="4">
+        <v-col
+          v-for="(card, index) in Cards"
+          :key="index"
+          cols="12"
+          sm="6"
+          md="6"
+          lg="4"
+        >
           <v-card
-            class="pa-6 mx-auto mt-4"
-            style="
-              max-width: 400px;
-              max-height: 270px;
-              background-color: #232323;
-            "
+            class="pa-6 mx-auto mt-4 ml-4"
+            style="max-width: 100%; background-color: #232323"
           >
             <v-icon
               size="75"
@@ -48,6 +48,7 @@
         </v-col>
       </v-row>
     </v-container>
+
     <FooterCompo class="mt-12" />
   </div>
 </template>
@@ -114,5 +115,22 @@ export default {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   /* background-position: center; */
   background-repeat: repeat;
+}
+
+.card-container {
+  max-width: 70%;
+  margin: auto !important;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .card-container {
+    max-width: 90%;
+  }
 }
 </style>

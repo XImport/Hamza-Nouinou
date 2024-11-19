@@ -8,7 +8,7 @@
       >
         Explore My Core <span style="color: yellow">Technology Stack</span>
       </h1>
-      <v-container style="width: 40%">
+      <v-container class="container-text">
         <p
           class="text-center azeret-mono-font"
           style="
@@ -38,39 +38,61 @@
           How To Build The
           <span style="color: yellow">Perfect Product</span>
         </h1>
-        <v-container
-          class="mx-auto d-flex pt-12 vvv"
-          style="min-height: 50vh; max-width: 100%"
-        >
-          <v-card
-            v-for="(card, index) in Cards"
-            :key="index"
-            style="
-              max-width: 400px;
-              max-height: 420px;
-              background-color: #232323;
-            "
-            class="rounded-xl pa-12 mx-auto justify-center align-center"
-          >
-            <v-img
-              :src="card.Img"
-              height="120"
-              width="120"
-              class="mx-auto hover-move"
-            />
-            <h2 class="text-center py-1">{{ card.title }}</h2>
-            <p class="text-center py-4">
-              {{ card.description }}
-            </p>
-            <v-container style="max-width: 80%" class="mx-auto">
-              <div :class="`${card.color} pa-1 `" />
-            </v-container>
-          </v-card>
+
+        <v-container fluid class="pa-4">
+          <v-row justify="center" align="center" class="mx-0">
+            <v-col
+              v-for="(card, index) in Cards"
+              :key="index"
+              cols="12"
+              sm="6"
+              md="3"
+              lg="3"
+              class="pa-2"
+            >
+              <v-card
+                style="
+                  background-color: #232323;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100%;
+                "
+                class="rounded-xl pa-4"
+              >
+                <v-img
+                  :src="card.Img"
+                  height="150"
+                  width="150"
+                  class="mx-auto hover-move"
+                  cover
+                />
+                <h2
+                  class="text-center py-1"
+                  style="font-size: 18px; line-height: 1.5"
+                >
+                  {{ card.title }}
+                </h2>
+                <p
+                  class="text-center py-4"
+                  style="font-size: 14px; line-height: 1.6"
+                >
+                  {{ card.description }}
+                </p>
+                <div
+                  :class="`${card.color} pa-1 width-80`"
+                  style="width: 80%"
+                />
+              </v-card>
+            </v-col>
+          </v-row>
         </v-container>
+
         <div>
           <v-container>
             <h1
-              class="text-center text-center"
+              class="text-center"
               style="
                 font-size: 54px;
                 font-weight: 800;
@@ -80,52 +102,68 @@
               Top Clients <span style="color: yellow">Experiences</span> and
               <span style="color: yellow">Reviews</span>
             </h1>
-            <v-container
-              class="mx-auto d-flex pt-12 vvv"
+
+            <v-row
+              class="mx-auto pt-12"
               style="
                 min-height: 50vh;
-                max-width: 80%;
-                display: flex;
                 justify-content: center;
                 align-items: center;
               "
             >
-              <v-card
+              <v-col
                 v-for="(card, index) in Reviews"
                 :key="index"
-                style="
-                  max-width: 400px;
-                  max-height: 400px;
-                  background-color: #232323;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                "
-                class="rounded-xl pa-12 mx-auto"
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+                class="d-flex justify-center align-center mb-5"
               >
-                <v-avatar
-                  class="mx-auto d-flex justify-center hover-move"
-                  size="120"
+                <v-card
+                  style="
+                    background-color: #232323;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 100%;
+                    padding: 16px;
+                  "
+                  class="rounded-xl"
                 >
-                  <v-img
-                    :src="card.Img"
-                    height="500"
-                    width="500"
-                    rounded="50"
-                    class="mx-auto"
-                  />
-                </v-avatar>
+                  <v-avatar
+                    class="mx-auto d-flex justify-center hover-move"
+                    size="100"
+                  >
+                    <v-img
+                      :src="card.Img"
+                      height="200"
+                      width="200"
+                      rounded="50"
+                      class="mx-auto"
+                    />
+                  </v-avatar>
 
-                <h2 class="text-center py-1">{{ card.title }}</h2>
-                <p class="text-center py-4">
-                  {{ card.description }}
-                </p>
-                <v-container style="max-width: 80%" class="mx-auto">
-                  <div :class="`${card.color} pa-1 `" />
-                </v-container>
-              </v-card>
-            </v-container>
+                  <h2
+                    class="text-center py-1"
+                    style="font-size: 18px; line-height: 1.5; padding: 8px 0"
+                  >
+                    {{ card.title }}
+                  </h2>
+                  <p
+                    class="text-center py-4"
+                    style="font-size: 14px; line-height: 1.6; padding: 0 8px"
+                  >
+                    {{ card.description }}
+                  </p>
+
+                  <v-container style="max-width: 80%" class="mx-auto py-1">
+                    <div :class="`${card.color} pa-1`" />
+                  </v-container>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-container>
         </div>
       </v-container>
@@ -237,5 +275,30 @@ export default {
 .hover-move:not(:hover) {
   transform: translateX(0);
   transition: transform 0.3s ease-out;
+}
+
+.container-text {
+  max-width: 40%;
+}
+
+@media (max-width: 834px) {
+  .container-text {
+    max-width: 100%;
+  }
+}
+
+.vvv {
+  max-width: 100%;
+  margin: auto !important;
+}
+@media (max-width: 600px) {
+  .vvv {
+    padding-top: 20px; /* Adjust top padding for mobile */
+  }
+
+  .v-card {
+    max-width: 100%; /* Ensure cards take full width on mobile */
+    max-height: 380px; /* Adjust card height for better fit on small screens */
+  }
 }
 </style>
