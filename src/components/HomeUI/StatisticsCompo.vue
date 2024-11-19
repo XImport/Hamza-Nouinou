@@ -34,7 +34,10 @@
         </div>
 
         <!-- Horizontal Divider -->
-        <div v-if="index !== stats.length - 1" class="svg-divider">
+        <div
+          v-if="index !== stats.length - 1"
+          class="svg-divider d-none d-md-flex"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 10"
@@ -98,6 +101,8 @@ export default {
 .stat-wrapper {
   position: relative;
   padding: 1rem;
+  text-align: center;
+  justify-content: center;
 }
 
 .stat-number {

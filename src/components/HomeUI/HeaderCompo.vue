@@ -136,7 +136,7 @@ export default {};
     width: 0;
   }
   to {
-    width: 40%;
+    width: 10%;
   }
 }
 
@@ -469,7 +469,7 @@ export default {};
     width: 0;
   }
   to {
-    width: 100%;
+    width: 40%;
   }
 }
 

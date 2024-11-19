@@ -19,11 +19,11 @@
           reality.
         </p>
       </div>
-      <div class="background-images bg-shades">
+      <div class="background-images bg-shades d-none d-sm-flex">
         <div class="moving-img2 img-11">
           <img src="../../assets/Icons/flower.png" alt="logo" />
         </div>
-        <div class="moving-img2 img-1">
+        <div class="moving-img2 img-1 d-none d-sm-flex">
           <img src="../../assets/Icons/blo.png" alt="logo" />
         </div>
         <div class="moving-img2 img-2">
@@ -32,7 +32,7 @@
             alt="logo"
           />
         </div>
-        <div class="moving-img2 img-3">
+        <div class="moving-img2 img-3 d-none d-sm-flex">
           <img src="../../assets/Icons/css.png" alt="logo" width="50" />
         </div>
         <div class="moving-img2 img-4">
@@ -40,21 +40,21 @@
         </div>
 
         <!-- Dots with Fade In and Fade Out -->
-        <div class="fade-dots img-5">
+        <div class="fade-dots img-5 d-none d-sm-flex">
           <img src="../../assets/Icons/dots.png" alt="logo" />
         </div>
-        <div class="fade-dots img-6">
+        <div class="fade-dots img-6 d-none d-sm-flex">
           <img src="../../assets/Icons/dots.png" alt="logo" />
         </div>
-        <div class="fade-dots img-7">
+        <div class="fade-dots img-7 d-none d-sm-flex">
           <img src="../../assets/Icons/dots.png" alt="logo" />
         </div>
 
         <!-- More moving images -->
-        <div class="moving-img2 img-8">
+        <div class="moving-img2 img-8 d-none d-sm-flex">
           <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
         </div>
-        <div class="moving-img2 img-9">
+        <div class="moving-img2 img-9 d-none d-sm-flex">
           <img
             src="../../assets/Icons/nft.png"
             alt="logo"
@@ -62,7 +62,7 @@
             width="80"
           />
         </div>
-        <div class="moving-img2 img-10">
+        <div class="moving-img2 img-10 d-none d-sm-flex">
           <img
             src="../../assets/Icons/nuxt.png"
             alt="logo"
@@ -338,5 +338,12 @@ export default {
 }
 .img-11 {
   animation-name: moveImg11;
+}
+
+@media only screen and (max-width: 600px) {
+  .container--text {
+    max-width: 100%;
+    margin: auto;
+  }
 }
 </style>

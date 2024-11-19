@@ -35,7 +35,7 @@
           cover
           height="400"
           class="image-container"
-          style="padding-left: 10%;margin-right;: 10%"
+          style="padding-left: 10%; margin-right: 10%"
         >
         </v-img>
 
@@ -53,6 +53,58 @@
           </div>
         </div>
       </v-card>
+      <div class="background-images bg-shades d-none d-sm-flex">
+        <div class="moving-img2 img-11">
+          <img src="../../assets/Icons/flower.png" alt="logo" />
+        </div>
+        <div class="moving-img2 img-1 d-none d-sm-flex">
+          <img src="../../assets/Icons/rounded.png" alt="logo" />
+        </div>
+        <div class="moving-img2 img-2">
+          <img
+            src="https://themesflat.co/html/open9/assets/images/item-background/item5.png"
+            alt="logo"
+          />
+        </div>
+        <div class="moving-img2 img-3 d-none d-sm-flex">
+          <img src="../../assets/Icons/android.png" alt="logo" width="50" />
+        </div>
+        <div class="moving-img2 img-4">
+          <img src="../../assets/Icons/flower.png" alt="logo" />
+        </div>
+
+        <!-- Dots with Fade In and Fade Out -->
+        <div class="fade-dots img-5 d-none d-sm-flex">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+        <div class="fade-dots img-6 d-none d-sm-flex">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+        <div class="fade-dots img-7 d-none d-sm-flex">
+          <img src="../../assets/Icons/dots.png" alt="logo" />
+        </div>
+
+        <!-- More moving images -->
+        <div class="moving-img2 img-8 d-none d-sm-flex">
+          <img src="../../assets/Icons/css.png" alt="logo" width="60" />
+        </div>
+        <div class="moving-img2 img-9 d-none d-sm-flex">
+          <img
+            src="../../assets/Icons/nft.png"
+            alt="logo"
+            height="80"
+            width="80"
+          />
+        </div>
+        <div class="moving-img2 img-10 d-none d-sm-flex">
+          <img
+            src="../../assets/Icons/nuxt.png"
+            alt="logo"
+            height="50"
+            width="50"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="pagination-container">
@@ -330,5 +382,233 @@ const prev = () => {
 .pagination-dot.active {
   background: #ddf247;
   width: 32px;
+}
+
+@media (max-width: 960px) {
+  .carousel-container {
+    overflow-x: hidden !important;
+  }
+}
+
+/* Moving images animations */
+.moving-img2 {
+  position: absolute;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0.6;
+  /* filter: blur(1px); */
+  transition: all 0.3s ease;
+}
+
+.moving-img2:hover {
+  opacity: 1;
+  /* filter: blur(0); */
+}
+
+.fade-dots {
+  position: absolute;
+  opacity: 0.3;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+/* Animation keyframes for different positions */
+@keyframes moveImg1 {
+  0%,
+  100% {
+    top: 88%;
+    left: 70%;
+    transform: translateY(-10px);
+  }
+  50% {
+    top: 90%;
+    left: 80%;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes moveImg2 {
+  0%,
+  100% {
+    top: 78%;
+    left: 90%;
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 80%;
+    left: 90%;
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes moveImg3 {
+  0%,
+  100% {
+    top: 85%;
+    left: 15%;
+    transform: scale(1);
+  }
+  50% {
+    top: 87%;
+    left: 8%;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes moveImg4 {
+  0%,
+  100% {
+    top: 65%;
+    left: 15%;
+    transform: translateX(-5px);
+  }
+  50% {
+    top: 70%;
+    left: 17%;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes moveImg5 {
+  0%,
+  100% {
+    top: 87%;
+    left: 25%;
+    opacity: 0.2;
+  }
+  50% {
+    top: 90%;
+    left: 27%;
+    opacity: 0.6;
+  }
+}
+
+@keyframes moveImg6 {
+  0%,
+  100% {
+    top: 55%;
+    left: 60%;
+    transform: scale(0.9);
+  }
+  50% {
+    top: 59%;
+    left: 62%;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveImg7 {
+  0%,
+  100% {
+    top: 75%;
+    left: 40%;
+    transform: rotate(-5deg);
+  }
+  50% {
+    top: 80%;
+    left: 42%;
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes moveImg8 {
+  0%,
+  100% {
+    top: 15%;
+    left: 90%;
+    transform: translateY(-8px);
+  }
+  50% {
+    top: 10%;
+    left: 88%;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes moveImg9 {
+  0%,
+  100% {
+    top: 20%;
+    left: 5%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    top: 25%;
+    left: 7%;
+    transform: scale(1.1) rotate(10deg);
+  }
+}
+
+@keyframes moveImg10 {
+  0%,
+  100% {
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes moveImg11 {
+  0%,
+  100% {
+    top: 55%;
+    left: 85%;
+    transform: rotate(-10deg);
+  }
+  50% {
+    top: 58%;
+    left: 87%;
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Apply animations to specific elements */
+.img-1 {
+  animation-name: moveImg1;
+}
+.img-2 {
+  animation-name: moveImg2;
+}
+.img-3 {
+  animation-name: moveImg3;
+}
+.img-4 {
+  animation-name: moveImg4;
+}
+.img-5 {
+  animation-name: moveImg5;
+}
+.img-6 {
+  animation-name: moveImg6;
+}
+.img-7 {
+  animation-name: moveImg7;
+}
+.img-8 {
+  animation-name: moveImg8;
+}
+.img-9 {
+  animation-name: moveImg9;
+}
+.img-10 {
+  animation-name: moveImg10;
+}
+.img-11 {
+  animation-name: moveImg11;
 }
 </style>

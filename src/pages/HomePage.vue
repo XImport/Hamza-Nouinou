@@ -21,7 +21,7 @@
 
         <!-- Cards Section -->
         <v-container
-          class="mx-auto d-flex cards-container justify-center align-center mx-auto"
+          class="mx-auto d-flex cards-container justify-center align-center"
           style="min-height: 50vh"
         >
           <v-row class="d-flex" style="gap: 16px; margin: 0">
@@ -32,7 +32,9 @@
               sm="6"
               md="4"
               lg="3"
-              class="d-flex"
+              :class="{
+                'justify-center': smAndDown && index === 2,
+              }"
             >
               <v-card
                 class="rounded-xl pa-12 justify-center align-center card"
@@ -153,7 +155,10 @@
       </div>
     </div>
 
-    <div style="height: 15vh; background-color: #161616"></div>
+    <div
+      style="height: 10vh; background-color: #161616"
+      class="d-none d-sm-flex"
+    ></div>
     <div>
       <FooterCompo />
     </div>
@@ -367,6 +372,22 @@ export default {
     /* margin: auto !important; */
   }
 }
+
+@media (max-width: 834px) {
+  .cards-container {
+    max-width: 100%;
+    gap: 0 !important;
+    /* background-color: red !important; */
+    margin-left: 0 !important;
+  }
+
+  .v-col-sm-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* min-width:801px */
 
 .manrope-fontt {
   font-size: 54px;
