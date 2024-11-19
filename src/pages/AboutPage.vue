@@ -10,7 +10,7 @@
         >
           Who Am <span style="color: yellow">I ?</span>
         </h1>
-        <v-container style="max-width: 50%" class="">
+        <v-container class="container-text">
           <div class="fade-dots img-5">
             <img src="../assets/Icons/reactjs.png" alt="logo" width="120" />
           </div>
@@ -52,36 +52,46 @@
           <v-avatar color="grey" rounded="50" size="150" class="mx-auto">
             <v-img src="../assets/Me.png" cover class="mx-auto"></v-img>
           </v-avatar>
+
           <v-container
-            class="mx-auto d-flex pt-12 vvv"
+            class="mx-auto pt-12 vvv"
             style="min-height: 50vh; max-width: 90%"
           >
-            <v-card
-              v-for="(card, index) in Cards"
-              :key="index"
-              style="
-                max-width: 400px;
-                max-height: 400px;
-                background-color: #232323;
-              "
-              class="rounded-xl pa-12 mx-auto justify-center align-center"
-            >
-              <v-img
-                :src="card.Img"
-                height="120"
-                width="120"
-                class="mx-auto hover-move"
-              />
-              <h2 class="text-center py-1">{{ card.title }}</h2>
-              <p class="text-center py-4">
-                {{ card.description }}
-              </p>
-              <v-container style="max-width: 80%" class="mx-auto">
-                <v-btn class="bg-primary pa-4" block
-                  >Join Me Now <v-icon>mdi-arrow-right</v-icon>
-                </v-btn>
-              </v-container>
-            </v-card>
+            <v-row class="d-flex justify-center" dense align="center">
+              <v-col
+                v-for="(card, index) in Cards"
+                :key="index"
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+              >
+                <v-card
+                  style="
+                    max-width: 400px;
+                    max-height: 400px;
+                    background-color: #232323;
+                  "
+                  class="rounded-xl pa-12 mx-auto d-flex flex-column justify-center align-center"
+                >
+                  <v-img
+                    :src="card.Img"
+                    height="120"
+                    width="120"
+                    class="mx-auto hover-move"
+                  />
+                  <h2 class="text-center py-1">{{ card.title }}</h2>
+                  <p class="text-center py-4">
+                    {{ card.description }}
+                  </p>
+                  <v-container style="max-width: 80%" class="mx-auto">
+                    <v-btn class="bg-primary pa-4" block>
+                      Join Me Now <v-icon>mdi-arrow-right</v-icon>
+                    </v-btn>
+                  </v-container>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-container>
         </div>
       </div>
@@ -219,5 +229,21 @@ export default {
 
 .img-6 {
   animation-name: moveImg6;
+}
+
+.container-text {
+  max-width: 50%;
+}
+
+@media (max-width: 600px) {
+  .container-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .container-text {
+    max-width: 90%;
+  }
 }
 </style>

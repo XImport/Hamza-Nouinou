@@ -13,7 +13,7 @@
     >
       <span style="color: yellow"> {{ subtitle }} </span>
     </h1>
-    <v-container class="mx-auto d-flex flex-column" style="max-width: 70%">
+    <v-container class="mx-auto d-flex flex-column blogs-container">
       <v-row no-gutters>
         <v-col
           v-for="(blog, index) in paginatedBlogs"
@@ -120,4 +120,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.blogs-container {
+  max-width: 70%;
+}
+
+@media (max-width: 600px) {
+  .blogs-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .blogs-container {
+    max-width: 90%;
+  }
+}
+</style>

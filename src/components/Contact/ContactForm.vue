@@ -1,8 +1,9 @@
 <template>
-  <v-container class="d-flex justify-center align-center">
-    <v-form ref="form" v-model="isValid" class="form-container">
-      <v-row>
-        <v-col cols="12" md="4">
+  <v-container class="d-flex justify-center align-center container-form">
+    <v-form ref="form" v-model="isValid">
+      <v-row class="d-flex justify-center" dense>
+        <!-- Name Input -->
+        <v-col cols="12" sm="12" md="4" xs="12">
           <div class="moving-img img-9">
             <img
               src="https://themesflat.co/html/open9/assets/images/item-background/item17.png"
@@ -28,26 +29,30 @@
             :rules="[requiredRule]"
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="4">
-          <v-text-field
-            label="Email address*"
-            variant="outlined"
-            class="azeret-mono-font"
-            dense
-            v-model="formData.email"
-            :rules="[requiredRule, emailRule]"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-text-field
-            label="Subject"
-            variant="outlined"
-            class="azeret-mono-font"
-            dense
-            :rules="[requiredRule]"
-            v-model="formData.subject"
-          ></v-text-field>
-        </v-col>
+
+        <!-- Email Input -->
+
+        <v-text-field
+          label="Email address*"
+          variant="outlined"
+          class="azeret-mono-font"
+          dense
+          v-model="formData.email"
+          :rules="[requiredRule, emailRule]"
+        ></v-text-field>
+
+        <!-- Subject Input -->
+
+        <v-text-field
+          label="Subject"
+          variant="outlined"
+          class="azeret-mono-font"
+          dense
+          :rules="[requiredRule]"
+          v-model="formData.subject"
+        ></v-text-field>
+
+        <!-- Message Textarea -->
         <v-col cols="12">
           <v-textarea
             label="Your message*"
@@ -59,8 +64,10 @@
             :rules="[requiredRule]"
           ></v-textarea>
         </v-col>
+
+        <!-- Submit Button -->
         <v-col cols="12" class="text-center">
-          <v-container style="max-width: 30%">
+          <v-container style="max-width: 300px">
             <v-btn
               color="primary"
               block
@@ -119,7 +126,7 @@ export default {
   padding: 34px;
   border-radius: 8px;
   /* max-width: 800px; */
-  max-width: 70%;
+  max-width: 80%;
   width: 100%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -180,6 +187,19 @@ v-textarea {
   50% {
     top: 140%;
     left: 8%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .container-form {
+    max-width: 90%;
+    padding: 0px !important;
   }
 }
 </style>

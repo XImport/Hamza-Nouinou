@@ -15,7 +15,7 @@
         driven Devops <span style="color: yellow">experience</span>
       </h1>
 
-      <v-container style="width: 40%">
+      <v-container class="container-text">
         <p
           class="text-center azeret-mono-font"
           style="
@@ -380,5 +380,21 @@ export default {};
 }
 .img-11 {
   animation-name: moveImg11;
+}
+
+.container-text {
+  max-width: 50%;
+}
+
+@media (max-width: 600px) {
+  .container-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 834px) {
+  .container-text {
+    max-width: 90%;
+  }
 }
 </style>
