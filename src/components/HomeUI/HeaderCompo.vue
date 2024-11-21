@@ -1,21 +1,25 @@
 <template>
   <div class="bg-background bg-lines">
-    <div class="justify-center align-center py-2">
-      <h1
-        class="text-center manrope-font typing-effect"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
-        Good Evening <span style="color: yellow">Everyone!!</span>
-      </h1>
+    <div class="justify-center align-center">
+      <v-container>
+        <v-row>
+          <v-col cols="12" class="text-wrap">
+            <h1
+              class="text-center manrope-font-title"
+              style="
+                font-size: 54px;
+                font-weight: 800;
+                text-transform: capitalize;
+              "
+            >
+              Your Gateway to Innovative
+              <span style="color: yellow">Solutions!</span>
+            </h1>
+          </v-col>
+        </v-row>
+      </v-container>
       <v-container class="Buttons-container">
-        <p
-          class="text-center azeret-mono-font"
-          style="
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.53);
-          "
-        >
+        <p class="text-center azeret-mono-font container-text text-grey">
           Welcome to the world of rare digital art. Explore the best art from
           hand-picked digital artists out there and find the hidden gem.
         </p>
@@ -84,6 +88,7 @@
         </v-col>
         <v-col cols="auto">
           <v-btn
+            block
             class="bg-secondary d-flex align-center justify-center rounded-lg manrope-font pa-6 CollectionButton"
             style="
               font-size: 14px;
@@ -180,6 +185,17 @@ export default {};
 
 .azeret-mono-font {
   font-family: "Azeret Mono", monospace;
+  font-size: 18px !important;
+}
+
+@media only screen and (max-width: 868px) {
+  .container--text {
+    max-width: 100%;
+    margin: auto;
+  }
+  .Buttons-container {
+    max-width: 100% !important;
+  }
 }
 
 @keyframes moveImg1 {
@@ -419,11 +435,26 @@ export default {};
   v-col {
     margin-bottom: 10px;
     width: 100%;
+    flex: 0px !important;
   }
 
   v-btn {
     width: 100%;
   }
+  .manrope-font-title {
+    font-size: 35px !important;
+  }
+}
+@media only screen and (max-width: 868px) {
+  .container--text {
+    max-width: 100%;
+    margin: auto;
+  }
+}
+.text-wrap {
+  white-space: normal; /* Allows text to wrap */
+  overflow-wrap: break-word; /* Ensures words break at appropriate places */
+  max-width: 100%; /* Constrain width to prevent overflow */
 }
 
 .Buttons-container {
@@ -505,7 +536,7 @@ export default {};
 /* Responsive Breakpoints */
 @media (max-width: 600px) {
   .typing-effect {
-    font-size: 1.5rem !important;
+    font-size: 2.5rem !important;
   }
 
   .v-btn {
@@ -516,6 +547,12 @@ export default {};
   /* Hide moving images on very small screens */
   .animated-elements {
     display: none;
+  }
+  .v-col {
+    flex: 0 !important;
+  }
+  .v-row {
+    display: block !important;
   }
 }
 

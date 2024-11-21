@@ -6,7 +6,7 @@
 
     <SilderCompo />
     <!-- <h1>hello world</h1> -->
-    <div>
+    <div class="bg-lines">
       <BannerCompo />
     </div>
     <div class="bg-background">
@@ -99,56 +99,32 @@
         <!-- Call-to-Action Section -->
         <v-container
           class="pa-6 bg-black rounded-xl cta-container d-none d-sm-flex"
-          style="max-width: 70%"
+          style="max-width: 80%"
         >
           <v-row class="fill-height align-center justify-center">
             <v-col cols="12" md="6" class="pa-8 cta-text">
-              <div class="text-h4 font-weight-bold text-white mb-2">
+              <div class="text-h3 font-weight-bold text-white mb-2">
                 Transform Your Business into the Future
                 <span class="d-block">
                   In the <span class="text-lime-accent-3">Real World</span>
                 </span>
               </div>
-              <v-sheet
-                class="pa-2 mb-6 rounded text-caption bg-black"
+              <div
+                class="text-h6 pa-2 mb-6 rounded bg-black text-center mx-auto"
                 width="fit-content"
               >
                 Get Started with the Easiest and Most Secure Platform
-              </v-sheet>
-              <v-btn
-                class="text-capitalize bg-lime-accent-3 ml-2 rounded-xl pl-6 pr-6"
-                size="large"
-              >
-                Get Started
-                <v-icon end>mdi-arrow-right</v-icon>
-              </v-btn>
-            </v-col>
-
-            <v-col cols="12" md="6" class="pa-8 cta-image">
-              <v-img
-                src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
-                class="phone-image"
-                contain
-                height="600"
-              />
-              <v-img
-                src="../assets/Icons/bitcoin.png"
-                class="floating-coin-1"
-                width="60"
-                height="60"
-              />
-              <v-img
-                src="../assets/Icons/nft.png"
-                class="floating-coin-2"
-                width="60"
-                height="60"
-              />
-              <v-img
-                src="../assets/Icons/reactjs.png"
-                class="floating-coin-3"
-                width="60"
-                height="60"
-              />
+              </div>
+              <v-container class="container-btn">
+                <v-btn
+                  class="text-capitalize bg-lime-accent-3 ml-2 rounded-sm pl-6 pr-6"
+                  size="large"
+                  block
+                >
+                  Get Started
+                  <v-icon end>mdi-arrow-right</v-icon>
+                </v-btn>
+              </v-container>
             </v-col>
           </v-row>
         </v-container>
@@ -156,7 +132,7 @@
     </div>
 
     <div
-      style="height: 10vh; background-color: #161616"
+      style="height: 5vh; background-color: #161616"
       class="d-none d-sm-flex"
     ></div>
     <div>
@@ -254,9 +230,9 @@ export default {
 
 <style scoped>
 .bg-lines {
-  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
-  /* background-position: center; */
-  background-repeat: repeat;
+  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png") !important;
+  background-position: center !important;
+  background-repeat: repeat !important;
 }
 
 .v-expansion-panel-title {
@@ -274,9 +250,13 @@ export default {
   line-height: 22px;
 }
 
-.phone-image {
-  transform: rotate(-5deg);
+.container-btn {
+  max-width: 50%;
 }
+
+/* .phone-image {
+  transform: rotate(-5deg);
+} */
 
 .floating-coin-1 {
   position: absolute;
@@ -345,7 +325,11 @@ export default {
 }
 
 .phone-image {
-  height: 300px !important;
+  position: absolute !important;
+  top: 500px !important;
+  left: 50px !important;
+  height: 500px !important;
+  widows: 500px !important;
 }
 
 .floating-coin-1,
@@ -355,7 +339,7 @@ export default {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .cta-text {
     font-size: 1.2rem;
     margin-top: 0;
@@ -363,6 +347,8 @@ export default {
 
   .cta-image {
     margin-top: 1rem;
+    height: 50% !important;
+    background-color: aqua !important;
   }
 
   .cards-container {
@@ -370,6 +356,9 @@ export default {
     gap: 0px !important;
     margin-left: 0% !important;
     /* margin: auto !important; */
+  }
+  .container-btn {
+    max-width: 100%;
   }
 }
 

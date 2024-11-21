@@ -318,4 +318,25 @@ const prev = () => {
   background: #ddf247;
   width: 32px;
 }
+
+@media (max-width: 668px) {
+  .carousel-container {
+    overflow-x: hidden !important;
+    /* background-color: aqua !important; */
+  }
+  .nft-card {
+    /* background-color: #ddf247; */
+    width: 100%;
+
+    /* background-color: #232323; */
+
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: auto !important;
+  }
+  .v-img {
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>

@@ -1,17 +1,13 @@
 <template>
   <div class="landing-container min-h-screen bg-background p-0">
-    <div class="flex flex-col items-center justify-center py-4 px-4 space-y-4">
-      <h1
-        class="text-center font-manrope text-2xl xs:text-3xl sm:text-4xl font-extrabold capitalize"
-      >
+    <div class="flex flex-col items-center justify-center py-2 px-4 space-y-4">
+      <h1 class="text-center font-manrope font-extrabold capitalize text-wrap">
         Custom-Crafted Solutions for Your
         <span class="text-yellow"> Needs </span>
       </h1>
 
       <div class="w-full max-w-xs xs:max-w-sm container--text">
-        <p
-          class="text-center font-azeret-mono text-xs sm:text-sm text-grey pb-4"
-        >
+        <p class="text-center azeret-mono-font text-grey py-6">
           Welcome to My World of Innovation and Excellence. Discover expertly
           crafted digital solutions designed to bring your unique vision to
           life. Whether it's cutting-edge mobile apps, seamless APIs, or custom
@@ -111,9 +107,21 @@ export default {
   }
 }
 
+.azeret-mono-font {
+  font-family: "Azeret Mono", monospace;
+  font-size: 18px !important;
+}
+
 .container--text {
   max-width: 50%;
   margin: auto;
+}
+
+.text-wrap {
+  white-space: normal; /* Allows text to wrap */
+  overflow-wrap: break-word; /* Ensures words break at appropriate places */
+  max-width: 100%; /* Constrain width to prevent overflow */
+  font-size: 45px;
 }
 
 /* Animation  */
@@ -340,7 +348,14 @@ export default {
   animation-name: moveImg11;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 668px) {
+  .container--text {
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 868px) {
   .container--text {
     max-width: 100%;
     margin: auto;

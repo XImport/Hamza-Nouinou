@@ -25,7 +25,7 @@
       <v-card
         v-for="(card, index) in cards"
         :key="index"
-        class="nft-card pa-2 black"
+        class="nft-card pa-2"
         :class="getCardClass(index)"
       >
         <!-- Card content remains the same -->
@@ -224,7 +224,7 @@ const prev = () => {
   height: 100%;
   width: 100%;
   transform-style: preserve-3d;
-  margin-top: -2%;
+  margin-top: -1%;
 }
 
 .nft-card {
@@ -345,6 +345,7 @@ const prev = () => {
   left: 20px;
   align-items: center;
   margin-left: 10%;
+  /* background-color: #ddf247; */
 }
 
 .left-arrow:hover {
@@ -387,6 +388,36 @@ const prev = () => {
 @media (max-width: 960px) {
   .carousel-container {
     overflow-x: hidden !important;
+    /* background-color: aqua !important; */
+  }
+  .nft-card {
+  }
+  .v-img {
+    /* width: 100%; */
+    /* height: 100%; */
+  }
+}
+
+/* Mobile vIEW  */
+
+@media (max-width: 668px) {
+  .carousel-container {
+    overflow-x: hidden !important;
+    /* background-color: aqua !important; */
+  }
+  .nft-card {
+    /* background-color: #ddf247; */
+    width: 100%;
+
+    /* background-color: #232323; */
+
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: auto !important;
+  }
+  .v-img {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -610,5 +641,11 @@ const prev = () => {
 }
 .img-11 {
   animation-name: moveImg11;
+}
+
+@media (max-width: 740px) {
+  .cards-wrapper {
+    padding: 10% !important ;
+  }
 }
 </style>
