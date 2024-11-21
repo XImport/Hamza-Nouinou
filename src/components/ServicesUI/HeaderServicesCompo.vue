@@ -1,17 +1,22 @@
 <template>
   <div class="bg-background bg-lines" style="min-height: 35vh">
-    <div class="justify-center align-center py-2">
+    <div
+      class="justify-center align-center py-2"
+      style="overflow-x: hidden !important"
+    >
       <v-container fluid class="page-container">
         <v-row no-gutters justify="center" align="center" class="text-center">
           <v-col cols="12">
             <h1
-              class="typing-effect manrope-font"
-              :class="{
-                'text-h3': $vuetify.display.smAndDown,
-                'text-h1': $vuetify.display.mdAndUp,
-              }"
+              class="text-center manrope-font-title"
+              style="
+                font-size: 54px;
+                font-weight: 800;
+                text-transform: capitalize;
+                z-index: 9 !important;
+              "
             >
-              Boost Your <span class="text-primary">Visibility</span>
+              Maximize Your Brand <span class="text-primary">Visibility</span>
             </h1>
 
             <v-container
@@ -21,7 +26,7 @@
                 'px-16': $vuetify.display.mdAndUp,
               }"
             >
-              <p class="text-body-2 azeret-mono-font description">
+              <p class="text-center azeret-mono-font container-text text-grey">
                 Boost your visibility and stand out with strategies that attract
                 the right audience and amplify your reach.
               </p>
@@ -30,12 +35,16 @@
         </v-row>
       </v-container>
 
-      <v-container class="iphone d-none d-sm-flex">
+      <v-container
+        class="iphone d-none d-sm-flex"
+        style="z-index: 1 !important"
+      >
         <v-img
           src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
           class="phone-image"
           contain
           height="600"
+          style="z-index: -5 !important"
         />
       </v-container>
 
@@ -43,27 +52,33 @@
       <!-- <div class="moving-img img-11">
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
       </div> -->
-      <div class="moving-img img-1 d-none d-sm-flex">
+      <div class="moving-img img-1 hidden-md-and-down" style="z-index: 0">
         <img src="../../assets/Icons/python.png" alt="logo" height="50" />
       </div>
-      <div class="moving-img img-2">
+      <div
+        class="moving-img img-2 d-none d-sm-flex"
+        style="z-index: 0 !important"
+      >
         <img
           src="https://themesflat.co/html/open9/assets/images/item-background/item5.png"
           alt="logo"
         />
       </div>
-      <div class="moving-img img-3">
+      <div class="moving-img img-3 d-none d-sm-flex">
         <img src="../../assets/Icons/css.png" alt="logo" width="50" />
       </div>
-      <div class="moving-img img-4">
+      <div
+        class="moving-img img-4 d-none d-sm-flex hidden-md-and-down"
+        v-show="!$vuetify.display.mdAndDown"
+      >
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
       </div>
 
       <!-- Dots with Fade In and Fade Out -->
-      <div class="fade-dots img-5">
+      <div class="fade-dots img-5 d-none d-sm-flex">
         <img src="../../assets/Icons/dots.png" alt="logo" />
       </div>
-      <div class="fade-dots img-6">
+      <div class="fade-dots img-6 d-none d-sm-flex">
         <img src="../../assets/Icons/dots.png" alt="logo" />
       </div>
       <div class="fade-dots img-7">
@@ -72,7 +87,7 @@
 
       <!-- More moving images -->
 
-      <div class="moving-img img-9 d-none d-sm-flex">
+      <div class="moving-img img-9 hidden-md-and-down">
         <img
           src="../../assets/Icons/js.png"
           alt="logo"
@@ -80,7 +95,7 @@
           width="50"
         />
       </div>
-      <div class="moving-img img-10">
+      <div class="moving-img img-10" v-show="!$vuetify.display.mdAndDown">
         <img
           src="../../assets/Icons/nuxt.png"
           alt="logo"
@@ -93,11 +108,12 @@
         class="my-2 mx-auto"
         justify="center"
         align="center"
-        style="max-width: 40%"
+        style="max-width: 100%"
       >
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
+            block
             style="
               font-size: 14px;
               font-weight: 800;
@@ -118,6 +134,52 @@ export default {};
 </script>
 
 <style scoped>
+v-col {
+  margin-bottom: 10px;
+  width: 100%;
+  flex: 0px !important;
+}
+
+.azeret-mono-font {
+  font-family: "Azeret Mono", monospace;
+  font-size: 18px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .bg-lines {
+    min-height: 50vh !important;
+  }
+
+  .typing-effect {
+    font-size: 28px !important;
+    width: 90% !important;
+  }
+
+  v-container {
+    width: 90% !important;
+  }
+
+  .v-row {
+    max-width: 100% !important;
+    flex-direction: column;
+    align-items: center;
+    display: block;
+  }
+
+  v-col {
+    margin-bottom: 10px;
+    width: 100%;
+    flex: 0px !important;
+  }
+
+  v-btn {
+    width: 100%;
+  }
+  .manrope-font-title {
+    font-size: 45px !important;
+  }
+}
+
 /* Blink effect for the cursor */
 .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
@@ -257,6 +319,7 @@ export default {};
 
 .azeret-mono-font {
   font-family: "Azeret Mono", monospace;
+  font-size: 18px !important;
 }
 
 @keyframes moveImg1 {
@@ -449,5 +512,20 @@ export default {};
 }
 .img-11 {
   animation-name: moveImg11;
+}
+
+/* Media query for tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+  .iphone {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    height: 500px;
+    z-index: 0 !important;
+    object-fit: cover;
+
+    transform: scaleY(1.1) scaleX(0.9);
+  }
 }
 </style>

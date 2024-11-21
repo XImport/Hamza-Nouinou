@@ -9,14 +9,7 @@
         Explore My Core <span style="color: yellow">Technology Stack</span>
       </h1>
       <v-container class="container-text">
-        <p
-          class="text-center azeret-mono-font"
-          style="
-            font-size: 16px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.53);
-          "
-        >
+        <p class="text-center azeret-mono-font container-text text-grey">
           "I focus on using cutting-edge tools and frameworks that enable me to
           build scalable, efficient, and user-friendly applications. My approach
           is centered around delivering high-quality solutions tailored to meet
@@ -193,7 +186,7 @@ export default {
           title: "Begin Designing the User Interface ",
           color: "bg-primary",
           description:
-            "Begin designing the user interface with a focus on creating an intuitive and visually appealing experience. Ensure the layout aligns with the project goals.",
+            "Begin designing the user interface with a focus on creating an intuitive and visually appealing experience. Ensure the Perfect layout aligns Edges with the project goals.",
         },
         {
           Img: "https://i.ibb.co/Nt2QKRc/vscode.png",
@@ -278,7 +271,8 @@ export default {
 }
 
 .container-text {
-  max-width: 40%;
+  max-width: 60%;
+  margin: auto;
 }
 
 @media (max-width: 834px) {
@@ -300,5 +294,10 @@ export default {
     max-width: 100%; /* Ensure cards take full width on mobile */
     max-height: 380px; /* Adjust card height for better fit on small screens */
   }
+}
+
+.azeret-mono-font {
+  font-family: "Azeret Mono", monospace;
+  font-size: 18px !important;
 }
 </style>

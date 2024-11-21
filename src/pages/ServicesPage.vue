@@ -67,7 +67,7 @@ export default {
           title: "Web Developpment",
           color: "primary",
           description:
-            "Custom website design and development, ensuring responsive, high-performance web applications tailored to your business needs.",
+            "Custom website design and development, ensuring responsive, high-performance web applications tailored to your Pro business needs.",
         },
         {
           Img: "mdi-android",
@@ -130,7 +130,7 @@ export default {
 
 @media (max-width: 834px) {
   .card-container {
-    max-width: 90%;
+    max-width: 100%;
   }
 }
 </style>
