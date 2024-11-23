@@ -1,13 +1,13 @@
 <template>
   <!-- Previous template code remains the same -->
   <div
-    class="carousel-container bg-background container bg-lines bg-background px-2"
+    :class="`carousel-container  container  ${ThemeMode}`"
+    style="min-height: 35vh"
   >
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
       size="x-larger"
-      color="white"
       class="navigation-arrow left-arrow"
       @click="prev"
     ></v-btn>
@@ -15,7 +15,6 @@
     <v-btn
       icon="mdi-chevron-right"
       variant="text"
-      color="white"
       size="x-larger"
       class="navigation-arrow right-arrow"
       @click="next"
@@ -35,21 +34,19 @@
           cover
           height="400"
           class="image-container"
-          style="padding-left: 10%; margin-right: 10%"
+          style="padding-left: 2%; padding-right: 2%"
         >
         </v-img>
 
         <div class="card-footer pa-4">
-          <span class="text-white text-subtitle-1 d-block text-center">{{
+          <span class="text-subtitle-1 d-block text-center">{{
             card.title
           }}</span>
           <div class="d-flex align-center mt-1 justify-center mx-auto">
             <v-icon color="primary" size="small" class="mr-1 text-center"
               >mdi-heart</v-icon
             >
-            <span class="text-white text-center text-underline">{{
-              card.price
-            }}</span>
+            <span class="text-center text-underline">{{ card.price }}</span>
           </div>
         </div>
       </v-card>
@@ -118,84 +115,95 @@
     </div>
   </div>
 </template>
+<script>
+import { computed } from "vue";
 
-<script setup>
-// Script remains the same
-import { ref, computed } from "vue";
-
-const currentIndex = ref(0);
-const cards = ref([
-  {
-    image: "Gym.jpg",
-    title: "Gym WebSite",
-    price: "9/10",
-    Img: "https://i.pinimg.com/736x/bc/13/34/bc133461ff9e73cd0f526cce750b83d4.jpg",
+export default {
+  name: "CardCarousel",
+  data() {
+    return {
+      currentIndex: 0,
+      cards: [
+        {
+          image: "Gym.jpg",
+          title: "Gym WebSite",
+          price: "9/10",
+          Img: "https://i.pinimg.com/736x/bc/13/34/bc133461ff9e73cd0f526cce750b83d4.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Barbber Shop",
+          price: "8.5/10",
+          Img: "https://i.pinimg.com/736x/94/ae/55/94ae55c1f332ccd3db689f29b7a2ed25.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Construction Work Shop",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/8a/01/1c/8a011c2dc9f49698029448accb6a291c.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "E Commerce Site",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/20/9d/c7/209dc70010121e950dc61299013dc1c2.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "WebMedia Digital Agency",
+          price: "9.2/10",
+          Img: "https://i.pinimg.com/736x/5e/19/b5/5e19b56ea73458169a0542a49e8b06d8.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "All In One United",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/ff/7c/91/ff7c9142d0ea572ecda608b3cc4be457.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Men's Barber",
+          price: "8.3/10",
+          Img: "https://i.pinimg.com/736x/bf/01/92/bf019263d0cce2bb3afe973bfb893c73.jpg",
+        },
+        // Add more cards...
+      ],
+    };
   },
-  {
-    image: "owl.jpg",
-    title: "Barbber Shop",
-    price: "8.5/10",
-    Img: "https://i.pinimg.com/736x/94/ae/55/94ae55c1f332ccd3db689f29b7a2ed25.jpg",
+  computed: {
+    totalPages() {
+      return this.cards.length;
+    },
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-lines-light"
+        : "bg-lines-dark";
+    },
   },
+  methods: {
+    getCardClass(index) {
+      const position =
+        (index - this.currentIndex + this.totalPages) % this.totalPages;
 
-  {
-    image: "owl.jpg",
-    title: "Construction Work Shop",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/8a/01/1c/8a011c2dc9f49698029448accb6a291c.jpg",
+      return {
+        "is-active": position === 0,
+        "is-previous": position === this.totalPages - 1,
+        "is-next": position === 1,
+        "is-far-previous": position === this.totalPages - 2,
+        "is-far-next": position === 2,
+        "is-far-previous-2": position === this.totalPages - 3,
+        "is-far-next-2": position === 3,
+      };
+    },
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.totalPages;
+    },
+    prev() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.totalPages) % this.totalPages;
+    },
   },
-  {
-    image: "owl.jpg",
-    title: "E Commerce Site",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/20/9d/c7/209dc70010121e950dc61299013dc1c2.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "WebMedia Digital Agency",
-    price: "9.2/10",
-    Img: "https://i.pinimg.com/736x/5e/19/b5/5e19b56ea73458169a0542a49e8b06d8.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "All In One United",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/ff/7c/91/ff7c9142d0ea572ecda608b3cc4be457.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "Men's Barber",
-    price: "8.3/10",
-    Img: "https://i.pinimg.com/736x/bf/01/92/bf019263d0cce2bb3afe973bfb893c73.jpg",
-  },
-
-  // Add more cards...
-]);
-
-const totalPages = computed(() => cards.value.length);
-
-const getCardClass = (index) => {
-  const position =
-    (index - currentIndex.value + totalPages.value) % totalPages.value;
-
-  return {
-    "is-active": position === 0,
-    "is-previous": position === totalPages.value - 1,
-    "is-next": position === 1,
-    "is-far-previous": position === totalPages.value - 2,
-    "is-far-next": position === 2,
-    "is-far-previous-2": position === totalPages.value - 3,
-    "is-far-next-2": position === 3,
-  };
-};
-
-const next = () => {
-  currentIndex.value = (currentIndex.value + 1) % totalPages.value;
-};
-
-const prev = () => {
-  currentIndex.value =
-    (currentIndex.value - 1 + totalPages.value) % totalPages.value;
 };
 </script>
 
@@ -217,7 +225,6 @@ const prev = () => {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   /* background-position: center; */
   background-repeat: repeat;
-  min-height: 35vh;
 }
 .cards-wrapper {
   position: relative;
@@ -236,7 +243,7 @@ const prev = () => {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   border-radius: 16px;
-  background: #000000;
+  /* background: #000000; */
 }
 
 /* Updated transform values for card positions */

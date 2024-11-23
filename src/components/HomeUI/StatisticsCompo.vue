@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="stats-container">
+  <v-container fluid class="stats-container bg-background">
     <v-row justify="center" align="center" class="stats-row">
       <v-col
         v-for="(stat, index) in stats"
@@ -14,7 +14,7 @@
         <!-- Stat Wrapper -->
         <div class="stat-wrapper">
           <!-- Animated Number -->
-          <div class="stat-number">
+          <div class="stat-number text-primary">
             <count-up
               :start-val="0"
               :end-val="stat.value"
@@ -22,15 +22,15 @@
               :options="countOptions"
             >
               <template #default="{ displayValue }">
-                <div class="value-display">
+                <div class="value-display FontText">
                   {{ displayValue }}
-                  <span class="plus-symbol">+</span>
+                  <span class="plus-symbol FontText">+</span>
                 </div>
               </template>
             </count-up>
           </div>
           <!-- Label -->
-          <div class="stat-label">{{ stat.label }}</div>
+          <div class="stat-label text-FontText">{{ stat.label }}</div>
         </div>
 
         <!-- Horizontal Divider -->
@@ -49,7 +49,7 @@
               y1="5"
               x2="100"
               y2="5"
-              stroke="rgba(255, 255, 255, 0.2)"
+              stroke="bg-primary"
               stroke-width="2"
               stroke-dasharray="5,5"
             />
@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 .stats-container {
-  background-color: #161616;
+  /* background-color: #161616; */
   padding: 2rem 0;
 }
 
@@ -177,6 +177,7 @@ export default {
 .divider-svg {
   width: 100%;
   max-width: 150px;
+
   height: auto;
 }
 

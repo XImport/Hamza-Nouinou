@@ -1,12 +1,11 @@
 <template>
   <!-- Previous template code remains the same -->
 
-  <div class="carousel-container bg-lines">
+  <div :class="`carousel-container ${ThemeMode} `">
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
       size="x-larger"
-      color="white"
       class="navigation-arrow left-arrow"
       @click="prev"
     ></v-btn>
@@ -14,7 +13,6 @@
     <v-btn
       icon="mdi-chevron-right"
       variant="text"
-      color="white"
       size="x-larger"
       class="navigation-arrow right-arrow"
       @click="next"
@@ -24,7 +22,7 @@
       <v-card
         v-for="(card, index) in cards"
         :key="index"
-        class="nft-card pa-2 black"
+        class="nft-card pa-2"
         :class="getCardClass(index)"
       >
         <!-- Card content remains the same -->
@@ -34,14 +32,14 @@
           cover
           height="400"
           class="image-container"
-          style="padding-left: 10%;margin-right;: 10%"
+          style="padding-left: 2%; padding-right: 2%"
         >
         </v-img>
 
         <div class="card-footer pa-4">
           <span
-            class="text-white text-subtitle-1 d-block text-center"
-            style="font-size: 25px !important"
+            class="text-subtitle-1 d-block text-center"
+            style="font-size: 17px !important"
             >{{ card.title }}</span
           >
           <div class="d-flex align-center mt-1 justify-center mx-auto">
@@ -68,85 +66,88 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// Script remains the same
-import { ref, computed } from "vue";
-
-const currentIndex = ref(0);
-const cards = ref([
-  {
-    image: "Gym.jpg",
-    title: "Web Development",
-    price: "9/10",
-    Img: "https://i.pinimg.com/736x/ad/02/12/ad02120ba7161dcaed70b45b17b6dbb0.jpg",
+<script>
+export default {
+  name: "CardCarousel",
+  data() {
+    return {
+      currentIndex: 0,
+      cards: [
+        {
+          image: "Gym.jpg",
+          title: "Web Development",
+          price: "9/10",
+          Img: "https://i.pinimg.com/736x/ad/02/12/ad02120ba7161dcaed70b45b17b6dbb0.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Mobile Applications",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/f8/17/06/f81706632ce4a8938f347d15a801e47d.jpg ",
+        },
+        {
+          image: "owl.jpg",
+          title: "Excel Sheets",
+          price: "9.2/10",
+          Img: "https://i.pinimg.com/736x/1c/85/ab/1c85ab54a80d41dbb773982eaa9f2e86.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Scripts Automations",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/c6/1c/3f/c61c3fee0280c5494ef569318c945fcf.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Desktop Applications",
+          price: "8.5/10",
+          Img: "https://i.ibb.co/xg7FVG0/screenshot.png",
+        },
+        // Add more cards...
+      ],
+    };
   },
-  {
-    image: "owl.jpg",
-    title: "Mobile Applications",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/f8/17/06/f81706632ce4a8938f347d15a801e47d.jpg ",
+  computed: {
+    totalPages() {
+      return this.cards.length;
+    },
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-lines-light"
+        : "bg-lines-dark";
+    },
   },
+  methods: {
+    getCardClass(index) {
+      const position =
+        (index - this.currentIndex + this.totalPages) % this.totalPages;
 
-  {
-    image: "owl.jpg",
-    title: "Excel Sheets",
-    price: "9.2/10",
-    Img: "https://i.pinimg.com/736x/1c/85/ab/1c85ab54a80d41dbb773982eaa9f2e86.jpg",
+      return {
+        "is-active": position === 0,
+        "is-previous": position === this.totalPages - 1,
+        "is-next": position === 1,
+        "is-far-previous": position === this.totalPages - 2,
+        "is-far-next": position === 2,
+      };
+    },
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.totalPages;
+    },
+    prev() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.totalPages) % this.totalPages;
+    },
   },
-
-  {
-    image: "owl.jpg",
-    title: "Scripts Automations",
-    price: "10/10",
-    Img: "https://i.pinimg.com/736x/c6/1c/3f/c61c3fee0280c5494ef569318c945fcf.jpg",
-  },
-  {
-    image: "owl.jpg",
-    title: "Desktop Applications",
-    price: "8.5/10",
-    Img: "https://i.ibb.co/xg7FVG0/screenshot.png",
-  },
-  // Add more cards...
-]);
-
-const totalPages = computed(() => cards.value.length);
-
-const getCardClass = (index) => {
-  const position =
-    (index - currentIndex.value + totalPages.value) % totalPages.value;
-
-  return {
-    "is-active": position === 0,
-    "is-previous": position === totalPages.value - 1,
-    "is-next": position === 1,
-    "is-far-previous": position === totalPages.value - 2,
-    "is-far-next": position === 2,
-  };
-};
-
-const next = () => {
-  currentIndex.value = (currentIndex.value + 1) % totalPages.value;
-};
-
-const prev = () => {
-  currentIndex.value =
-    (currentIndex.value - 1 + totalPages.value) % totalPages.value;
 };
 </script>
 
 <style scoped>
-.bg-lines {
-  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
-  /* background-position: center; */
-  background-repeat: repeat;
-}
-
 /* Previous styles remain the same */
 .carousel-container {
   position: relative;
 
-  padding: 10px 0;
+  padding: 50px;
 
   perspective: 1000px;
   overflow: hidden;
@@ -165,15 +166,16 @@ const prev = () => {
 
 .nft-card {
   position: absolute;
-  width: 450px;
+  width: 300px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   border-radius: 16px;
-  background: #000000;
+  /* background: #000000; */
   height: 100%;
+  /* padding-top: 10px !important; */
 }
 
 /* Updated transform values for card positions */
@@ -281,7 +283,7 @@ const prev = () => {
 .left-arrow {
   left: 20px;
   align-items: center;
-  margin-left: 8%;
+  margin-left: 18%;
 }
 
 .left-arrow:hover {
@@ -294,7 +296,7 @@ const prev = () => {
 
 .right-arrow {
   right: 20px;
-  margin-right: 8%;
+  margin-right: 18%;
 }
 
 .pagination-container {

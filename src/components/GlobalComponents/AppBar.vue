@@ -45,10 +45,18 @@
             <v-btn icon>
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
-            <v-btn icon v-show="GetDarkThemeState">
+            <v-btn
+              icon
+              v-show="GetDarkThemeState"
+              @click="$vuetify.theme.global.name = 'CustomLightTheme'"
+            >
               <v-icon>mdi-weather-night</v-icon>
             </v-btn>
-            <v-btn icon v-show="GetLightThemeState">
+            <v-btn
+              icon
+              v-show="GetLightThemeState"
+              @click="$vuetify.theme.global.name = 'CustomDarkTheme'"
+            >
               <v-icon>mdi-white-balance-sunny</v-icon>
             </v-btn>
             <v-btn icon>
@@ -90,7 +98,8 @@
           :key="index"
           :to="btn.link"
           text
-          class="mx-1"
+          class="mx-1 text-FontText"
+          :class="{ 'custom-v-btn--active': CheckTheme }"
           style="text-transform: none"
         >
           {{ btn.text }}
@@ -131,11 +140,21 @@
         <v-btn icon>
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
-        <v-btn icon class="ml-1" v-show="GetDarkThemeState">
-          <v-icon color="white">mdi-weather-night</v-icon>
+        <v-btn
+          icon
+          class="ml-1"
+          v-show="GetDarkThemeState"
+          @click="$vuetify.theme.global.name = 'CustomLightTheme'"
+        >
+          <v-icon>mdi-weather-night</v-icon>
         </v-btn>
-        <v-btn icon class="ml-1" v-show="GetLightThemeState">
-          <v-icon color="white">mdi-white-balance-sunny</v-icon>
+        <v-btn
+          icon
+          class="ml-1"
+          v-show="GetLightThemeState"
+          @click="$vuetify.theme.global.name = 'CustomDarkTheme'"
+        >
+          <v-icon>mdi-white-balance-sunny</v-icon>
         </v-btn>
         <v-btn icon class="ml-1">
           <v-icon>mdi-filter-variant</v-icon>
@@ -153,6 +172,8 @@ import { useDisplay } from "vuetify";
 export default {
   data() {
     return {
+      DarkMode: true,
+
       drawer: false,
       display: null,
       NavbarButtons: [
@@ -166,10 +187,10 @@ export default {
   },
   computed: {
     GetLightThemeState() {
-      return this.$store.getters.GetLightTheme;
+      return this.$vuetify.theme.global.name === "CustomLightTheme";
     },
     GetDarkThemeState() {
-      return this.$store.getters.GetdarkTheme;
+      return this.$vuetify.theme.global.name === "CustomDarkTheme";
     },
     drawerWidth() {
       if (this.display.xs) {
@@ -177,6 +198,12 @@ export default {
       } // Mobile
 
       return 500; // Default for tablet or other sizes
+    },
+    CheckTheme() {
+      if (this.$vuetify.theme.global.name === "CustomDarkTheme") {
+        return true;
+      }
+      return false;
     },
   },
   created() {
@@ -187,9 +214,9 @@ export default {
 </script>
 
 <style scoped>
-.v-btn--active {
+.v-btn--active--Light {
   color: #ddf247 !important;
-  background-color: transparent !important;
+  background-color: #000 !important;
   box-shadow: none !important;
 }
 

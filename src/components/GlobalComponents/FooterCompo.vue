@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="bg-black pt-16">
+  <v-footer class="bg-Container pt-16">
     <v-container>
       <v-row>
         <!-- Marketplace Section -->

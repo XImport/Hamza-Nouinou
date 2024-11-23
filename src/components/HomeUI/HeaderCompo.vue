@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background bg-lines">
+  <div :class="` ${ThemeMode}`">
     <div class="justify-center align-center">
       <v-container>
         <v-row>
@@ -13,7 +13,7 @@
               "
             >
               Your Gateway to Innovative
-              <span style="color: yellow">Solutions!</span>
+              <span class="text-primary">Solutions!</span>
             </h1>
           </v-col>
         </v-row>
@@ -105,17 +105,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-lines-light-header"
+        : "bg-lines-dark";
+    },
+  },
+};
 </script>
 
 <style scoped>
 /* Blink effect for the cursor */
-.bg-lines {
-  background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
-  /* background-position: center; */
-  background-repeat: repeat;
-  min-height: 35vh;
-}
 
 /* Typing effect */
 .typing-effect {

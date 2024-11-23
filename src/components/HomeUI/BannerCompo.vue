@@ -1,9 +1,9 @@
 <template>
-  <div class="landing-container min-h-screen bg-background p-0">
+  <div :class="`landing-container min-h-screen p-0 ${ThemeMode}`">
     <div class="flex flex-col items-center justify-center py-2 px-2 space-y-4">
       <h1 class="text-center font-manrope font-extrabold capitalize text-wrap">
         Custom-Crafted Solutions for Your
-        <span class="text-yellow"> Needs </span>
+        <span class="text-primary"> Needs </span>
       </h1>
 
       <div class="w-full max-w-xs xs:max-w-sm container--text">
@@ -80,10 +80,28 @@ import ServicesCompo from "./ServicesCompo.vue";
 
 export default {
   components: { ServicesCompo },
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-background"
+        : "bg-lines-dark";
+    },
+  },
 };
 </script>
 
 <style scoped>
+.bg-lines-lights {
+  background-image: url("https://techbenextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fshape%2FtestimonialShape2_1.png&w=384&q=75");
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  background-repeat: repeat;
+
+  min-height: 35vh;
+}
+
 .typing-effect {
   white-space: nowrap;
   overflow: hidden;

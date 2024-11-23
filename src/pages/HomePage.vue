@@ -16,7 +16,7 @@
       <div>
         <!-- Title -->
         <h1 class="text-center manrope-fontt typing-effect" style="">
-          Why Choose <span style="color: yellow"> Me </span>
+          Why Choose <span class="text-primary"> Me </span>
         </h1>
 
         <!-- Cards Section -->
@@ -38,7 +38,7 @@
             >
               <v-card
                 class="rounded-xl pa-2 justify-center align-center card"
-                style="background-color: #232323; margin: 0"
+                style="margin: 0"
               >
                 <v-img
                   :src="card.Img"
@@ -58,7 +58,7 @@
           class="text-center manrope-font typing-effect"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
-          Frequently Asked <span style="color: yellow"> Questions </span>
+          Frequently Asked <span class="text-primary"> Questions </span>
         </h1>
         <v-container class="bg-background faq-container">
           <v-row>
@@ -87,37 +87,34 @@
           >
             Still have questions?
           </h3>
-          <p
-            class="text-center manrope-font py-2"
-            style="color: rgba(255, 255, 255, 0.53)"
-          >
+          <p class="text-center manrope-font py-2" style="">
             Can't find what you're looking for? Please chat with my friendly
-            <span style="color: yellow"> Discord Server </span>
+            <span class="text-primary"> Discord Server </span>
           </p>
         </v-container>
 
         <!-- Call-to-Action Section -->
         <v-container
-          class="pa-6 bg-black rounded-xl cta-container d-none d-sm-flex"
+          class="pa-6 rounded-xl cta-container d-none d-sm-flex"
           style="max-width: 80%"
         >
           <v-row class="fill-height align-center justify-center">
             <v-col cols="12" md="6" class="pa-8 cta-text">
-              <div class="text-h3 font-weight-bold text-white mb-2">
+              <div class="text-h3 font-weight-bold mb-2">
                 Transform Your Business into the Future
                 <span class="d-block">
-                  In the <span class="text-lime-accent-3">Real World</span>
+                  In the <span class="text-primary">Real World</span>
                 </span>
               </div>
               <div
-                class="text-h6 pa-2 mb-6 rounded bg-black text-center mx-auto"
+                class="text-h6 pa-2 mb-6 rounded text-center mx-auto"
                 width="fit-content"
               >
                 Get Started with the Easiest and Most Secure Platform
               </div>
               <v-container class="container-btn">
                 <v-btn
-                  class="text-capitalize bg-lime-accent-3 ml-2 rounded-sm pl-6 pr-6"
+                  class="text-capitalize bg-primary ml-2 rounded-sm pl-6 pr-6"
                   size="large"
                   block
                 >
@@ -131,10 +128,7 @@
       </div>
     </div>
 
-    <div
-      style="height: 5vh; background-color: #161616"
-      class="d-none d-sm-flex"
-    ></div>
+    <div style="height: 5vh" class="d-none d-sm-flex bg-container"></div>
     <div>
       <FooterCompo />
     </div>
@@ -303,6 +297,7 @@ export default {
 .card {
   max-width: 100%;
   margin-bottom: 1rem;
+  box-shadow: none;
 }
 
 /* FAQ Section */
