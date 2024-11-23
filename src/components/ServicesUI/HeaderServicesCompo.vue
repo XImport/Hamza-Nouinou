@@ -35,10 +35,7 @@
         </v-row>
       </v-container>
 
-      <v-container
-        class="iphone d-none d-sm-flex"
-        style="z-index: 1 !important"
-      >
+      <v-container class="iphone d-none d-lg-flex">
         <v-img
           src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
           class="phone-image"
@@ -104,12 +101,7 @@
         />
       </div>
 
-      <v-row
-        class="my-2 mx-auto"
-        justify="center"
-        align="center"
-        style="max-width: 100%"
-      >
+      <v-row class="my-2 mx-auto" justify="center" align="center">
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
@@ -289,6 +281,7 @@ v-col {
 .DiscoverButton {
   background-color: #ddf247;
   transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
+  width: 30vh;
 }
 
 .DiscoverButton:hover {

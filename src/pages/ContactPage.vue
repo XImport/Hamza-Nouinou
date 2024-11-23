@@ -23,7 +23,7 @@
         and expertise.
       </p>
     </v-container>
-    <v-container class="mx-auto" style="min-height: 30vh; max-width: 80%">
+    <v-container class="mx-auto card-container" style="min-height: 30vh">
       <v-row class="d-flex justify-center" dense align="center">
         <v-col
           v-for="(card, index) in Cards"
@@ -39,7 +39,7 @@
               max-height: 300px;
               background-color: #232323;
             "
-            class="rounded-xl pa-12 d-flex flex-column justify-center align-center"
+            class="rounded-xl pa-6 d-flex flex-column justify-center align-center"
           >
             <v-img :src="card.Img" height="120" width="120" class="mx-auto" />
             <h2 class="text-center py-1">{{ card.title }}</h2>
@@ -64,7 +64,7 @@
       <p
         class="text-center azeret-mono-font"
         style="
-          font-size: 14px;
+          font-size: 18px;
           font-weight: 400;
           color: rgba(255, 255, 255, 0.53);
         "
@@ -130,12 +130,18 @@ export default {
   background-repeat: repeat;
 }
 
+.card-container {
+  max-width: 80%;
+}
 .container-text {
   max-width: 50%;
 }
 
 @media (max-width: 600px) {
   .container-text {
+    max-width: 100%;
+  }
+  .card-container {
     max-width: 100%;
   }
 }

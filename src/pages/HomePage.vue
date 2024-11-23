@@ -20,7 +20,7 @@
         </h1>
 
         <!-- Cards Section -->
-        <v-container
+        <div
           class="mx-auto d-flex cards-container justify-center align-center"
           style="min-height: 50vh"
         >
@@ -37,7 +37,7 @@
               }"
             >
               <v-card
-                class="rounded-xl pa-12 justify-center align-center card"
+                class="rounded-xl pa-2 justify-center align-center card"
                 style="background-color: #232323; margin: 0"
               >
                 <v-img
@@ -51,7 +51,7 @@
               </v-card>
             </v-col>
           </v-row>
-        </v-container>
+        </div>
 
         <!-- FAQ Section -->
         <h1
@@ -178,7 +178,7 @@ export default {
           Img: "https://i.ibb.co/VB2x1kr/happy.png",
           title: "Happy Client",
           description:
-            "My flexible payment options and timely project delivery ensure a smooth experience, leaving clients happy and satisfied with the results",
+            "My flexible payment options, transparent communication, and commitment to timely project delivery ensure a smooth and stress-free experience, leaving clients happy .",
         },
       ],
       Top10AskedQuestions: [
@@ -232,6 +232,7 @@ export default {
 .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png") !important;
   background-position: center !important;
+  width: 100%;
   background-repeat: repeat !important;
 }
 
@@ -295,7 +296,7 @@ export default {
 .cards-container {
   max-width: 100%;
   gap: 0px !important;
-  margin-left: 10% !important;
+  margin-left: 20% !important;
   /* margin: auto !important; */
 }
 
@@ -359,6 +360,9 @@ export default {
   }
   .container-btn {
     max-width: 100%;
+  }
+  .v-container {
+    min-width: 100%;
   }
 }
 

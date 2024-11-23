@@ -4,7 +4,7 @@
       <v-row class="d-flex justify-center" dense>
         <!-- Name Input -->
         <v-col cols="12" sm="12" md="4" xs="12">
-          <div class="moving-img img-9">
+          <div class="moving-img img-9 d-none d-lg-flex">
             <img
               src="https://themesflat.co/html/open9/assets/images/item-background/item17.png"
               alt="logo"
@@ -12,7 +12,7 @@
               width="50"
             />
           </div>
-          <div class="moving-img img-10">
+          <div class="moving-img img-10 d-none d-lg-flex">
             <img
               src="../../assets/Icons/form.png"
               alt="logo"

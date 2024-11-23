@@ -11,10 +11,10 @@
           Who Am <span style="color: yellow">I ?</span>
         </h1>
         <v-container class="container-text">
-          <div class="fade-dots img-5">
+          <div class="fade-dots img-5 d-none d-lg-flex">
             <img src="../assets/Icons/reactjs.png" alt="logo" width="120" />
           </div>
-          <div class="fade-dots img-6">
+          <div class="fade-dots img-6 d-none d-lg-flex">
             <img src="../assets/Icons/python.png" alt="logo" width="120" />
           </div>
           <h3 class="text-center pb-4 poppins-regular">
@@ -53,10 +53,7 @@
             <v-img src="../assets/Me.png" cover class="mx-auto"></v-img>
           </v-avatar>
 
-          <v-container
-            class="mx-auto pt-12 vvv"
-            style="min-height: 50vh; max-width: 90%"
-          >
+          <v-container class="mx-auto pt-12 vvv">
             <v-row class="d-flex justify-center" dense align="center">
               <v-col
                 v-for="(card, index) in Cards"

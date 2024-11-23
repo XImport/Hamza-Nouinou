@@ -6,16 +6,16 @@
       <div class="moving-img img-11">
         <img src="../../assets/Icons/flower.png" alt="logo" />
       </div>
-      <div class="moving-img img-1">
+      <div class="moving-img img-1 d-none d-sm-flex">
         <img src="../../assets/Icons/blo.png" alt="logo" />
       </div>
-      <div class="moving-img img-2">
+      <div class="moving-img img-2 d-none d-sm-flex">
         <img
           src="https://themesflat.co/html/open9/assets/images/item-background/item5.png"
           alt="logo"
         />
       </div>
-      <div class="moving-img img-3">
+      <div class="moving-img img-3 d-none d-sm-flex">
         <img src="../../assets/Icons/css.png" alt="logo" width="50" />
       </div>
       <div class="moving-img img-4">
@@ -34,10 +34,10 @@
       </div>
 
       <!-- More moving images -->
-      <div class="moving-img img-8">
+      <div class="moving-img img-8 d-none d-sm-flex">
         <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
       </div>
-      <div class="moving-img img-9">
+      <div class="moving-img img-9 d-none d-sm-flex">
         <img
           src="../../assets/Icons/nft.png"
           alt="logo"
@@ -45,7 +45,7 @@
           width="80"
         />
       </div>
-      <div class="moving-img img-10">
+      <div class="moving-img img-10 d-none d-sm-flex">
         <img
           src="../../assets/Icons/nuxt.png"
           alt="logo"
@@ -80,6 +80,7 @@
         <v-card
           v-for="(card, index) in cards"
           :key="index"
+          height="100%"
           class="nft-card pa-2 black"
           :class="getCardClass(index)"
         >
@@ -88,8 +89,9 @@
           <v-img
             :src="card.Img"
             cover
-            height="500"
-            class="image-container"
+            height="400"
+            width="300"
+            class="image-container mx-auto"
             style="padding-left: 10%; margin-right: 10%"
           >
           </v-img>

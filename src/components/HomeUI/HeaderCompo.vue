@@ -76,7 +76,7 @@
       <v-row class="my-2 mx-auto" justify="center" align="center">
         <v-col cols="auto">
           <v-btn
-            class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
+            class="d-flex align-center justify-center rounded-lg manrope-font pa-6 bg-primary"
             style="
               font-size: 14px;
               font-weight: 800;

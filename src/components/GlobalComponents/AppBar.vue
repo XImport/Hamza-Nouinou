@@ -1,20 +1,35 @@
 <template>
   <v-app style="max-height: 14vh">
     <!-- Navigation Drawer for Mobile -->
-    <v-navigation-drawer v-model="drawer" app temporary dark color="background">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      temporary
+      dark
+      color="background"
+      :width="drawerWidth"
+    >
       <v-list>
+        <img src="../../assets/logo.png" alt="logo" height="75" />
+      </v-list>
+      <v-list>
+        <v-divider></v-divider>
+
         <v-list-item
           v-for="(btn, index) in NavbarButtons"
           :key="index"
           :to="btn.link"
+          class="mt-2"
           link
         >
           <v-list-item-title class="py-2">{{ btn.text }}</v-list-item-title>
+          <v-divider></v-divider>
         </v-list-item>
 
         <!-- Mobile Contact Button -->
         <v-list-item>
           <v-btn
+            to="/contact"
             block
             class="bg-primary manrope-font mt-4"
             style="font-size: small; font-weight: bolder"
@@ -133,10 +148,13 @@
 </template>
 
 <script>
+import { useDisplay } from "vuetify";
+
 export default {
   data() {
     return {
       drawer: false,
+      display: null,
       NavbarButtons: [
         { text: "Home", link: "/" },
         { text: "Services", link: "/services" },
@@ -153,6 +171,17 @@ export default {
     GetDarkThemeState() {
       return this.$store.getters.GetdarkTheme;
     },
+    drawerWidth() {
+      if (this.display.xs) {
+        return 300;
+      } // Mobile
+
+      return 500; // Default for tablet or other sizes
+    },
+  },
+  created() {
+    // Initialize the Vuetify display composable
+    this.display = useDisplay();
   },
 };
 </script>

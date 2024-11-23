@@ -1,7 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
   <div
-    class="carousel-container bg-background container bg-lines bg-background"
+    class="carousel-container bg-background container bg-lines bg-background px-2"
   >
     <v-btn
       icon="mdi-chevron-left"

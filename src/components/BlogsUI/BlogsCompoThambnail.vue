@@ -133,7 +133,7 @@ export default {
 
 @media (max-width: 834px) {
   .blogs-container {
-    max-width: 90%;
+    max-width: 100%;
   }
 }
 </style>

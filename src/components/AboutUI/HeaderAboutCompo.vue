@@ -19,7 +19,7 @@
         <p
           class="text-center azeret-mono-font"
           style="
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.53);
           "
@@ -33,7 +33,7 @@
       <div class="moving-img img-11">
         <img src="../../assets/Icons/flower.png" alt="logo" />
       </div>
-      <div class="moving-img img-1">
+      <div class="moving-img img-1 d-none d-lg-flex">
         <img
           src="https://i.ibb.co/q5KYsTq/pngwing-com.png"
           alt="logo"
@@ -46,7 +46,7 @@
           alt="logo"
         />
       </div>
-      <div class="moving-img img-3">
+      <div class="moving-img img-3 d-none d-lg-flex">
         <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
       </div>
       <div class="moving-img img-4">
@@ -65,10 +65,10 @@
       </div>
 
       <!-- More moving images -->
-      <div class="moving-img img-8">
+      <div class="moving-img img-8 d-none d-lg-flex">
         <img src="../../assets/Icons/blo.png" alt="logo" width="80" />
       </div>
-      <div class="moving-img img-9">
+      <div class="moving-img img-9 d-none d-lg-flex">
         <img
           src="../../assets/Icons/js.png"
           alt="logo"
@@ -76,7 +76,7 @@
           width="50"
         />
       </div>
-      <div class="moving-img img-10">
+      <div class="moving-img img-10 d-none d-lg-flex">
         <img
           src="../../assets/Icons/nuxt.png"
           alt="logo"
@@ -89,7 +89,7 @@
         class="my-2 mx-auto"
         justify="center"
         align="center"
-        style="max-width: 40%"
+        style="max-width: 100%"
       >
         <v-col cols="auto">
           <v-btn
@@ -158,6 +158,7 @@ export default {};
 .DiscoverButton {
   background-color: #ddf247;
   transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
+  width: 30vh !important;
 }
 
 .DiscoverButton:hover {
@@ -390,11 +391,20 @@ export default {};
   .container-text {
     max-width: 100%;
   }
+
+  .DiscoverButton {
+    background-color: #ddf247;
+    transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
+    width: 50vh !important;
+  }
 }
 
 @media (max-width: 834px) {
   .container-text {
     max-width: 90%;
+  }
+  .DiscoverButton {
+    width: 25vh;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
 
-  <div class="carousel-container container bg-lines">
+  <div class="carousel-container bg-lines">
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
@@ -157,6 +157,7 @@ const prev = () => {
 .cards-wrapper {
   position: relative;
   height: 100%;
+  /* background-color: ; */
   width: 100%;
   transform-style: preserve-3d;
   margin-top: -2%;
@@ -319,19 +320,16 @@ const prev = () => {
   width: 32px;
 }
 
+/* // Mobile View Mode */
 @media (max-width: 668px) {
   .carousel-container {
     overflow-x: hidden !important;
-    /* background-color: aqua !important; */
   }
   .nft-card {
-    /* background-color: #ddf247; */
-    width: 100%;
+    width: 95%;
 
-    /* background-color: #232323; */
-
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     margin: auto !important;
   }
   .v-img {
@@ -339,4 +337,6 @@ const prev = () => {
     height: 100%;
   }
 }
+
+/* // Tablets View Mode */
 </style>

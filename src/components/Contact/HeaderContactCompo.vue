@@ -13,7 +13,7 @@
         <p
           class="text-center azeret-mono-font"
           style="
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 400;
             color: rgba(255, 255, 255, 0.53);
           "
@@ -24,7 +24,7 @@
           ideas into reality.
         </p>
       </v-container>
-      <v-container class="iphone">
+      <v-container class="iphone d-none d-lg-flex">
         <v-img
           src="https://wnexus.io/wp-content/uploads/2024/02/startup_1-1-min.png"
           class="phone-image"
@@ -37,7 +37,7 @@
       <div class="moving-img img-11">
         <img src="../../assets/Icons/flower.png" alt="logo" />
       </div>
-      <div class="moving-img img-1">
+      <div class="moving-img img-1 d-none d-lg-flex">
         <img
           src="https://i.ibb.co/q5KYsTq/pngwing-com.png"
           alt="logo"
@@ -50,7 +50,7 @@
           alt="logo"
         />
       </div>
-      <div class="moving-img img-3">
+      <div class="moving-img img-3 d-none d-lg-flex">
         <img src="../../assets/Icons/excel.png" alt="logo" width="80" />
       </div>
       <div class="moving-img img-4">
@@ -69,10 +69,10 @@
       </div>
 
       <!-- More moving images -->
-      <div class="moving-img img-8">
+      <div class="moving-img img-8 d-none d-lg-flex">
         <img src="../../assets/Icons/android.png" alt="logo" width="80" />
       </div>
-      <div class="moving-img img-9">
+      <div class="moving-img img-9 d-none d-lg-flex">
         <img
           src="../../assets/Icons/js.png"
           alt="logo"
@@ -80,7 +80,7 @@
           width="50"
         />
       </div>
-      <div class="moving-img img-10">
+      <div class="moving-img img-10 d-none d-lg-flex">
         <img
           src="../../assets/Icons/nuxt.png"
           alt="logo"
@@ -90,14 +90,14 @@
       </div>
 
       <v-row
-        class="my-2 mx-auto"
+        class="my-2 mx-auto Button-container"
         justify="center"
         align="center"
-        style="max-width: 40%"
       >
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
+            block
             style="
               font-size: 14px;
               font-weight: 800;
@@ -174,6 +174,7 @@ export default {};
 .DiscoverButton {
   background-color: #ddf247;
   transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
+  width: 50vh !important;
 }
 
 .DiscoverButton:hover {
@@ -415,5 +416,12 @@ export default {};
   .container-text {
     max-width: 90%;
   }
+  .Button-container {
+    max-width: 100% !important;
+  }
+}
+
+.Button-container {
+  max-width: 20%;
 }
 </style>

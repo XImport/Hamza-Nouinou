@@ -18,7 +18,7 @@
       </h1>
     </div>
     <v-container class="d-flex justify-center align-center card-container">
-      <v-row no-gutters>
+      <v-row class="gap-1">
         <v-col
           v-for="(card, index) in Cards"
           :key="index"
@@ -28,7 +28,7 @@
           lg="4"
         >
           <v-card
-            class="pa-6 mx-auto mt-4 ml-4"
+            class="pa-6 mx-auto mt-4"
             style="max-width: 100%; background-color: #232323"
           >
             <v-icon
@@ -120,12 +120,6 @@ export default {
 .card-container {
   max-width: 70%;
   margin: auto !important;
-}
-
-@media (max-width: 600px) {
-  .card-container {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 834px) {

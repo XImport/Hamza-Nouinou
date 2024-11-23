@@ -31,7 +31,7 @@
           right audience and amplify your reach.
         </p> -->
       </v-container>
-      <v-container class="iphone">
+      <v-container class="iphone d-none d-lg-flex">
         <v-img
           src="https://themesflat.co/html/open9/assets/images/item-background/slider-animation.png"
           class="phone-image"
@@ -45,7 +45,7 @@
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
       </div> -->
 
-      <div class="moving-img img-2">
+      <div class="moving-img img-2 d-none d-lg-flex">
         <img
           src="https://i.ibb.co/yyVn0zg/pngwing-com.png"
           alt="logo"
@@ -53,23 +53,23 @@
         />
       </div>
 
-      <div class="moving-img img-12">
+      <div class="moving-img img-12 d-none d-lg-flex">
         <img
           src="https://themesflat.co/html/open9/assets/images/item-background/item17.png"
           alt="logo"
         />
       </div>
-      <div class="moving-img img-13">
+      <div class="moving-img img-13 d-none d-lg-flex">
         <img
           src="https://themesflat.co/html/open9/assets/images/item-background/item16.png"
           alt="logo"
         />
       </div>
 
-      <div class="moving-img img-3">
+      <div class="moving-img img-3 d-none d-lg-flex">
         <img src="../../assets/Icons/css.png" alt="logo" width="50" />
       </div>
-      <div class="moving-img img-4">
+      <div class="moving-img img-4 d-none d-lg-flex">
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
       </div>
 
@@ -86,7 +86,7 @@
 
       <!-- More moving images -->
 
-      <div class="moving-img img-9">
+      <div class="moving-img img-9 d-none d-lg-flex">
         <img
           src="../../assets/Icons/js.png"
           alt="logo"
@@ -94,7 +94,7 @@
           width="50"
         />
       </div>
-      <div class="moving-img img-10">
+      <div class="moving-img img-10 d-none d-lg-flex">
         <img
           src="../../assets/Icons/nuxt.png"
           alt="logo"

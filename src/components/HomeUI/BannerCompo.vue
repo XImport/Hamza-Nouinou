@@ -1,6 +1,6 @@
 <template>
   <div class="landing-container min-h-screen bg-background p-0">
-    <div class="flex flex-col items-center justify-center py-2 px-4 space-y-4">
+    <div class="flex flex-col items-center justify-center py-2 px-2 space-y-4">
       <h1 class="text-center font-manrope font-extrabold capitalize text-wrap">
         Custom-Crafted Solutions for Your
         <span class="text-yellow"> Needs </span>
@@ -19,7 +19,7 @@
         <div class="moving-img2 img-11">
           <img src="../../assets/Icons/flower.png" alt="logo" />
         </div>
-        <div class="moving-img2 img-1 d-none d-sm-flex">
+        <div class="moving-img2 img-1 d-none d-lg-flex">
           <img src="../../assets/Icons/blo.png" alt="logo" />
         </div>
         <div class="moving-img2 img-2">

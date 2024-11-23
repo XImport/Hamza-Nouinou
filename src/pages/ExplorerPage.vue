@@ -32,7 +32,7 @@
           <span style="color: yellow">Perfect Product</span>
         </h1>
 
-        <v-container fluid class="pa-4">
+        <v-container class="pa-1">
           <v-row justify="center" align="center" class="mx-0">
             <v-col
               v-for="(card, index) in Cards"
@@ -40,7 +40,7 @@
               cols="12"
               sm="6"
               md="3"
-              lg="3"
+              lg="12"
               class="pa-2"
             >
               <v-card
@@ -97,7 +97,7 @@
             </h1>
 
             <v-row
-              class="mx-auto pt-12"
+              class="mx-auto"
               style="
                 min-height: 50vh;
                 justify-content: center;
@@ -110,7 +110,7 @@
                 cols="12"
                 sm="6"
                 md="4"
-                lg="3"
+                lg="12"
                 class="d-flex justify-center align-center mb-5"
               >
                 <v-card
@@ -151,7 +151,7 @@
                     {{ card.description }}
                   </p>
 
-                  <v-container style="max-width: 80%" class="mx-auto py-1">
+                  <v-container style="max-width: 80 %" class="mx-auto py-1">
                     <div :class="`${card.color} pa-1`" />
                   </v-container>
                 </v-card>
