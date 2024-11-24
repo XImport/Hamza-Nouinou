@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="stats-container bg-background">
+  <v-container fluid class="stats-container bg-DominateColor">
     <v-row justify="center" align="center" class="stats-row">
       <v-col
         v-for="(stat, index) in stats"
@@ -14,7 +14,11 @@
         <!-- Stat Wrapper -->
         <div class="stat-wrapper">
           <!-- Animated Number -->
-          <div class="stat-number text-primary">
+
+          <div
+            class="stat-number-light"
+            v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+          >
             <count-up
               :start-val="0"
               :end-val="stat.value"
@@ -22,7 +26,26 @@
               :options="countOptions"
             >
               <template #default="{ displayValue }">
-                <div class="value-display FontText">
+                <div class="value-display">
+                  {{ displayValue }}
+                  <span class="plus-symbol">+</span>
+                </div>
+              </template>
+            </count-up>
+          </div>
+
+          <div
+            class="stat-number-dark text-primary"
+            v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+          >
+            <count-up
+              :start-val="0"
+              :end-val="stat.value"
+              :duration="2.5"
+              :options="countOptions"
+            >
+              <template #default="{ displayValue }">
+                <div class="value-display">
                   {{ displayValue }}
                   <span class="plus-symbol FontText">+</span>
                 </div>
@@ -30,7 +53,9 @@
             </count-up>
           </div>
           <!-- Label -->
-          <div class="stat-label text-FontText">{{ stat.label }}</div>
+          <div class="stat-label text-FontText">
+            {{ stat.label }}
+          </div>
         </div>
 
         <!-- Horizontal Divider -->
@@ -88,6 +113,15 @@ export default {
 </script>
 
 <style scoped>
+.hover-blue {
+  transition: background-color 0.3s ease;
+}
+
+.hover-blue:hover {
+  background-color: blue; /* Change to desired hover color */
+  color: white; /* Optional for text contrast */
+}
+
 .stats-container {
   /* background-color: #161616; */
   padding: 2rem 0;
@@ -105,7 +139,7 @@ export default {
   justify-content: center;
 }
 
-.stat-number {
+.stat-number-dark {
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.2;
@@ -116,8 +150,24 @@ export default {
   transition: all 0.3s ease;
 }
 
-.stat-number:hover {
+.stat-number-dark:hover {
   text-shadow: 0 0 20px rgba(226, 255, 61, 0.5);
+  transform: scale(1.05);
+}
+
+.stat-number-light {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  font-family: "Manrope", sans-serif;
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(16, 63, 158, 0.5);
+  transition: all 0.3s ease;
+}
+
+.stat-number-light:hover {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
@@ -125,6 +175,7 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: white !important;
 }
 
 .plus-symbol {
@@ -135,7 +186,7 @@ export default {
 
 .stat-label {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7) !important;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: "Manrope", sans-serif;

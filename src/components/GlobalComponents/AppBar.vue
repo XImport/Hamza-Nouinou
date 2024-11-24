@@ -1,5 +1,5 @@
 <template>
-  <v-app style="max-height: 14vh">
+  <v-app style="max-height: 8vh">
     <!-- Navigation Drawer for Mobile -->
     <v-navigation-drawer
       v-model="drawer"
@@ -67,7 +67,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar flat color="background" dark class="py-2" app>
+    <v-app-bar flat dark class="py-2 bg-DominateColor" app>
       <!-- Mobile Menu Button -->
       <v-app-bar-nav-icon
         @click="drawer = !drawer"
@@ -92,30 +92,29 @@
       <v-spacer></v-spacer>
 
       <!-- Desktop Nav Links -->
+      <!-- -- Light Theme -->
       <div class="hidden-sm-and-down">
         <v-btn
           v-for="(btn, index) in NavbarButtons"
           :key="index"
           :to="btn.link"
           text
-          class="mx-1 text-FontText"
-          :class="{ 'custom-v-btn--active': CheckTheme }"
-          style="text-transform: none"
+          class="manrope-font px-4"
+          style="font-size: small; font-weight: bolder; text-transform: none"
         >
           {{ btn.text }}
         </v-btn>
 
         <v-btn
-          v-show="$route.path == '/contact'"
           class="manrope-font px-4"
           style="font-size: small; font-weight: bolder; text-transform: none"
           to="/contact"
         >
-          Contact Me
+          Contact
         </v-btn>
       </div>
-      <!-- <v-spacer v-if="$route.path == '/contact'" /> -->
 
+      <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
@@ -124,16 +123,6 @@
       <v-spacer></v-spacer>
 
       <!-- Desktop Contact Button -->
-      <div class="ml-6 hidden-sm-and-down" v-show="$route.path != '/contact'">
-        <v-btn
-          class="bg-primary manrope-font px-4"
-          style="font-size: small; font-weight: bolder"
-          to="/contact"
-        >
-          Contact Me
-          <v-icon size="24" class="ml-2">mdi-phone-in-talk</v-icon>
-        </v-btn>
-      </div>
 
       <!-- Desktop Action Icons -->
       <div class="hidden-sm-and-down ml-4">
@@ -144,7 +133,7 @@
           icon
           class="ml-1"
           v-show="GetDarkThemeState"
-          @click="$vuetify.theme.global.name = 'CustomLightTheme'"
+          @click="handleThemeChange('CustomLightTheme')"
         >
           <v-icon>mdi-weather-night</v-icon>
         </v-btn>
@@ -152,7 +141,7 @@
           icon
           class="ml-1"
           v-show="GetLightThemeState"
-          @click="$vuetify.theme.global.name = 'CustomDarkTheme'"
+          @click="handleThemeChange('CustomDarkTheme')"
         >
           <v-icon>mdi-white-balance-sunny</v-icon>
         </v-btn>
@@ -172,10 +161,9 @@ import { useDisplay } from "vuetify";
 export default {
   data() {
     return {
-      DarkMode: true,
-
       drawer: false,
       display: null,
+      currentTheme: "CustomLightTheme", // Add local theme tracking
       NavbarButtons: [
         { text: "Home", link: "/" },
         { text: "Services", link: "/services" },
@@ -186,30 +174,70 @@ export default {
     };
   },
   computed: {
+    // Detect light or dark theme
+    isLightTheme() {
+      return this.$vuetify.theme.global.name === "CustomLightTheme";
+    },
+    isDarkTheme() {
+      return this.$vuetify.theme.global.name === "CustomDarkTheme";
+    },
+    // Calculate drawer width based on display size
+    drawerWidth() {
+      // Ensure 'display' is initialized before accessing it
+      return this.display && this.display.xs ? 300 : 500;
+    },
     GetLightThemeState() {
       return this.$vuetify.theme.global.name === "CustomLightTheme";
     },
     GetDarkThemeState() {
       return this.$vuetify.theme.global.name === "CustomDarkTheme";
     },
-    drawerWidth() {
-      if (this.display.xs) {
-        return 300;
-      } // Mobile
-
-      return 500; // Default for tablet or other sizes
-    },
-    CheckTheme() {
-      if (this.$vuetify.theme.global.name === "CustomDarkTheme") {
-        return true;
-      }
-      return false;
+    currentRoute() {
+      return this.$route.path;
     },
   },
-  created() {
-    // Initialize the Vuetify display composable
+  methods: {
+    handleThemeChange(newTheme) {
+      this.$vuetify.theme.global.name = newTheme;
+      // Force re-evaluation of active classes
+      this.$nextTick(() => {
+        this.$forceUpdate();
+      });
+    },
+    getActiveClass(link) {
+      const isActive = this.$route.path === link;
+      if (isActive) {
+        return this.isLightTheme ? "v-btn--active-light" : "v-btn--active-dark";
+      }
+      return "";
+    },
+  },
+  mounted() {
+    // Initialize theme state
+    this.currentTheme = this.$vuetify.theme.global.name;
     this.display = useDisplay();
   },
+  // watch: {
+  //   // Watch for theme changes
+  //   "$vuetify.theme.global.name": {
+  //     immediate: true,
+  //     handler() {
+  //       this.$forceUpdate();
+  //     },
+  //   },
+  //   // Watch for route changes
+  //   currentRoute: {
+  //     immediate: true,
+  //     handler() {
+  //       this.$forceUpdate();
+  //     },
+  //   },
+  // },
+
+  // created() {
+  //   // Initialize Vuetify's display composable
+  //   this.display = useDisplay();
+  // },
 };
 </script>
 

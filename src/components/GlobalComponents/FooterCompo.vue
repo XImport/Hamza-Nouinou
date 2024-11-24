@@ -1,10 +1,10 @@
 <template>
-  <v-footer class="bg-Container pt-16">
+  <v-footer class="bg-DominateColor pt-16">
     <v-container>
       <v-row>
         <!-- Marketplace Section -->
         <v-col cols="12" sm="3">
-          <h6 class="text-h6 text-white mb-4">Home</h6>
+          <h6 class="text-h6 mb-4">Home</h6>
           <v-list class="bg-transparent pa-0">
             <v-list-item
               v-for="item in Home"
@@ -18,7 +18,7 @@
 
         <!-- Resource Section -->
         <v-col cols="12" sm="3">
-          <h6 class="text-h6 text-white mb-4">Explore</h6>
+          <h6 class="text-h6 mb-4">Explore</h6>
           <v-list class="bg-transparent pa-0">
             <v-list-item
               v-for="item in Explore"
@@ -32,7 +32,7 @@
 
         <!-- Account Section -->
         <v-col cols="12" sm="3">
-          <h6 class="text-h6 text-white mb-4">Blogs</h6>
+          <h6 class="text-h6 mb-4">Blogs</h6>
           <v-list class="bg-transparent pa-0">
             <v-list-item
               v-for="item in Blogs"
@@ -46,7 +46,7 @@
 
         <!-- Company Section -->
         <v-col cols="12" sm="3">
-          <h6 class="text-h6 text-white mb-4">Services</h6>
+          <h6 class="text-h6 mb-4">Services</h6>
           <v-list class="bg-transparent pa-0">
             <v-list-item
               v-for="item in Services"
@@ -58,10 +58,10 @@
           </v-list>
 
           <div class="mt-4">
-            <h6 class="text-h6 text-white mb-4">Join the community</h6>
+            <h6 class="text-h6 mb-4">Join the community</h6>
             <v-row class="mt-2">
               <v-col cols="auto" v-for="icon in socialIcons" :key="icon">
-                <v-btn icon variant="text" color="grey">
+                <v-btn icon variant="text">
                   <v-icon>{{ icon }}</v-icon>
                 </v-btn>
               </v-col>
@@ -73,13 +73,11 @@
       <!-- Bottom Section -->
       <v-row class="mt-8 py-4">
         <v-col cols="12" sm="6" class="text-grey">
-          © 2023 Open9 - Made By Themesflat
+          © 2024 CopyRight - Made By Hamza Nouinou
         </v-col>
         <v-col cols="12" sm="6" class="text-right">
-          <v-btn variant="text" color="grey" class="mr-2">
-            Privacy Policy
-          </v-btn>
-          <v-btn variant="text" color="grey"> Terms of Service </v-btn>
+          <v-btn variant="text" class="mr-2"> Privacy Policy </v-btn>
+          <v-btn variant="text"> Terms of Service </v-btn>
         </v-col>
       </v-row>
     </v-container>

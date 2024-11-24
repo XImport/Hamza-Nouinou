@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background bg-lines" style="min-height: 35vh">
+  <div class="bg-background bg-lines bg-DominateColor" style="min-height: 35vh">
     <div
       class="justify-center align-center py-2"
       style="overflow-x: hidden !important"
@@ -35,9 +35,25 @@
         </v-row>
       </v-container>
 
-      <v-container class="iphone d-none d-lg-flex">
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+      >
         <v-img
           src="https://themesflat.co/html/open9/assets/images/box-icon/iphone.png"
+          class="phone-image"
+          contain
+          height="600"
+          style="z-index: -5 !important"
+        />
+      </v-container>
+
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+      >
+        <v-img
+          src="https://html.hixstudio.net/collax/collax/assets/img/hero/hero-4.png"
           class="phone-image"
           contain
           height="600"

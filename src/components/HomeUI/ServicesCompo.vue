@@ -19,8 +19,46 @@
     ></v-btn>
 
     <div class="cards-wrapper">
+      <!-- ------------- LightMode Cards  -->
       <v-card
-        v-for="(card, index) in cards"
+        v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+        v-for="(card, index) in LightModecards"
+        :key="index"
+        class="nft-card pa-2 bg-Outline"
+        :class="getCardClass(index)"
+      >
+        <!-- Card content remains the same -->
+
+        <v-img
+          :src="card.Img"
+          cover
+          height="400"
+          class="image-container"
+          style="padding-left: 2%; padding-right: 2%"
+        >
+        </v-img>
+
+        <div class="card-footer pa-4">
+          <span
+            class="text-subtitle-1 d-block text-center"
+            style="font-size: 17px !important"
+            >{{ card.title }}</span
+          >
+          <div class="d-flex align-center mt-1 justify-center mx-auto">
+            <v-rating
+              hover
+              :length="5"
+              :size="32"
+              :model-value="5"
+              active-color="primary"
+            />
+          </div>
+        </div>
+      </v-card>
+      <!-- ------------- DarkMode Cards  -->
+      <v-card
+        v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
+        v-for="(card, index) in DarkModecards"
         :key="index"
         class="nft-card pa-2"
         :class="getCardClass(index)"
@@ -72,7 +110,40 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      cards: [
+      LightModecards: [
+        {
+          image: "Gym.jpg",
+          title: "Web Development",
+          price: "9/1000",
+          Img: "https://i.pinimg.com/736x/74/af/3c/74af3c084e6d84ed916b023989767879.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Mobile Applications",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/59/44/b2/5944b261875c88fc9f8344602fad2f6b.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Excel Sheets",
+          price: "9.2/10",
+          Img: "https://i.pinimg.com/736x/4e/53/59/4e53595261febb03067f0a56c597e9d4.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Scripts Automations",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/17/c2/37/17c237efdd3dfab99ba5c97ea32ac4be.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Desktop Applications",
+          price: "8.5/10",
+          Img: "https://i.ibb.co/xg7FVG0/screenshot.png",
+        },
+        // Add more cards...
+      ],
+      DarkModecards: [
         {
           image: "Gym.jpg",
           title: "Web Development",
@@ -109,12 +180,15 @@ export default {
   },
   computed: {
     totalPages() {
-      return this.cards.length;
+      if (this.$vuetify.theme.global.name == "CustomLightTheme") {
+        return this.LightModecards.length;
+      }
+      return this.DarkModecards.length;
     },
     ThemeMode() {
       // Return a class name based on the current theme
       return this.$vuetify.theme.global.name === "CustomLightTheme"
-        ? "bg-lines-light"
+        ? "bg-lines-light-Shades"
         : "bg-lines-dark";
     },
   },

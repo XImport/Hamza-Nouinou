@@ -11,7 +11,7 @@
       class="text-center text-center"
       style="font-size: 54px; font-weight: 800; text-transform: capitalize"
     >
-      <span style="color: yellow"> {{ subtitle }} </span>
+      <span class="text-primary"> {{ subtitle }} </span>
     </h1>
     <v-container class="mx-auto d-flex flex-column blogs-container">
       <v-row no-gutters>
@@ -21,7 +21,11 @@
           cols="12"
           sm="4"
         >
-          <v-card max-width="400" class="mx-auto rounded-lg mb-6">
+          <v-card
+            max-width="400"
+            class="mx-auto rounded-lg mb-6"
+            style="box-shadow: none"
+          >
             <!-- Image Container -->
             <v-img
               :src="blog.image"
@@ -53,7 +57,7 @@
               </div>
 
               <!-- Title -->
-              <div class="text-h6 text-white font-weight-bold mb-4">
+              <div class="text-h6 text-TextFont font-weight-bold mb-4">
                 {{ blog.title }}
               </div>
               <v-divider></v-divider>

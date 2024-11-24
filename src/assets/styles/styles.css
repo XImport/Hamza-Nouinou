@@ -177,7 +177,8 @@
   }
   
   .bg-lines-light {
-    background-image: url("https://html.rainbow-themes.net/seoes/assets/images/bg-shp-19.png");
+    /* background-image: url("https://html.rainbow-themes.net/seoes/assets/images/bg-shp-19.png"); */
+    background-image: url("../BgShape.svg");
     /* background-image: url("../stacked-waves-haikei.png"); */
     /* width: 100%; */
     background-position: center;
@@ -185,9 +186,22 @@
     min-height: 35vh;
     background-color: #fff
   }
+  .bg-lines-light-Shades {
+    /* background-image: url("https://html.rainbow-themes.net/seoes/assets/images/bg-shp-19.png"); */
+    background-image: url("../BgShape.svg");
+    /* background-image: url("../stacked-waves-haikei.png"); */
+    /* width: 100%; */
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 35vh;
+    background-color: #fff
+  }
+
+
+
   .bg-lines-light-header {
     /* background-image: url("https://techbenextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fshape%2FtestimonialShape2_1.png&w=384&q=75"); */
-    background-image: url("https://rogan.vercel.app/_next/static/media/map.3b1f603c.png");
+    background-image: url("../BgShape2.svg");
     /* width: 100%; */
     background-position: center;
     /* background-repeat: repeat; */
@@ -219,16 +233,25 @@
   /* border: 2px solid var(--v-theme-primary); */
 }
 
-/* Active button styles for Dark Mode */
-/* .v-theme-dark .custom-v-btn--active {
-  color: var(--v-theme-on-surface);
-  background-color: #88b80f; 
-  border: 2px solid var(--v-theme-secondary);
-} */
+.bg-lines-light-Banner {
+  /* background-image: url("https://techbenextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fshape%2FtestimonialShape2_1.png&w=384&q=75"); */
+  background-image: url("https://themazine.com/html/kabbo/images/bannar-shap-2.png");
+  /* width: 100%; */
+  background-position: center;
+  background-repeat: repeat;
+  /* min-height: 45vh; */
+  background-color: rgb(255, 255, 255,0.9);
+}
 
-/* Active button styles for Light Mode */
-/* .v-theme-light .custom-v-btn--active {
-  color: var(--v-theme-primary);
-  background-color: #fff; 
-  border: 2px solid var(--v-theme-secondary);
-} */
+
+
+.bg-lines-light-bg {
+  /* background-image: url("https://techbenextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fshape%2FtestimonialShape2_1.png&w=384&q=75"); */
+  background-image: url("https://themazine.com/html/kabbo/images/bannar-shap-1.png");
+  /* width: 100%; */
+  background-position: center;
+  background-repeat: repeat;
+  /* min-height: 45vh; */
+  background-color: rgb(255, 255, 255,0.9);
+}
+

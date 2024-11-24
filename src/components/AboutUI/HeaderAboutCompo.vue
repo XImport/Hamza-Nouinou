@@ -1,18 +1,10 @@
 <template>
-  <div class="bg-background bg-lines" style="min-height: 45vh">
+  <div :class="`bg-background  ${ThemeMode}`" style="min-height: 45vh">
     <div class="justify-center align-center py-2">
-      <h1
-        class="text-center manrope-font text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
-        This unique story
-      </h1>
+      <h1 class="text-center manrope-font text-center">This Unique Story</h1>
 
-      <h1
-        class="text-center manrope-font text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
-        driven Devops <span style="color: yellow">experience</span>
+      <h1 class="text-center manrope-font text-center">
+        Driven Devops | <span class="text-primary"> Experience</span>
       </h1>
 
       <v-container class="container-text">
@@ -24,9 +16,33 @@
             color: rgba(255, 255, 255, 0.53);
           "
         >
-          get started with the easiest and most secure platform to buy and trade
-          digital ART and NFTs
+          Have a project in mind or need a reliable developer to bring your
+          vision to life? Let’s connect! Whether it’s a quick question or a
+          detailed discussion, I’m here to help. Reach out and let’s turn your
+          ideas into reality.
         </p>
+      </v-container>
+      <!-- <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+      >
+        <v-img
+          src="https://wnexus.io/wp-content/uploads/2024/02/startup_1-1-min.png"
+          class="phone-image"
+          contain
+          height="600"
+        />
+      </v-container> -->
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+      >
+        <v-img
+          src="../../assets/About.png"
+          class="phone-image"
+          contain
+          height="600"
+        />
       </v-container>
 
       <!-- Moving images -->
@@ -47,7 +63,7 @@
         />
       </div>
       <div class="moving-img img-3 d-none d-lg-flex">
-        <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
+        <img src="../../assets/Icons/excel.png" alt="logo" width="80" />
       </div>
       <div class="moving-img img-4">
         <img src="../../assets/Icons/flower.png" alt="logo" />
@@ -66,7 +82,7 @@
 
       <!-- More moving images -->
       <div class="moving-img img-8 d-none d-lg-flex">
-        <img src="../../assets/Icons/blo.png" alt="logo" width="80" />
+        <img src="../../assets/Icons/android.png" alt="logo" width="80" />
       </div>
       <div class="moving-img img-9 d-none d-lg-flex">
         <img
@@ -86,14 +102,14 @@
       </div>
 
       <v-row
-        class="my-2 mx-auto"
+        class="my-2 mx-auto Button-container"
         justify="center"
         align="center"
-        style="max-width: 100%"
       >
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
+            block
             style="
               font-size: 14px;
               font-weight: 800;
@@ -110,7 +126,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-DominateColor"
+        : "bg-lines";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -120,6 +145,18 @@ export default {};
   /* background-position: center; */
   background-repeat: repeat;
 }
+
+.iphone {
+  position: absolute;
+  top: 17%;
+  left: 35%;
+  height: 500px;
+  z-index: 0 !important;
+  object-fit: cover;
+
+  transform: scaleY(1.1) scaleX(0.9);
+}
+
 /* Typing effect */
 .typing-effect {
   font-family: "Manrope", sans-serif;
@@ -158,7 +195,7 @@ export default {};
 .DiscoverButton {
   background-color: #ddf247;
   transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
-  width: 30vh !important;
+  width: 50vh !important;
 }
 
 .DiscoverButton:hover {
@@ -185,6 +222,9 @@ export default {};
 
 .manrope-font {
   font-family: "Manrope", sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  text-transform: capitalize;
 }
 
 .azeret-mono-font {
@@ -391,20 +431,18 @@ export default {};
   .container-text {
     max-width: 100%;
   }
-
-  .DiscoverButton {
-    background-color: #ddf247;
-    transition: background-color 0.3s ease-in-out; /* Ensure smooth transition */
-    width: 50vh !important;
-  }
 }
 
 @media (max-width: 834px) {
   .container-text {
     max-width: 90%;
   }
-  .DiscoverButton {
-    width: 25vh;
+  .Button-container {
+    max-width: 100% !important;
   }
+}
+
+.Button-container {
+  max-width: 20%;
 }
 </style>

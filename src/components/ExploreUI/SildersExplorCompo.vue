@@ -1,6 +1,6 @@
 <template>
   <!-- Previous template code remains the same -->
-  <div class="services-wrapper bg-shades">
+  <div class="services-wrapper">
     <!-- Moving images as background -->
     <div class="background-images bg-shades">
       <div class="moving-img img-11">
@@ -57,22 +57,44 @@
 
     <!-- Services component -->
 
-    <div class="carousel-container bg-shades">
+    <div class="carousel-container">
       <v-btn
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
         icon="mdi-chevron-left"
         variant="text"
         size="x-larger"
         color="white"
-        class="navigation-arrow left-arrow"
+        class="navigation-arrow left-arrow-Dark"
         @click="prev"
       ></v-btn>
 
       <v-btn
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
         icon="mdi-chevron-right"
         variant="text"
         color="white"
         size="x-larger"
-        class="navigation-arrow right-arrow"
+        class="navigation-arrow right-arrow-Dark"
+        @click="next"
+      ></v-btn>
+
+      <v-btn
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+        icon="mdi-chevron-left"
+        variant="text"
+        size="x-larger"
+        color="black"
+        class="navigation-arrow left-arrow-Light"
+        @click="prev"
+      ></v-btn>
+
+      <v-btn
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+        icon="mdi-chevron-right"
+        variant="text"
+        color="black"
+        size="x-larger"
+        class="navigation-arrow right-arrow-Light"
         @click="next"
       ></v-btn>
 
@@ -81,7 +103,7 @@
           v-for="(card, index) in cards"
           :key="index"
           height="100%"
-          class="nft-card pa-2 black"
+          class="nft-card pa-1 bg-Outline"
           :class="getCardClass(index)"
         >
           <!-- Card content remains the same -->
@@ -132,13 +154,13 @@ const cards = ref([
     image: "Gym.jpg",
     title: "JavaScript",
     price: "JavaScript is a versatile, dynamic,interactive language.",
-    Img: "https://i.ibb.co/qkDzckZ/js.png",
+    Img: "https://iconape.com/wp-content/png_logo_vector/javascript-logo.png",
   },
   {
     image: "owl.jpg",
     title: "Css",
     price: "CSS is a flexible, powerful, and styling language for web design.",
-    Img: "https://i.ibb.co/9VSp58F/css.png",
+    Img: "https://cdn-icons-png.freepik.com/256/16845/16845736.png?semt=ais_hybrid",
   },
 
   {
@@ -243,7 +265,7 @@ const prev = () => {
 
 .nft-card {
   position: absolute;
-  width: 400px;
+  width: 300px;
   /* height: ; */
   left: 50%;
   top: 50%;
@@ -251,7 +273,7 @@ const prev = () => {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   border-radius: 16px;
-  background: #000000;
+  /* background: #000000; */
 }
 
 /* Updated transform values for card positions */
@@ -419,6 +441,47 @@ const prev = () => {
   position: absolute;
   opacity: 0.3;
   animation: fadeInOut 4s ease-in-out infinite;
+}
+
+.left-arrow-Dark {
+  left: 20px;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.left-arrow-Dark:hover {
+  background-color: #ddf247 !important;
+}
+
+.right-arrow-Dark {
+  right: 20px;
+  margin-right: 10%;
+}
+
+.right-arrow-Dark:hover {
+  background-color: #ddf247 !important;
+}
+
+/* ------------------ Light Theme */
+.left-arrow-Light {
+  left: 20px;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.left-arrow-Light:hover {
+  background-color: #0e0b72 !important;
+  color: white !important;
+}
+
+.right-arrow-Light {
+  right: 20px;
+  margin-right: 10%;
+}
+
+.right-arrow-Light:hover {
+  background-color: #0e0b72 !important;
+  color: white !important;
 }
 
 /* Animation keyframes for different positions */

@@ -1,8 +1,12 @@
 <template>
-  <div class="bg-lines bg-background">
+  <div ::class="` ${ThemeMode} `">
     <AppBar />
     <HeaderServicesCompo />
-    <div class="bg-background bg-lines">
+    <div
+      class="bg-DominateColor EmptyDiv"
+      v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+    />
+    <div :class="`${ThemeMode}`">
       <h1
         class="text-center text-center"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
@@ -14,10 +18,12 @@
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
         ON THE
-        <span style="color: yellow">INTERNET</span>
+        <span class="text-primary">INTERNET</span>
       </h1>
     </div>
-    <v-container class="d-flex justify-center align-center card-container">
+    <v-container
+      :class="` ${ThemeMode} d-flex justify-center align-center card-container   `"
+    >
       <v-row class="gap-1">
         <v-col
           v-for="(card, index) in Cards"
@@ -29,7 +35,7 @@
         >
           <v-card
             class="pa-6 mx-auto mt-4"
-            style="max-width: 100%; background-color: #232323"
+            style="max-width: 100%; box-shadow: none"
           >
             <v-icon
               size="75"
@@ -59,6 +65,12 @@ import HeaderServicesCompo from "@/components/ServicesUI/HeaderServicesCompo.vue
 import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: { AppBar, HeaderServicesCompo, FooterCompo },
+  ThemeMode() {
+    // Return a class name based on the current theme
+    return this.$vuetify.theme.global.name === "CustomLightTheme"
+      ? "bg-lines-light-bg"
+      : "bg-lines-dark";
+  },
   data() {
     return {
       Cards: [
@@ -115,6 +127,11 @@ export default {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   /* background-position: center; */
   background-repeat: repeat;
+}
+
+.EmptyDiv {
+  height: 8vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
 }
 
 .card-container {

@@ -1,7 +1,11 @@
 <template>
-  <div class="bg-background bg-lines">
+  <div :class="`bg-background  ${ThemeMode}`">
     <AppBar />
     <HeaderContactCompo />
+    <div
+      class="bg-DominateColor EmptyDiv"
+      v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+    />
     <h1
       class="text-center manrope-font text-center"
       style="font-size: 54px; font-weight: 800; text-transform: capitalize"
@@ -34,11 +38,7 @@
           lg="3"
         >
           <v-card
-            style="
-              min-width: 300px;
-              max-height: 300px;
-              background-color: #232323;
-            "
+            style="min-width: 300px; max-height: 300px; box-shadow: none"
             class="rounded-xl pa-6 d-flex flex-column justify-center align-center"
           >
             <v-img :src="card.Img" height="120" width="120" class="mx-auto" />
@@ -87,6 +87,14 @@ import ContactForm from "@/components/Contact/ContactForm.vue";
 import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
 export default {
   components: { AppBar, HeaderContactCompo, ContactForm, FooterCompo },
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-background"
+        : "bg-lines";
+    },
+  },
   data() {
     return {
       Cards: [
@@ -124,6 +132,10 @@ export default {
   font-style: normal !important;
 }
 
+.EmptyDiv {
+  height: 8vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
+}
 .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   /* background-position: center; */

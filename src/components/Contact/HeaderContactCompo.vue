@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-background bg-lines" style="min-height: 45vh">
+  <div :class="`bg-background  ${ThemeMode}`" style="min-height: 45vh">
     <div class="justify-center align-center py-2">
       <h1 class="text-center manrope-font text-center">
         Let’s Build Something Amazing
       </h1>
 
       <h1 class="text-center manrope-font text-center">
-        Together | <span style="color: yellow">Contact Me</span>
+        Together | <span class="text-primary">Contact Me</span>
       </h1>
 
       <v-container class="container-text">
@@ -24,9 +24,23 @@
           ideas into reality.
         </p>
       </v-container>
-      <v-container class="iphone d-none d-lg-flex">
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+      >
         <v-img
           src="https://wnexus.io/wp-content/uploads/2024/02/startup_1-1-min.png"
+          class="phone-image"
+          contain
+          height="600"
+        />
+      </v-container>
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+      >
+        <v-img
+          src="../../assets/Conatact.png"
           class="phone-image"
           contain
           height="600"
@@ -114,7 +128,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-DominateColor"
+        : "bg-lines";
+    },
+  },
+};
 </script>
 
 <style scoped>

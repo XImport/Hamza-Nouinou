@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-background bg-lines" style="min-height: 35vh">
+  <div
+    :class="`bg-background ${ThemeMode} bg-DominateColor`"
+    style="min-height: 35vh"
+  >
     <div class="justify-center align-center py-2">
       <h1
         class="text-center manrope-font text-center"
@@ -12,7 +15,7 @@
         class="text-center manrope-font text-center"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
-        <span style="color: yellow">
+        <span class="text-primary">
           Trends <span style="color: white">and</span> Tips
         </span>
       </h1>
@@ -31,9 +34,23 @@
           right audience and amplify your reach.
         </p> -->
       </v-container>
-      <v-container class="iphone d-none d-lg-flex">
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+      >
         <v-img
           src="https://themesflat.co/html/open9/assets/images/item-background/slider-animation.png"
+          class="phone-image"
+          contain
+          height="600"
+        />
+      </v-container>
+      <v-container
+        class="iphone d-none d-lg-flex"
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+      >
+        <v-img
+          src="https://html.hixstudio.net/collax/collax/assets/img/hero/hero-2.png"
           class="phone-image"
           contain
           height="600"
@@ -107,7 +124,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-background"
+        : "bg-lines";
+    },
+  },
+};
 </script>
 
 <style scoped>

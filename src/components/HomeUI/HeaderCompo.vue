@@ -1,5 +1,5 @@
 <template>
-  <div :class="` ${ThemeMode}`">
+  <div :class="` ${ThemeMode} `" style="position: relative">
     <div class="justify-center align-center">
       <v-container>
         <v-row>
@@ -73,7 +73,7 @@
           width="50"
         />
       </div>
-      <v-row class="my-2 mx-auto" justify="center" align="center">
+      <!-- <v-row class="my-2 mx-auto" justify="center" align="center">
         <v-col cols="auto">
           <v-btn
             class="d-flex align-center justify-center rounded-lg manrope-font pa-6 bg-primary"
@@ -99,18 +99,18 @@
             All Collections <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
           </v-btn>
         </v-col>
-      </v-row>
+      </v-row> -->
     </div>
   </div>
 </template>
-
+<!-- bg-DominateColor Bg-Animated-Background -->
 <script>
 export default {
   computed: {
     ThemeMode() {
       // Return a class name based on the current theme
       return this.$vuetify.theme.global.name === "CustomLightTheme"
-        ? "bg-lines-light-header"
+        ? "Bg-Animated-Background text-background"
         : "bg-lines-dark";
     },
   },
@@ -153,6 +153,10 @@ export default {
   50% {
     border-color: transparent;
   }
+}
+
+.Bg-Animated-Background {
+  background-image: url("../../assets/AnimatedShape.svg");
 }
 
 .DiscoverButton {

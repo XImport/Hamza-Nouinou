@@ -1,22 +1,25 @@
 <template>
   <div>
     <AppBar />
-    <div style="min-height: 50vh" class="bg-background bg-shades">
-      <h1
-        class="text-center text-center"
-        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-      >
-        Explore My Core <span style="color: yellow">Technology Stack</span>
-      </h1>
-      <v-container class="container-text">
-        <p class="text-center azeret-mono-font container-text text-grey">
-          "I focus on using cutting-edge tools and frameworks that enable me to
-          build scalable, efficient, and user-friendly applications. My approach
-          is centered around delivering high-quality solutions tailored to meet
-          specific needs and drive success."
-        </p>
-      </v-container>
-      <SildersExplorCompo />
+    <div style="min-height: 50vh" class="bg-background">
+      <div class="bg-DominateColor">
+        <h1
+          class="text-center text-center pt-4"
+          style="font-size: 54px; font-weight: 800; text-transform: capitalize"
+        >
+          Explore My Core <span class="text-primary">Technology Stack</span>
+        </h1>
+        <v-container class="container-text">
+          <p class="text-center azeret-mono-font container-text text-grey">
+            "I focus on using cutting-edge tools and frameworks that enable me
+            to build scalable, efficient, and user-friendly applications. My
+            approach is centered around delivering high-quality solutions
+            tailored to meet specific needs and drive success."
+          </p>
+        </v-container>
+      </div>
+      <div class="bg-DominateColor EmptyDiv" />
+      <SildersExplorCompo class="Silder-Position" />
       <v-container>
         <h1
           class="text-center text-center"
@@ -29,7 +32,7 @@
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
           How To Build The
-          <span style="color: yellow">Perfect Product</span>
+          <span class="text-primary">Perfect Product</span>
         </h1>
 
         <v-container class="pa-1">
@@ -40,16 +43,16 @@
               cols="12"
               sm="6"
               md="3"
-              lg="12"
+              lg="3"
               class="pa-2"
             >
               <v-card
                 style="
-                  background-color: #232323;
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
                   align-items: center;
+                  box-shadow: none;
                   height: 100%;
                 "
                 class="rounded-xl pa-4"
@@ -92,8 +95,8 @@
                 text-transform: capitalize;
               "
             >
-              Top Clients <span style="color: yellow">Experiences</span> and
-              <span style="color: yellow">Reviews</span>
+              Top Clients <span class="text-primary">Experiences</span> and
+              <span class="text-primary">Reviews</span>
             </h1>
 
             <v-row
@@ -110,12 +113,12 @@
                 cols="12"
                 sm="6"
                 md="4"
-                lg="12"
+                lg="4"
                 class="d-flex justify-center align-center mb-5"
               >
                 <v-card
                   style="
-                    background-color: #232323;
+                    box-shadow: none;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -242,7 +245,9 @@ export default {
   transition: transform 0.3s ease-in-out;
   position: relative;
 }
-
+.Silder-Position {
+  margin-top: -8%;
+}
 /* Hover animation using keyframes */
 @keyframes moveLeftRight {
   0% {
@@ -281,6 +286,11 @@ export default {
   }
 }
 
+.EmptyDiv {
+  height: 18vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
+}
+
 .vvv {
   max-width: 100%;
   margin: auto !important;
@@ -293,6 +303,9 @@ export default {
   .v-card {
     max-width: 100%; /* Ensure cards take full width on mobile */
     max-height: 380px; /* Adjust card height for better fit on small screens */
+  }
+  .Silder-Position {
+    margin-top: -35%;
   }
 }
 

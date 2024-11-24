@@ -1,7 +1,11 @@
 <template>
-  <div class="bg-background bg-lines">
+  <div :class="`bg-background  ${ThemeMode}`">
     <AppBlogsBar />
     <HeaderBlogsCompo />
+    <div
+      class="bg-DominateColor EmptyDiv"
+      v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+    />
     <BlogsCompoThambnail :title="title" :subtitle="subtitle" :blogs="blogs" />
     <FooterCompo />
   </div>
@@ -18,6 +22,14 @@ export default {
     HeaderBlogsCompo,
     FooterCompo,
     BlogsCompoThambnail,
+  },
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-background"
+        : "bg-lines";
+    },
   },
   data() {
     return {
@@ -133,5 +145,9 @@ export default {
 .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");
   background-repeat: repeat;
+}
+.EmptyDiv {
+  height: 8vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
 }
 </style>

@@ -2,14 +2,16 @@
   <div>
     <AppBar />
     <HeaderAboutCompo />
-    <div class="bg-background bg-lines">
+    <div class="bg-DominateColor EmptyDiv" />
+    <div :class="`bg-background ${ThemeMode} `">
       <div>
         <h1
           class="text-center text-center"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
-          Who Am <span style="color: yellow">I ?</span>
+          Who Am <span class="text-primary">I ?</span>
         </h1>
+
         <v-container class="container-text">
           <div class="fade-dots img-5 d-none d-lg-flex">
             <img src="../assets/Icons/reactjs.png" alt="logo" width="120" />
@@ -47,7 +49,7 @@
               padding-bottom: 1%;
             "
           >
-            Meet Me<span style="color: yellow"> AT :</span>
+            Meet Me<span class="text-primary"> AT :</span>
           </h1>
           <v-avatar color="grey" rounded="50" size="150" class="mx-auto">
             <v-img src="../assets/Me.png" cover class="mx-auto"></v-img>
@@ -64,11 +66,7 @@
                 lg="3"
               >
                 <v-card
-                  style="
-                    max-width: 400px;
-                    max-height: 400px;
-                    background-color: #232323;
-                  "
+                  style="max-width: 400px; max-height: 400px; box-shadow: none"
                   class="rounded-xl pa-12 mx-auto d-flex flex-column justify-center align-center"
                 >
                   <v-img
@@ -101,31 +99,40 @@
 import AppBar from "../components/GlobalComponents/AppBar.vue";
 import HeaderAboutCompo from "@/components/AboutUI/HeaderAboutCompo.vue";
 import FooterAboutCompo from "@/components/GlobalComponents/FooterCompo.vue";
+import { computed } from "vue";
 export default {
   components: { AppBar, HeaderAboutCompo, FooterAboutCompo },
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-background"
+        : "bg-lines";
+    },
+  },
   data() {
     return {
       Cards: [
         {
-          Img: "https://i.ibb.co/j5LRkHB/discord.png",
+          Img: "https://i.imgur.com/W7oAbeQ.png",
           title: "Discord Server",
           description:
             "Welcome to my Discord server! This is a vibrant hub for developers, tech enthusiasts, and creatives to connect.",
         },
         {
-          Img: "https://i.ibb.co/LdK3Gc8/instagram.png",
+          Img: "https://i.imgur.com/Te8O2No.png",
           title: "Instagram Account ",
           description:
             "Follow my Instagram for a behind-the-scenes look at my journey as a developer! From showcasing my latest web, mobile.",
         },
         {
-          Img: "https://i.ibb.co/smj1Wmd/mail.png",
+          Img: "https://i.imgur.com/Fu08XBE.png",
           title: "Business E-mail",
           description:
             "Reach out to me via e-mail for professional inquiries, project discussions, or collaboration opportunities.",
         },
         {
-          Img: "https://i.ibb.co/XxK86W6/telegram.png",
+          Img: "https://i.imgur.com/6Y1cR3v.png",
           title: "Telegram Channel",
           description:
             "Stay updated with my latest projects, development tips, and automation insights by joining my Telegram channel.",
@@ -138,6 +145,11 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Poppins&display=swap");
+
+.EmptyDiv {
+  height: 8vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
+}
 
 .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png");

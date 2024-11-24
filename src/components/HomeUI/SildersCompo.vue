@@ -4,25 +4,51 @@
     :class="`carousel-container  container  ${ThemeMode}`"
     style="min-height: 35vh"
   >
+    <!-- --- Light Theme -->
+
     <v-btn
+      v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
       icon="mdi-chevron-left"
       variant="text"
       size="x-larger"
-      class="navigation-arrow left-arrow"
+      class="navigation-arrow left-arrow-Light"
       @click="prev"
     ></v-btn>
 
     <v-btn
+      v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
       icon="mdi-chevron-right"
       variant="text"
       size="x-larger"
-      class="navigation-arrow right-arrow"
+      class="navigation-arrow right-arrow-Light"
+      @click="next"
+    ></v-btn>
+
+    <!-- -- --- Dark Theme -->
+
+    <v-btn
+      v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
+      icon="mdi-chevron-left"
+      variant="text"
+      size="x-larger"
+      class="navigation-arrow left-arrow-Dark"
+      @click="prev"
+    ></v-btn>
+
+    <v-btn
+      v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
+      icon="mdi-chevron-right"
+      variant="text"
+      size="x-larger"
+      class="navigation-arrow right-arrow-Dark"
       @click="next"
     ></v-btn>
 
     <div class="cards-wrapper">
+      <!-- ------ DarkMode Cards -->
       <v-card
-        v-for="(card, index) in cards"
+        v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
+        v-for="(card, index) in DarkModeCards"
         :key="index"
         class="nft-card pa-2"
         :class="getCardClass(index)"
@@ -50,6 +76,43 @@
           </div>
         </div>
       </v-card>
+      <div
+        class="bg-DominateColor EmptyDiv"
+        v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+      />
+      <v-card
+        v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
+        v-for="(card, index) in LightModeCards"
+        :key="index"
+        class="nft-card pa-2 bg-DominateColor"
+        :class="getCardClass(index)"
+      >
+        <!-- Card content remains the same -->
+
+        <v-img
+          :src="card.Img"
+          cover
+          height="400"
+          class="image-container"
+          style="padding-left: 2%; padding-right: 2%"
+        >
+        </v-img>
+
+        <div class="card-footer pa-4">
+          <span class="text-subtitle-1 d-block text-center">{{
+            card.title
+          }}</span>
+          <div class="d-flex align-center mt-1 justify-center mx-auto">
+            <v-icon color="primary" size="small" class="mr-1 text-center"
+              >mdi-heart</v-icon
+            >
+            <span class="text-center text-underline">{{ card.price }}</span>
+          </div>
+        </div>
+      </v-card>
+
+      <!-- ------ LightMode Cards -->
+
       <div class="background-images bg-shades d-none d-sm-flex">
         <div class="moving-img2 img-11">
           <img src="../../assets/Icons/flower.png" alt="logo" />
@@ -123,7 +186,7 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      cards: [
+      DarkModeCards: [
         {
           image: "Gym.jpg",
           title: "Gym WebSite",
@@ -168,11 +231,59 @@ export default {
         },
         // Add more cards...
       ],
+      LightModeCards: [
+        {
+          image: "Gym.jpg",
+          title: "E-Commerce Site",
+          price: "9/10",
+          Img: "https://i.pinimg.com/control2/736x/47/cd/8d/47cd8d1d0313441a65fd8187a36e0250.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "House Equipments Site",
+          price: "8.5/10",
+          Img: "https://i.pinimg.com/736x/2e/04/14/2e041465f00802136e7f700d42d6c9ee.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Construction Work Shop",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/8a/01/1c/8a011c2dc9f49698029448accb6a291c.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "E Commerce Site",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/20/9d/c7/209dc70010121e950dc61299013dc1c2.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "WebMedia Digital Agency",
+          price: "9.2/10",
+          Img: "https://i.pinimg.com/736x/5e/19/b5/5e19b56ea73458169a0542a49e8b06d8.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "All In One United",
+          price: "10/10",
+          Img: "https://i.pinimg.com/736x/ff/7c/91/ff7c9142d0ea572ecda608b3cc4be457.jpg",
+        },
+        {
+          image: "owl.jpg",
+          title: "Sneakers Shop",
+          price: "8.3/10",
+          Img: "https://i.pinimg.com/control2/736x/6a/69/bb/6a69bbf64c16711603f507809d46dd9b.jpg",
+        },
+        // Add more cards...
+      ],
     };
   },
   computed: {
     totalPages() {
-      return this.cards.length;
+      if (this.$vuetify.theme.global.name == "CustomLightTheme") {
+        return this.LightModeCards.length;
+      }
+      return this.DarkModeCards.length;
     },
     ThemeMode() {
       // Return a class name based on the current theme
@@ -229,6 +340,7 @@ export default {
 .cards-wrapper {
   position: relative;
   height: 100%;
+  z-index: 20;
   width: 100%;
   transform-style: preserve-3d;
   margin-top: -1%;
@@ -243,7 +355,7 @@ export default {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   border-radius: 16px;
-  /* background: #000000; */
+  /* background: #161616; */
 }
 
 /* Updated transform values for card positions */
@@ -339,7 +451,7 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 50%;
   justify-content: center;
@@ -348,20 +460,50 @@ export default {
   /* padding: 2%; */
 }
 
-.left-arrow {
+/* ----------------- Dark Theme  */
+
+.left-arrow-Dark {
   left: 20px;
   align-items: center;
   margin-left: 10%;
-  /* background-color: #ddf247; */
 }
 
-.left-arrow:hover {
+.left-arrow-Dark:hover {
   background-color: #ddf247 !important;
 }
 
-.right-arrow:hover {
+.right-arrow-Dark {
+  right: 20px;
+  margin-right: 10%;
+}
+
+.right-arrow-Dark:hover {
   background-color: #ddf247 !important;
 }
+
+/* ------------------ Light Theme */
+.left-arrow-Light {
+  left: 20px;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.left-arrow-Light:hover {
+  background-color: #0e0b72 !important;
+  color: white;
+}
+
+.right-arrow-Light {
+  right: 20px;
+  margin-right: 10%;
+}
+
+.right-arrow-Light:hover {
+  background-color: #0e0b72 !important;
+  color: white;
+}
+
+/* ----------------- End Theme */
 
 .right-arrow {
   right: 20px;
@@ -392,6 +534,10 @@ export default {
   width: 32px;
 }
 
+.EmptyDiv {
+  height: 30vh;
+  border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
+}
 @media (max-width: 960px) {
   .carousel-container {
     overflow-x: hidden !important;
@@ -414,7 +560,7 @@ export default {
   }
   .nft-card {
     /* background-color: #ddf247; */
-    width: 100%;
+    width: 70%;
 
     /* background-color: #232323; */
 
@@ -425,6 +571,12 @@ export default {
   .v-img {
     width: 100%;
     height: 100%;
+  }
+  .EmptyDiv {
+    height: 30vh;
+    border-radius: 0 0 50% 50%; /* Curve only the bottom corners */
+    margin-top: -15%;
+    width: 100%;
   }
 }
 
@@ -652,7 +804,7 @@ export default {
 
 @media (max-width: 740px) {
   .cards-wrapper {
-    padding: 10% !important ;
+    padding: 0% !important ;
   }
 }
 </style>

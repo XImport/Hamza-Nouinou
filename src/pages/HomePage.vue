@@ -11,9 +11,8 @@
     </div>
     <div class="bg-background">
       <StatisticsCompo />
-    </div>
-    <div class="bg-background">
-      <div>
+
+      <div :class="`bg-banner ${ThemeMode}`">
         <!-- Title -->
         <h1 class="text-center manrope-fontt typing-effect" style="">
           Why Choose <span class="text-primary"> Me </span>
@@ -52,8 +51,9 @@
             </v-col>
           </v-row>
         </div>
-
-        <!-- FAQ Section -->
+      </div>
+      <!-- FAQ Section -->
+      <div :class="`${ThemeMode}`">
         <h1
           class="text-center manrope-font typing-effect"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
@@ -92,40 +92,41 @@
             <span class="text-primary"> Discord Server </span>
           </p>
         </v-container>
-
-        <!-- Call-to-Action Section -->
-        <v-container
-          class="pa-6 rounded-xl cta-container d-none d-sm-flex"
-          style="max-width: 80%"
-        >
-          <v-row class="fill-height align-center justify-center">
-            <v-col cols="12" md="6" class="pa-8 cta-text">
-              <div class="text-h3 font-weight-bold mb-2">
-                Transform Your Business into the Future
-                <span class="d-block">
-                  In the <span class="text-primary">Real World</span>
-                </span>
-              </div>
-              <div
-                class="text-h6 pa-2 mb-6 rounded text-center mx-auto"
-                width="fit-content"
-              >
-                Get Started with the Easiest and Most Secure Platform
-              </div>
-              <v-container class="container-btn">
-                <v-btn
-                  class="text-capitalize bg-primary ml-2 rounded-sm pl-6 pr-6"
-                  size="large"
-                  block
-                >
-                  Get Started
-                  <v-icon end>mdi-arrow-right</v-icon>
-                </v-btn>
-              </v-container>
-            </v-col>
-          </v-row>
-        </v-container>
       </div>
+
+      <!-- Call-to-Action Section -->
+      <v-container
+        class=""
+        :class="`pa-6 rounded-xl cta-container d-none d-sm-flex bg-DominateColor`"
+        style="max-width: 80%"
+      >
+        <v-row class="fill-height align-center justify-center">
+          <v-col cols="12" md="6" class="pa-8 cta-text">
+            <div class="text-h3 font-weight-bold mb-2">
+              Transform Your Business into the Future
+              <span class="d-block">
+                In the <span class="text-primary">Real World</span>
+              </span>
+            </div>
+            <div
+              class="text-h6 pa-2 mb-6 rounded text-center mx-auto"
+              width="fit-content"
+            >
+              Get Started with the Easiest and Most Secure Platform
+            </div>
+            <v-container class="container-btn">
+              <v-btn
+                class="text-capitalize bg-primary ml-2 rounded-sm pl-6 pr-6"
+                size="large"
+                block
+              >
+                Get Started
+                <v-icon end>mdi-arrow-right</v-icon>
+              </v-btn>
+            </v-container>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
 
     <div style="height: 5vh" class="d-none d-sm-flex bg-container"></div>
@@ -152,6 +153,20 @@ export default {
     BannerCompo,
     StatisticsCompo,
     FooterCompo,
+  },
+  computed: {
+    ThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-lines-light-bg"
+        : "bg-lines-dark";
+    },
+    SecondThemeMode() {
+      // Return a class name based on the current theme
+      return this.$vuetify.theme.global.name === "CustomLightTheme"
+        ? "bg-lines-light-Banner"
+        : "bg-lines-dark";
+    },
   },
   data() {
     return {
@@ -223,12 +238,12 @@ export default {
 </script>
 
 <style scoped>
-.bg-lines {
+/* .bg-lines {
   background-image: url("https://themesflat.co/html/open9/assets/images/item-background/bg-contact.png") !important;
   background-position: center !important;
   width: 100%;
   background-repeat: repeat !important;
-}
+} */
 
 .v-expansion-panel-title {
   font-style: normal;
