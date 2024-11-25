@@ -255,3 +255,16 @@
   background-color: rgb(255, 255, 255,0.9);
 }
 
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .Bg-Animated-Background {
+    margin-top: -10px;
+  }
+  .EmptyDiv{
+    margin-top: -15px ;
+  }
+  .bg-background{
+    margin-top: -10px;
+  }
+}

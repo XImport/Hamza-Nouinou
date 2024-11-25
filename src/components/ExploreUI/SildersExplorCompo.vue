@@ -131,11 +131,26 @@
         </v-card>
       </div>
 
-      <div class="pagination-container">
+      <div
+        class="pagination-container"
+        v-if="$vuetify.theme.global.name == 'CustomDarkTheme'"
+      >
         <div
           v-for="n in totalPages"
           :key="n"
-          class="pagination-dot"
+          class="pagination-dot-Dark"
+          :class="{ active: currentIndex === n - 1 }"
+          @click="currentIndex = n - 1"
+        ></div>
+      </div>
+      <div
+        class="pagination-container"
+        v-if="$vuetify.theme.global.name == 'CustomLightTheme'"
+      >
+        <div
+          v-for="n in totalPages"
+          :key="n"
+          class="pagination-dot-Light"
           :class="{ active: currentIndex === n - 1 }"
           @click="currentIndex = n - 1"
         ></div>
@@ -395,6 +410,34 @@ const prev = () => {
 .right-arrow {
   right: 20px;
   margin-right: 2%;
+}
+
+.pagination-dot-Dark {
+  width: 24px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot-Dark.active {
+  background: #ddf247;
+  width: 32px;
+}
+
+.pagination-dot-Light {
+  width: 24px;
+  height: 4px;
+  background: rgba(55, 55, 175, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot-Light.active {
+  background: #0c0a2f;
+  width: 32px;
 }
 
 .pagination-container {
@@ -721,5 +764,11 @@ const prev = () => {
 :deep(.ServicesCompo) {
   position: relative;
   z-index: 1;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .carousel-container {
+    margin-top: 5%;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div :class="` ${ThemeMode} `" style="position: relative">
-    <div class="justify-center align-center">
+  <div :class="` ${ThemeMode} `" style="min-height: 15vh">
+    <div class="justify-center align-center tabs-position">
       <v-container>
         <v-row>
           <v-col cols="12" class="text-wrap">
@@ -792,4 +792,6 @@ export default {
 .img-11 {
   animation-name: moveImg11;
 }
+
+/* position-tabs */
 </style>

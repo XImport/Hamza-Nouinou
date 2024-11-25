@@ -5,8 +5,7 @@
       v-model="drawer"
       app
       temporary
-      dark
-      color="background"
+      class="bg-DominateColor"
       :width="drawerWidth"
     >
       <v-list>
@@ -41,7 +40,7 @@
 
         <!-- Mobile Action Icons -->
         <v-list-item>
-          <v-row justify="space-around" class="mt-4">
+          <v-row justify="space-around" class="pa-6">
             <v-btn icon>
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
