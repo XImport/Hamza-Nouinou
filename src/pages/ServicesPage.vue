@@ -8,21 +8,24 @@
     />
     <div :class="`${ThemeMode}`">
       <h1
-        class="text-center text-center"
+        class="text-center text-center animate__animated animate__fadeInUp animate__duration-2s"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
         BOOST YOUR PRESENCE
       </h1>
       <h1
-        class="text-center text-center"
+        class="text-center text-center animate__animated animate__fadeInUp animate__duration-2s"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
         ON THE
-        <span class="text-primary">INTERNET</span>
+        <span
+          class="text-primary animate__animated animate__fadeInUp animate__duration-2s"
+          >INTERNET</span
+        >
       </h1>
     </div>
     <v-container
-      :class="` ${ThemeMode} d-flex justify-center align-center card-container   `"
+      :class="` ${ThemeMode} d-flex justify-center align-center card-container animate__animated animate__fadeInUp animate__duration-2s  `"
     >
       <v-row class="gap-1">
         <v-col

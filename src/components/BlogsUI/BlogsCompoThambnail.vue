@@ -1,19 +1,21 @@
 <template>
   <div>
     <h1
-      class="text-center text-center"
+      class="text-center text-center animate__animated animate__fadeInUp animate__duration-2s"
       style="font-size: 54px; font-weight: 800; text-transform: capitalize"
     >
       {{ title }}
     </h1>
 
     <h1
-      class="text-center text-center"
+      class="text-center text-center animate__animated animate__fadeInUp animate__duration-2s"
       style="font-size: 54px; font-weight: 800; text-transform: capitalize"
     >
       <span class="text-primary"> {{ subtitle }} </span>
     </h1>
-    <v-container class="mx-auto d-flex flex-column blogs-container">
+    <v-container
+      class="mx-auto d-flex flex-column blogs-container animate__animated animate__fadeInUp animate__duration-2s"
+    >
       <v-row no-gutters>
         <v-col
           v-for="(blog, index) in paginatedBlogs"

@@ -16,5 +16,6 @@ const app = createApp(App);
 
 registerPlugins(app);
 import "./assets/styles/styles.css";
+import "animate.css";
 // import "@/assets/styles.css";
 app.mount("#app");

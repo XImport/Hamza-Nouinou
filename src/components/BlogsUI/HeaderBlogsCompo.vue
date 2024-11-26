@@ -8,16 +8,42 @@
         class="text-center manrope-font text-center"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
-        Insights & Ideas : Explore the Latest
+        <TypingEffect
+          :segments="[
+            {
+              text: 'Insights & Ideas : Explore the Latest',
+              class: '',
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
       </h1>
 
       <h1
         class="text-center manrope-font text-center"
         style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
-        <span class="text-primary">
-          Trends <span style="color: white">and</span> Tips
-        </span>
+        <TypingEffect
+          :segments="[
+            {
+              text: 'Trends ',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+            {
+              text: 'and ',
+              style: { display: 'inline-block' },
+            },
+            {
+              text: 'Tips ',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
       </h1>
 
       <v-container style="width: 40%">
@@ -57,11 +83,6 @@
         />
       </v-container>
 
-      <!-- Moving images -->
-      <!-- <div class="moving-img img-11">
-        <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
-      </div> -->
-
       <div class="moving-img img-2 d-none d-lg-flex">
         <img
           src="https://i.ibb.co/yyVn0zg/pngwing-com.png"
@@ -86,9 +107,9 @@
       <div class="moving-img img-3 d-none d-lg-flex">
         <img src="../../assets/Icons/css.png" alt="logo" width="50" />
       </div>
-      <div class="moving-img img-4 d-none d-lg-flex">
+      <!-- <div class="moving-img img-4 d-none d-lg-flex">
         <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
-      </div>
+      </div> -->
 
       <!-- Dots with Fade In and Fade Out -->
       <div class="fade-dots img-5">
@@ -324,24 +345,24 @@ export default {
 @keyframes moveImg9 {
   0%,
   100% {
-    top: 10%;
+    top: 19%;
     left: 30%;
   }
   50% {
-    top: 13%;
-    left: 37%;
+    top: 19%;
+    left: 31%;
   }
 }
 
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 40%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   50% {
-    top: 44%;
+    top: 28%;
     left: 50%;
   }
 }

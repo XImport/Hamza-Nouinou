@@ -14,14 +14,17 @@
 
       <div :class="`bg-banner ${ThemeMode}`">
         <!-- Title -->
-        <h1 class="text-center manrope-fontt typing-effect" style="">
-          Why Choose <span class="text-primary"> Me </span>
-        </h1>
+        <div data-aos="fade-in">
+          <h1 class="text-center manrope-fontt typing-effect" style="">
+            Why Choose <span class="text-primary"> Me </span>
+          </h1>
+        </div>
 
         <!-- Cards Section -->
         <div
           class="mx-auto d-flex cards-container justify-center align-center"
           style="min-height: 50vh"
+          data-aos="fade-up"
         >
           <v-row class="d-flex" style="gap: 16px; margin: 0">
             <v-col
@@ -54,13 +57,20 @@
       </div>
       <!-- FAQ Section -->
       <div :class="`${ThemeMode}`">
-        <h1
-          class="text-center manrope-font typing-effect"
-          style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-        >
-          Frequently Asked <span class="text-primary"> Questions </span>
-        </h1>
-        <v-container class="bg-background faq-container">
+        <div data-aos="fade-in">
+          <h1
+            class="text-center manrope-font typing-effect"
+            style="
+              font-size: 54px;
+              font-weight: 800;
+              text-transform: capitalize;
+            "
+          >
+            Frequently Asked <span class="text-primary"> Questions </span>
+          </h1>
+        </div>
+
+        <v-container class="bg-background faq-container" data-aos="fade-up">
           <v-row>
             <v-col
               v-for="(question, index) in Top10AskedQuestions"
@@ -192,24 +202,24 @@ export default {
       ],
       Top10AskedQuestions: [
         {
-          Q: "What services do you offer?",
-          A: "I offer a range of web development services, including custom website design, front-end and back-end development, e-commerce solutions, mobile app development, and API integration.",
+          Q: "What industries or business types do you specialize in working with?",
+          A: "I work with a wide range of industries, including startups, small businesses, and large enterprises. My focus is on creating tailored solutions that fit the unique needs of each client, regardless of their industry.",
         },
         {
-          Q: "How long does it take to complete a website project?",
-          A: "The timeline depends on the complexity and scope of the project. I work closely with clients to set realistic deadlines and ensure timely delivery.",
+          Q: "How do you ensure project timelines are met?",
+          A: "I rely on a structured development process that includes clear milestones, regular updates, and open communication. This approach allows me to stay on track and adapt quickly if changes are needed.",
         },
         {
           Q: "What technologies do you use for web development?",
           A: "I work with technologies such as React, Vue.js, Angular, Node.js, Laravel, and WordPress, based on the project requirements and client needs.",
         },
         {
-          Q: "How much does a website cost?",
-          A: "The cost varies depending on the features, functionality, and design of the website. I provide customized quotes after discussing the project’s scope and goals.",
+          Q: "Can you provide maintenance and support after project completion",
+          A: "Yes, I offer ongoing maintenance and support to ensure that your application or system runs smoothly. This includes updates, bug fixes, and feature enhancements as needed.",
         },
         {
-          Q: "Can you help with SEO and digital marketing?",
-          A: "Yes, I offer SEO optimization and digital marketing services to help websites rank higher on search engines and drive more traffic.",
+          Q: "What technologies do you use for web development projects?",
+          A: "I use a variety of modern tools and frameworks, such as Vue.js, React.js, and Node.js, along with HTML, CSS, and JavaScript. For content management, I can also work with platforms like WordPress.",
         },
         {
           Q: "Do you provide ongoing website maintenance?",
@@ -220,12 +230,12 @@ export default {
           A: "Absolutely! I design and develop responsive websites that function seamlessly across all devices, including smartphones and tablets.",
         },
         {
-          Q: "Can you integrate third-party tools or APIs into my website?",
-          A: "Yes, I can integrate various third-party tools, payment gateways, CRM systems, and APIs to enhance the functionality of your website.",
+          Q: "Can you create advanced Excel tools with macros and data visualization?",
+          A: "Yes, I can build Excel tools with advanced functionalities, including custom macros, automated calculations, and dynamic charts. These solutions can help you analyze and manage your data more effectively.",
         },
         {
-          Q: "What happens if I need changes after the project is completed?",
-          A: "I offer post-launch support and am happy to assist with any changes or updates needed after the website goes live.",
+          Q: "What platforms do you support for desktop app development?",
+          A: "I develop desktop applications for Windows, macOS, and cross-platform environments using tools like Electron.js. My goal is to create applications that are reliable, efficient, and easy to use.",
         },
         {
           Q: "How do you ensure the security of my website?",

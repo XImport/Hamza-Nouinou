@@ -35,7 +35,7 @@
 
       <!-- More moving images -->
       <div class="moving-img img-8 d-none d-sm-flex">
-        <img src="../../assets/Icons/nft.png" alt="logo" width="80" />
+        <img src="../../assets/Icons/nft.png" alt="logo" width="100" />
       </div>
       <div class="moving-img img-9 d-none d-sm-flex">
         <img
@@ -98,7 +98,9 @@
         @click="next"
       ></v-btn>
 
-      <div class="cards-wrapper">
+      <div
+        class="cards-wrapper animate__animated animate__fadeInUp animate__duration-2s"
+      >
         <v-card
           v-for="(card, index) in cards"
           :key="index"
@@ -630,12 +632,12 @@ const prev = () => {
   0%,
   100% {
     top: 85%;
-    left: 10%;
+    left: 20%;
     transform: translateY(-8px);
   }
   50% {
     top: 90%;
-    left: 5%;
+    left: 15%;
     transform: translateY(8px);
   }
 }
@@ -657,12 +659,12 @@ const prev = () => {
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 10%;
+    top: 9%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    top: 13%;
+    top: 9%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
   }

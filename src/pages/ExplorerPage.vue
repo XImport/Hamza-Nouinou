@@ -7,10 +7,26 @@
           class="text-center text-center pt-4"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
         >
-          Explore My Core <span class="text-primary">Technology Stack</span>
+          <TypingEffect
+            :segments="[
+              {
+                text: ' Explore My Core',
+                class: '',
+              },
+              {
+                text: 'Technology Stack',
+                class: 'text-primary',
+                style: { display: 'inline-block' },
+              },
+            ]"
+            :speed="50"
+            :loop="false"
+          />
         </h1>
         <v-container class="container-text">
-          <p class="text-center azeret-mono-font container-text text-grey">
+          <p
+            class="text-center azeret-mono-font container-text text-grey animate__animated animate__fadeInUp animate__duration-2s"
+          >
             "I focus on using cutting-edge tools and frameworks that enable me
             to build scalable, efficient, and user-friendly applications. My
             approach is centered around delivering high-quality solutions
@@ -20,7 +36,7 @@
       </div>
       <div class="bg-DominateColor EmptyDiv" />
       <SildersExplorCompo class="Silder-Position" />
-      <v-container>
+      <v-container data-aos="fade-up">
         <h1
           class="text-center text-center"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
@@ -172,8 +188,9 @@
 import AppBar from "@/components/GlobalComponents/AppBar.vue";
 import SildersExplorCompo from "@/components/ExploreUI/SildersExplorCompo.vue";
 import FooterCompo from "@/components/GlobalComponents/FooterCompo.vue";
+import TypingEffect from "@/components/GlobalComponents/TypingEffect.vue";
 export default {
-  components: { AppBar, SildersExplorCompo, FooterCompo },
+  components: { AppBar, SildersExplorCompo, FooterCompo, TypingEffect },
   data() {
     return {
       Cards: [

@@ -1,5 +1,8 @@
 <template>
-  <v-container class="d-flex justify-center align-center container-form">
+  <v-container
+    class="d-flex justify-center align-center container-form"
+    data-aos="fade-up"
+  >
     <v-form ref="form" v-model="isValid">
       <v-row class="d-flex justify-center" dense>
         <!-- Name Input -->

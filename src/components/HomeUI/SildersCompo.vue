@@ -1,7 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
   <div
-    :class="`carousel-container  container  ${ThemeMode}`"
+    :class="`carousel-container  container  ${ThemeMode}  `"
     style="min-height: 35vh"
   >
     <!-- --- Light Theme -->
@@ -11,7 +11,7 @@
       icon="mdi-chevron-left"
       variant="text"
       size="x-larger"
-      class="navigation-arrow left-arrow-Light"
+      :class="`navigation-arrow left-arrow-Light animate__animated animate__fadeIn animate__duration-2s animate__delay-1s ${currentClass} `"
       @click="prev"
     ></v-btn>
 
@@ -20,7 +20,7 @@
       icon="mdi-chevron-right"
       variant="text"
       size="x-larger"
-      class="navigation-arrow right-arrow-Light"
+      :class="`navigation-arrow right-arrow-Light animate__animated animate__fadeIn animate__duration-2s animate__delay-1s ${currentClass} `"
       @click="next"
     ></v-btn>
 
@@ -31,20 +31,22 @@
       icon="mdi-chevron-left"
       variant="text"
       size="x-larger"
-      class="navigation-arrow left-arrow-Dark"
+      :class="` navigation-arrow  left-arrow-Dark animate__animated animate__fadeIn  animate__duration-2s animate__delay-1s ${currentClass}  `"
       @click="prev"
     ></v-btn>
-
+    {{ ArrowColorAnimation }}
     <v-btn
       v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
       icon="mdi-chevron-right"
       variant="text"
       size="x-larger"
-      class="navigation-arrow right-arrow-Dark"
+      :class="`navigation-arrow right-arrow-Dark animate__animated animate__fadeIn animate__duration-2s animate__delay-1s ${currentClass} `"
       @click="next"
     ></v-btn>
 
-    <div class="cards-wrapper">
+    <div
+      class="cards-wrapper animate__animated animate__fadeInUp animate__duration-2s"
+    >
       <!-- ------ DarkMode Cards -->
       <v-card
         v-if="$vuetify.theme.global.name === 'CustomDarkTheme'"
@@ -118,7 +120,7 @@
           <img src="../../assets/Icons/flower.png" alt="logo" />
         </div>
         <div class="moving-img2 img-1 d-none d-sm-flex">
-          <img src="../../assets/Icons/rounded.png" alt="logo" />
+          <img src="../../assets/Icons/reactjs.png" alt="logo" width="50" />
         </div>
         <div class="moving-img2 img-2">
           <img
@@ -146,11 +148,11 @@
 
         <!-- More moving images -->
         <div class="moving-img2 img-8 d-none d-sm-flex">
-          <img src="../../assets/Icons/css.png" alt="logo" width="60" />
+          <img src="../../assets/Icons/css.png" alt="logo" width="40" />
         </div>
         <div class="moving-img2 img-9 d-none d-sm-flex">
           <img
-            src="../../assets/Icons/nft.png"
+            src="../../assets/Icons/vuejs.png"
             alt="logo"
             height="80"
             width="80"
@@ -194,13 +196,12 @@
   </div>
 </template>
 <script>
-import { computed } from "vue";
-
 export default {
   name: "CardCarousel",
   data() {
     return {
       currentIndex: 0,
+      currentClass: "text-white",
       DarkModeCards: [
         {
           image: "Gym.jpg",
@@ -306,8 +307,31 @@ export default {
         ? "bg-lines-light"
         : "bg-lines-dark";
     },
+    arrowColor() {
+      // Return the class based on the currentClass data property
+      return this.currentClass;
+    },
+  },
+  created() {
+    this.startAnimation(this.$vuetify.theme.global.name);
   },
   methods: {
+    startAnimation(ThemeMode) {
+      if (ThemeMode === "CustomDarkTheme") {
+        this.currentClass = "text-yellow";
+        setTimeout(() => {
+          this.currentClass = "text-white";
+        }, 3000);
+      }
+
+      if (ThemeMode === "CustomLightTheme") {
+        this.currentClass = "text-blue";
+        setTimeout(() => {
+          this.currentClass = "text-black";
+        }, 3000);
+      }
+    },
+
     getCardClass(index) {
       const position =
         (index - this.currentIndex + this.totalPages) % this.totalPages;
@@ -481,6 +505,13 @@ export default {
   left: 20px;
   align-items: center;
   margin-left: 10%;
+
+  /* background-color: transparent; */
+}
+
+.left-arrow-Dark-Changer {
+  background-color: #ddf247;
+  color: aqua;
 }
 
 .left-arrow-Dark:hover {
@@ -609,6 +640,9 @@ export default {
   }
 }
 
+.left-arrow-Dark-Changer {
+  background-color: #ddf247;
+}
 /* Moving images animations */
 .moving-img2 {
   position: absolute;
@@ -636,11 +670,11 @@ export default {
   0%,
   100% {
     top: 88%;
-    left: 70%;
+    left: 78%;
     transform: translateY(-10px);
   }
   50% {
-    top: 90%;
+    top: 89%;
     left: 80%;
     transform: translateY(10px);
   }
@@ -761,12 +795,12 @@ export default {
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 93%;
+    top: 97%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    top: 95%;
+    top: 98%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
   }

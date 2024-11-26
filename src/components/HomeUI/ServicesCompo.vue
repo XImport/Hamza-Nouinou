@@ -1,7 +1,7 @@
 <template>
   <!-- Previous template code remains the same -->
 
-  <div :class="`carousel-container ${ThemeMode} `">
+  <div :class="`carousel-container ${ThemeMode}  `">
     <v-btn
       icon="mdi-chevron-left"
       variant="text"
@@ -18,7 +18,7 @@
       @click="next"
     ></v-btn>
 
-    <div class="cards-wrapper">
+    <div class="cards-wrapper" data-aos="fade-up">
       <!-- ------------- LightMode Cards  -->
       <v-card
         v-if="$vuetify.theme.global.name === 'CustomLightTheme'"

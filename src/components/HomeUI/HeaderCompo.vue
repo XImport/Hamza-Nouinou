@@ -12,14 +12,36 @@
                 text-transform: capitalize;
               "
             >
-              Your Gateway to Innovative
-              <span class="text-primary">Solutions!</span>
+              <span>
+                <TypingEffect
+                  :segments="[
+                    {
+                      text: 'Your Gateway to Innovative ',
+                      class: '',
+                    },
+                    {
+                      text: 'Solutions!',
+                      class: 'text-primary',
+                      style: { display: 'inline-block' },
+                    },
+                  ]"
+                  :speed="50"
+                  :loop="false"
+                />
+              </span>
+              <!-- <span>Your Gateway to Innovative </span> -->
+
+              <!-- <span class="text-primary" style="display: inline-block">
+                Solutions!
+              </span> -->
             </h1>
           </v-col>
         </v-row>
       </v-container>
       <v-container class="Buttons-container">
-        <p class="text-center azeret-mono-font container-text text-grey">
+        <p
+          class="text-center azeret-mono-font container-text text-grey animate__animated animate__fadeInUp animate__duration-2s"
+        >
           Welcome to the world of rare digital art. Explore the best art from
           hand-picked digital artists out there and find the hidden gem.
         </p>
@@ -54,9 +76,7 @@
         <img src="../../assets/Icons/dots.png" alt="logo" />
       </div>
       <!-- More moving images -->
-      <div class="moving-img img-8">
-        <img src="../../assets/Icons/python.png" alt="logo" width="50" />
-      </div>
+
       <div class="moving-img img-9">
         <img
           src="../../assets/Icons/js.png"
@@ -73,38 +93,12 @@
           width="50"
         />
       </div>
-      <!-- <v-row class="my-2 mx-auto" justify="center" align="center">
-        <v-col cols="auto">
-          <v-btn
-            class="d-flex align-center justify-center rounded-lg manrope-font pa-6 bg-primary"
-            style="
-              font-size: 14px;
-              font-weight: 800;
-              text-transform: capitalize;
-            "
-          >
-            Discover More <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
-          </v-btn>
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            block
-            class="bg-secondary d-flex align-center justify-center rounded-lg manrope-font pa-6 CollectionButton"
-            style="
-              font-size: 14px;
-              font-weight: 800;
-              text-transform: capitalize;
-            "
-          >
-            All Collections <v-icon class="ml-2">mdi-arrow-top-right</v-icon>
-          </v-btn>
-        </v-col>
-      </v-row> -->
     </div>
   </div>
 </template>
-<!-- bg-DominateColor Bg-Animated-Background -->
+
 <script>
+import TypingEffect from "../GlobalComponents/TypingEffect.vue";
 export default {
   computed: {
     ThemeMode() {
@@ -114,6 +108,7 @@ export default {
         : "bg-lines-dark";
     },
   },
+  components: { TypingEffect },
 };
 </script>
 
@@ -305,7 +300,7 @@ export default {
   0%,
   100% {
     top: 10%;
-    left: 30%;
+    left: 50%;
   }
   50% {
     top: 13%;
@@ -597,13 +592,13 @@ export default {
 @keyframes moveImg1 {
   0%,
   100% {
-    top: 83%;
-    left: 70%;
+    top: 26%;
+    left: 75%;
     transform: translateY(-10px);
   }
   50% {
-    top: 85%;
-    left: 80%;
+    top: 26%;
+    left: 74%;
     transform: translateY(10px);
   }
 }
@@ -611,13 +606,13 @@ export default {
 @keyframes moveImg2 {
   0%,
   100% {
-    top: 10%;
-    left: 95%;
+    top: 20%;
+    left: 75%;
     transform: rotate(0deg);
   }
   50% {
-    top: 8%;
-    left: 90%;
+    top: 18%;
+    left: 76%;
     transform: rotate(10deg);
   }
 }
@@ -625,13 +620,13 @@ export default {
 @keyframes moveImg3 {
   0%,
   100% {
-    top: 40%;
-    left: 15%;
+    top: 10%;
+    left: 21%;
     transform: scale(1);
   }
   50% {
-    top: 47%;
-    left: 8%;
+    top: 10%;
+    left: 22%;
     transform: scale(1.1);
   }
 }
@@ -639,13 +634,13 @@ export default {
 @keyframes moveImg4 {
   0%,
   100% {
-    top: 30%;
-    left: 15%;
+    top: 20%;
+    left: 30%;
     transform: translateX(-5px);
   }
   50% {
-    top: 32%;
-    left: 17%;
+    top: 25%;
+    left: 28%;
     transform: translateX(5px);
   }
 }
@@ -695,7 +690,7 @@ export default {
 @keyframes moveImg8 {
   0%,
   100% {
-    top: 85%;
+    top: 15%;
     left: 10%;
     transform: translateY(-8px);
   }
@@ -709,13 +704,13 @@ export default {
 @keyframes moveImg9 {
   0%,
   100% {
-    top: 22%;
-    left: 5%;
+    top: 20%;
+    left: 20%;
     transform: scale(1) rotate(0deg);
   }
   50% {
     top: 25%;
-    left: 7%;
+    left: 20%;
     transform: scale(1.1) rotate(10deg);
   }
 }
@@ -723,12 +718,12 @@ export default {
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 10%;
+    top: 19%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    top: 13%;
+    top: 18%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
   }
@@ -737,13 +732,13 @@ export default {
 @keyframes moveImg11 {
   0%,
   100% {
-    top: 30%;
-    left: 85%;
+    top: 25%;
+    left: 70%;
     transform: rotate(-10deg);
   }
   50% {
-    top: 32%;
-    left: 87%;
+    top: 26%;
+    left: 71%;
     transform: rotate(10deg);
   }
 }

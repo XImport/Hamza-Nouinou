@@ -4,7 +4,7 @@
     <HeaderAboutCompo />
     <div class="bg-DominateColor EmptyDiv" />
     <div :class="`bg-background ${ThemeMode} `">
-      <div>
+      <div data-aos="fade-up">
         <h1
           class="text-center text-center"
           style="font-size: 54px; font-weight: 800; text-transform: capitalize"
@@ -12,7 +12,7 @@
           Who Am <span class="text-primary">I ?</span>
         </h1>
 
-        <v-container class="container-text">
+        <v-container class="container-text" data-aos="fade-down">
           <div class="fade-dots img-5 d-none d-lg-flex">
             <img src="../assets/Icons/reactjs.png" alt="logo" width="120" />
           </div>

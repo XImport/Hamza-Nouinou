@@ -7,13 +7,15 @@
       v-if="$vuetify.theme.global.name === 'CustomLightTheme'"
     />
     <h1
-      class="text-center manrope-font text-center"
+      class="text-center manrope-font text-center animate__animated animate__fadeInUp animate__duration-2s"
       style="font-size: 54px; font-weight: 800; text-transform: capitalize"
     >
       Information
     </h1>
 
-    <v-container class="container-text">
+    <v-container
+      class="container-text animate__animated animate__fadeInUp animate__duration-2s"
+    >
       <p
         class="text-center azeret-mono-font"
         style="
@@ -27,7 +29,10 @@
         and expertise.
       </p>
     </v-container>
-    <v-container class="mx-auto card-container" style="min-height: 30vh">
+    <v-container
+      class="mx-auto card-container animate__animated animate__fadeInUp animate__duration-2s"
+      style="min-height: 30vh"
+    >
       <v-row class="d-flex justify-center" dense align="center">
         <v-col
           v-for="(card, index) in Cards"
@@ -53,25 +58,27 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <h1
-      class="text-center manrope-font text-center"
-      style="font-size: 54px; font-weight: 800; text-transform: capitalize"
-    >
-      Contact Me
-    </h1>
-    <v-container class="container-text">
-      <p
-        class="text-center azeret-mono-font"
-        style="
-          font-size: 18px;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.53);
-        "
+    <div data-aos="fade-up">
+      <h1
+        class="text-center manrope-font text-center"
+        style="font-size: 54px; font-weight: 800; text-transform: capitalize"
       >
-        Have A Question? Need Help? Don't Hesitate, Drop Us A Line
-      </p>
-    </v-container>
+        Contact Me
+      </h1>
+      <v-container class="container-text">
+        <p
+          class="text-center azeret-mono-font"
+          style="
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.53);
+          "
+        >
+          Have A Question? Need Help? Don't Hesitate, Drop Us A Line
+        </p>
+      </v-container>
+    </div>
+
     <ContactForm />
     <div style="height: 100px" />
     <div>

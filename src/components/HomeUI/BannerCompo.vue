@@ -2,12 +2,32 @@
   <div :class="`landing-container min-h-screen p-0 ${ThemeMode}`">
     <div class="flex flex-col items-center justify-center py-2 px-2 space-y-4">
       <h1 class="text-center font-manrope font-extrabold capitalize text-wrap">
-        Custom-Crafted Solutions for Your
-        <span class="text-primary"> Needs </span>
+        <TypingEffect
+          :segments="[
+            {
+              text: '  Custom-Crafted Solutions for Your ',
+              class: '',
+            },
+            {
+              text: 'Needs',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
+        <!-- Custom-Crafted Solutions for Your
+        <span class="text-primary"> Needs </span> -->
       </h1>
 
-      <div class="w-full max-w-xs xs:max-w-sm container--text">
-        <p class="text-center azeret-mono-font text-grey py-6">
+      <div
+        class="w-full max-w-xs xs:max-w-sm container--text"
+        data-aos="fade-up"
+      >
+        <p
+          class="text-center azeret-mono-font text-grey py-6 animate__animated animate__fadeInUp animate__duration-2s"
+        >
           Welcome to My World of Innovation and Excellence. Discover expertly
           crafted digital solutions designed to bring your unique vision to
           life. Whether it's cutting-edge mobile apps, seamless APIs, or custom
@@ -77,9 +97,10 @@
 
 <script>
 import ServicesCompo from "./ServicesCompo.vue";
+import TypingEffect from "../GlobalComponents/TypingEffect.vue";
 
 export default {
-  components: { ServicesCompo },
+  components: { ServicesCompo, TypingEffect },
   computed: {
     ThemeMode() {
       // Return a class name based on the current theme
@@ -296,12 +317,12 @@ export default {
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 115%;
+    top: 103%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    top: 110%;
+    top: 103%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.2);
   }

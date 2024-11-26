@@ -2,16 +2,46 @@
   <div :class="`bg-background  ${ThemeMode}`" style="min-height: 45vh">
     <div class="justify-center align-center py-2">
       <h1 class="text-center manrope-font text-center">
-        Let’s Build Something Amazing
+        <TypingEffect
+          :segments="[
+            {
+              text: ' Let’s Build Something ',
+              class: '',
+              style: { display: 'inline-block' },
+            },
+            {
+              text: 'Amazing',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
       </h1>
 
       <h1 class="text-center manrope-font text-center">
-        Together | <span class="text-primary">Contact Me</span>
+        <TypingEffect
+          :segments="[
+            {
+              text: 'Together |',
+              class: '',
+              style: { display: 'inline-block' },
+            },
+            {
+              text: 'Contact Me',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
       </h1>
 
       <v-container class="container-text">
         <p
-          class="text-center azeret-mono-font"
+          class="text-center azeret-mono-font animate__animated animate__fadeInUp animate__duration-2s"
           style="
             font-size: 18px;
             font-weight: 400;
@@ -104,7 +134,7 @@
       </div>
 
       <v-row
-        class="my-2 mx-auto Button-container"
+        class="my-2 mx-auto Button-container animate__animated animate__fadeInUp animate__duration-2s"
         justify="center"
         align="center"
       >
@@ -332,12 +362,12 @@ export default {
 @keyframes moveImg9 {
   0%,
   100% {
-    top: 10%;
+    top: 17%;
     left: 30%;
   }
   50% {
-    top: 13%;
-    left: 37%;
+    top: 17%;
+    left: 31%;
   }
 }
 

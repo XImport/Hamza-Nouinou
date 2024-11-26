@@ -16,7 +16,21 @@
                 z-index: 9 !important;
               "
             >
-              Maximize Your Brand <span class="text-primary">Visibility</span>
+              <TypingEffect
+                :segments="[
+                  {
+                    text: 'Maximize Your Brand ',
+                    class: '',
+                  },
+                  {
+                    text: 'Visibility',
+                    class: 'text-primary',
+                    style: { display: 'inline-block' },
+                  },
+                ]"
+                :speed="50"
+                :loop="false"
+              />
             </h1>
 
             <v-container
@@ -26,7 +40,9 @@
                 'px-16': $vuetify.display.mdAndUp,
               }"
             >
-              <p class="text-center azeret-mono-font container-text text-grey">
+              <p
+                class="text-center azeret-mono-font container-text text-grey animate__animated animate__fadeInUp animate__duration-2s"
+              >
                 Boost your visibility and stand out with strategies that attract
                 the right audience and amplify your reach.
               </p>
@@ -77,9 +93,9 @@
           alt="logo"
         />
       </div>
-      <div class="moving-img img-3 d-none d-sm-flex">
+      <!-- <div class="moving-img img-3 d-none d-sm-flex">
         <img src="../../assets/Icons/css.png" alt="logo" width="50" />
-      </div>
+      </div> -->
       <div
         class="moving-img img-4 d-none d-sm-flex hidden-md-and-down"
         v-show="!$vuetify.display.mdAndDown"
@@ -117,7 +133,11 @@
         />
       </div>
 
-      <v-row class="my-2 mx-auto" justify="center" align="center">
+      <v-row
+        class="my-2 mx-auto animate__animated animate__fadeInUp animate__duration-2s"
+        justify="center"
+        align="center"
+      >
         <v-col cols="auto">
           <v-btn
             class="bg-primary d-flex align-center justify-center rounded-lg manrope-font pa-6 DiscoverButton"
@@ -138,7 +158,10 @@
 </template>
 
 <script>
-export default {};
+import TypingEffect from "../GlobalComponents/TypingEffect.vue";
+export default {
+  components: { TypingEffect },
+};
 </script>
 
 <style scoped>
@@ -334,12 +357,12 @@ v-col {
 @keyframes moveImg1 {
   0%,
   100% {
-    top: 15%;
-    left: 68%;
+    top: 12%;
+    left: 70%;
   }
   50% {
-    top: 18%;
-    left: 68%;
+    top: 13%;
+    left: 70%;
   }
 }
 
@@ -431,23 +454,23 @@ v-col {
   0%,
   100% {
     top: 10%;
-    left: 30%;
+    left: 27%;
   }
   50% {
     top: 13%;
-    left: 37%;
+    left: 25%;
   }
 }
 
 @keyframes moveImg10 {
   0%,
   100% {
-    top: 40%;
+    top: 36%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   50% {
-    top: 44%;
+    top: 37%;
     left: 50%;
   }
 }

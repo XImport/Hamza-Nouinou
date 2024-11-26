@@ -1,15 +1,33 @@
 <template>
   <div :class="`bg-background  ${ThemeMode}`" style="min-height: 45vh">
     <div class="justify-center align-center py-2">
-      <h1 class="text-center manrope-font text-center">This Unique Story</h1>
-
       <h1 class="text-center manrope-font text-center">
-        Driven Devops | <span class="text-primary"> Experience</span>
+        <h1
+          class="text-center manrope-font text-center animate__animated animate__fadeInUp animate__duration-2s"
+        >
+          This Unique Story<span class="text-primary"> </span>
+        </h1>
+
+        <TypingEffect
+          :segments="[
+            {
+              text: '  Driven Devops | ',
+              class: '',
+            },
+            {
+              text: 'Experience',
+              class: 'text-primary',
+              style: { display: 'inline-block' },
+            },
+          ]"
+          :speed="50"
+          :loop="false"
+        />
       </h1>
 
       <v-container class="container-text">
         <p
-          class="text-center azeret-mono-font"
+          class="text-center azeret-mono-font animate__animated animate__fadeInUp animate__duration-2s"
           style="
             font-size: 18px;
             font-weight: 400;
@@ -102,7 +120,7 @@
       </div>
 
       <v-row
-        class="my-2 mx-auto Button-container"
+        class="my-2 mx-auto Button-container animate__animated animate__fadeInUp animate__duration-2s"
         justify="center"
         align="center"
       >
@@ -335,7 +353,7 @@ export default {
   }
   50% {
     top: 13%;
-    left: 37%;
+    left: 31%;
   }
 }
 
