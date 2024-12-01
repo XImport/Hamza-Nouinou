@@ -12,7 +12,8 @@
         </v-container>
         <v-container class="Blogs-container mardown-ui">
           <!-- My blogs Goes Here -->
-          <Blog1 />
+          <component :is="DynamicBlogComponent" v-if="DynamicBlogComponent" />
+          <div v-else>Blog not found</div>
         </v-container>
         <v-container class="Recommanded-container d-none d-lg-flex">
           <div>
@@ -35,15 +36,17 @@
 </template>
 
 <script>
+import { defineComponent } from "vue";
 import AppBar from "./AppBar.vue";
-import Blog1 from "@/Blogs/Blog1.md";
 import MiniBlogView from "./MiniBlogView.vue";
 import TocView from "./TocView.vue";
 import FooterCompo from "./FooterCompo.vue";
-export default {
-  components: { AppBar, Blog1, FooterCompo, MiniBlogView, TocView },
+
+export default defineComponent({
+  components: { AppBar, FooterCompo, MiniBlogView, TocView },
   data() {
     return {
+      DynamicBlogComponent: null,
       Blogs: [
         {
           title: "Unreal Engine for Fortnite is a Big Deal",
@@ -76,7 +79,7 @@ export default {
         {
           title: "Fortnite Maps Like Never Before",
           Content:
-            "With Fortnite Creative 2.0, creators are reimagining what’s possible, building maps that rival AAA games in quality.",
+            "With Fortnite Creative 2.0, creators are reimagining what's possible, building maps that rival AAA games in quality.",
           ImageUrl:
             "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1551360/capsule_616x353.jpg?t=1730830713",
         },
@@ -85,11 +88,47 @@ export default {
   },
   computed: {
     BlogPost() {
-      return this.$route.params.title; // Access the route parameter 'title'
+      return this.$route.params.title;
+    },
+    BlogId() {
+      return this.$route.params.id;
+    },
+    GlobalBlogs() {
+      return this.$store.getters.GetBlogs;
     },
   },
-};
+  methods: {
+    async loadBlog() {
+      // Find the corresponding blog by ID
+      const blog = this.GlobalBlogs.find((blog) => blog.id == this.BlogId);
+
+      if (blog) {
+        try {
+          // Use a more reliable dynamic import method
+          const modulePath = `/src/Blogs/${blog.BlogName}`;
+          const component = await import(/* @vite-ignore */ modulePath);
+          this.DynamicBlogComponent = component.default || component;
+        } catch (error) {
+          console.error("Error loading blog:", error);
+          this.DynamicBlogComponent = null;
+        }
+      } else {
+        console.error("Blog not found!");
+        this.DynamicBlogComponent = null;
+      }
+    },
+  },
+  watch: {
+    BlogId: {
+      immediate: true,
+      handler() {
+        this.loadBlog();
+      },
+    },
+  },
+});
 </script>
+
 <style scoped>
 /* Blog Container */
 
@@ -166,6 +205,31 @@ export default {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+:deep(.mardown-ui img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  :deep(.mardown-ui img) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  :deep(.mardown-ui img) {
+    width: 100%;
+    margin: 0.25rem auto;
   }
 }
 </style>

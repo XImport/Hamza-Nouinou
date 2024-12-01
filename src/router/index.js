@@ -35,7 +35,7 @@ const router = createRouter({
     },
     {
       name: "BlogPage",
-      path: "/blog/:title",
+      path: "/blog/:title/:id",
       component: () => import("../components/GlobalComponents/Blog.vue"),
     },
   ],

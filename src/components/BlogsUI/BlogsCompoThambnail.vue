@@ -61,7 +61,13 @@
               <!-- Title -->
               <div class="text-h6 text-TextFont font-weight-bold mb-4">
                 <router-link
-                  :to="{ name: 'BlogPage', params: { title: blog.title } }"
+                  :to="{
+                    name: 'BlogPage',
+                    params: {
+                      title: blog.title,
+                      id: blog.id, // Example of an additional parameter
+                    },
+                  }"
                   style="text-decoration: none"
                   class="text-TextFont"
                 >

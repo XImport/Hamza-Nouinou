@@ -8,7 +8,7 @@
         <li v-for="item in toc" :key="item.id">
           <a
             href="#"
-            @click="scrollToHeading($event, item.title)"
+            @click="scrollToHeading($event, item.id)"
             class="text-link text-TextFont"
           >
             {{ item.title }}
@@ -32,49 +32,76 @@ export default {
       this.showToc = !this.showToc;
     },
     parseHeadings() {
-      // Get all elements with h1, h2, h3, h4 tags
-      const headings = Array.from(document.querySelectorAll("h1, h2, h3, h4"));
+      this.$nextTick(() => {
+        // Wait for the dynamic content to render
+        const markdownContent = document.querySelector(".Blogs-container");
 
-      // Filter headings to only include those with <!-- Key --> comment
-      this.toc = headings
-        .filter((heading) => {
-          const hasKey =
-            heading.textContent.includes("<!-- Key -->") ||
-            heading.innerHTML.includes("<!-- Key -->");
+        if (!markdownContent) return;
 
-          return hasKey;
-        })
-        .map((heading) => {
-          const title = heading.textContent.replace("<!-- Key -->", "").trim();
-          const id = title
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^a-z0-9-]/g, "");
+        // Get all heading elements within the markdown content
+        const headings = Array.from(
+          markdownContent.querySelectorAll("h1, h2, h3, h4")
+        );
 
-          return { id, title };
+        // Generate TOC entries
+        this.toc = headings.map((heading) => {
+          // Generate or ensure unique ID
+          if (!heading.id) {
+            const id = heading.textContent
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/[^a-z0-9-]/g, "");
+            heading.id = id;
+          }
+
+          return {
+            id: heading.id,
+            title: heading.textContent.trim(),
+          };
         });
+      });
     },
-    scrollToHeading(event, title) {
-      event.preventDefault(); // Prevent the default anchor link behavior
+    scrollToHeading(event, id) {
+      event.preventDefault();
 
-      // Find the heading element by matching the text content
-      const target = Array.from(
-        document.querySelectorAll("h1, h2, h3, h4")
-      ).find((heading) => heading.textContent.trim() === title);
+      const target = document.getElementById(id);
 
       if (target) {
-        // Scroll to the element with an offset (adjust the value as needed)
         window.scrollTo({
-          top: target.offsetTop - 100, // Adjust for the height of the navbar or spacing
-          behavior: "smooth", // Smooth scrolling
+          top: target.offsetTop - 100,
+          behavior: "smooth",
         });
       }
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.parseHeadings(); // Generate TOC on mount
+    // Initial parse
+    this.parseHeadings();
+
+    // Use a MutationObserver to detect when dynamic content is loaded
+    const observer = new MutationObserver((mutations) => {
+      for (let mutation of mutations) {
+        if (mutation.type === "childList") {
+          this.parseHeadings();
+          break;
+        }
+      }
     });
+
+    // Start observing the Blogs-container
+    const blogsContainer = document.querySelector(".Blogs-container");
+    if (blogsContainer) {
+      observer.observe(blogsContainer, {
+        childList: true,
+        subtree: true,
+      });
+    }
+  },
+  beforeUnmount() {
+    // Clean up the observer if necessary
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   },
 };
 </script>
@@ -92,12 +119,12 @@ export default {
 .text-link {
   text-decoration: none;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* Limit to 2 lines */
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; /* Prevent line breaks */
-  display: inline-block; /* Ensure it's treated as inline but allows block properties */
+  white-space: nowrap;
+  display: inline-block;
 }
 .toc-button {
   border: none;
