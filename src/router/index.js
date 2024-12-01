@@ -9,24 +9,34 @@ const router = createRouter({
       component: () => import("../pages/HomePage.vue"),
     },
     {
+      name: "About",
       path: "/about",
       component: () => import("../pages/AboutPage.vue"),
     },
     {
+      name: "Explorer",
       path: "/explore",
       component: () => import("../pages/ExplorerPage.vue"),
     },
     {
+      name: "Services",
       path: "/services",
       component: () => import("../pages/ServicesPage.vue"),
     },
     {
+      name: "Blogs",
       path: "/blogs",
       component: () => import("../pages/BlogsPage.vue"),
     },
     {
+      name: "Contact",
       path: "/contact",
       component: () => import("../pages/ContactPage.vue"),
+    },
+    {
+      name: "BlogPage",
+      path: "/blog/:title",
+      component: () => import("../components/GlobalComponents/Blog.vue"),
     },
   ],
   scrollBehavior(to, from, savedPosition) {

@@ -18,6 +18,8 @@ const CustomDarkTheme = {
     DominateColor: "#161616 ",
     Outline: "#212121",
     TextFont: "#FFFFFF",
+    ShadeBg: "#212121",
+    TitleHightLight: "#DDF247",
   },
 };
 
@@ -36,6 +38,8 @@ const CustomLightTheme = {
     DominateColor: "#0C0A2F ",
     Outline: "#0C0A2F",
     TextFont: "#000000",
+    ShadeBg: "#fbfafa",
+    TitleHightLight: "#0C0A2F",
   },
 };
 

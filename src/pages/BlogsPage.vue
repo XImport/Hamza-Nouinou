@@ -48,6 +48,7 @@ export default {
             name: "Hamza Nouinou",
             avatar: "../assets/Me.png",
           },
+          to: "/firstblog",
         },
         {
           id: 2,

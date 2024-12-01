@@ -60,7 +60,13 @@
 
               <!-- Title -->
               <div class="text-h6 text-TextFont font-weight-bold mb-4">
-                {{ blog.title }}
+                <router-link
+                  :to="{ name: 'BlogPage', params: { title: blog.title } }"
+                  style="text-decoration: none"
+                  class="text-TextFont"
+                >
+                  {{ blog.title }}</router-link
+                >
               </div>
               <v-divider></v-divider>
               <!-- Author Section -->
