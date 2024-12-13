@@ -20,6 +20,7 @@ const CustomDarkTheme = {
     TextFont: "#FFFFFF",
     ShadeBg: "#212121",
     TitleHightLight: "#DDF247",
+    TextSecondaryUnderText: "#FFFFFF",
   },
 };
 
@@ -40,6 +41,7 @@ const CustomLightTheme = {
     TextFont: "#000000",
     ShadeBg: "#fbfafa",
     TitleHightLight: "#0C0A2F",
+    TextSecondaryUnderText: "#a4a4a4",
   },
 };
 

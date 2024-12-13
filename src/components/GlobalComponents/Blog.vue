@@ -2,11 +2,19 @@
   <div>
     <AppBar />
     <div class="blog-container">
-      <h1 class="text-center pb-4 text-decoration-underline mt-12 text-primary">
-        {{ BlogPost }}
-      </h1>
+      <div>
+        <h1
+          class="text-center pb-4 text-decoration-underline mt-12 text-primary"
+        >
+          {{ BlogPost }}
+        </h1>
+      </div>
+
       <div class="d-flex">
-        <v-container class="Empty-container d-none d-lg-flex">
+        <v-container
+          class="Empty-container d-none d-lg-flex"
+          style="z-index: 0"
+        >
           <!-- Empty Container Goes here  -->
           <TocView />
         </v-container>
@@ -14,11 +22,41 @@
           <!-- My blogs Goes Here -->
           <component :is="DynamicBlogComponent" v-if="DynamicBlogComponent" />
           <div v-else>Blog not found</div>
+          <v-container>
+            <!-- Comments Goes Here  -->
+            <CommentsView />
+          </v-container>
         </v-container>
         <v-container class="Recommanded-container d-none d-lg-flex">
           <div>
             <div>
               <MiniBlogView :Blogs="Blogs" title="Top Picks for You " />
+            </div>
+            <div>
+              <v-container style="max-width: 90%" class="text-center">
+                <v-card elevation="1" class="pa-6 rounded-sm">
+                  <v-row class="no-gutters" justify="center">
+                    <v-col cols="12">
+                      <h2 class="text-left montserrat-Font">
+                        Let's hang out on social
+                      </h2>
+                    </v-col>
+                    <v-col
+                      v-for="(btn, index) in SocialMediaButtons"
+                      :key="index"
+                      cols="12"
+                      sm="6"
+                      md="6"
+                      class="d-flex justify-center"
+                    >
+                      <v-btn class="" :color="btn.backgroundColor" block>
+                        <v-icon left size="20"> {{ btn.IconButton }} </v-icon>
+                        {{ btn.TextButton }}
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-container>
             </div>
             <div class="mt-6">
               <MiniBlogView :Blogs="Blogs" title="What's New " />
@@ -29,7 +67,7 @@
       </div>
     </div>
     <!-- Footer Goes Here -->
-    <div class="mt-12">
+    <div class="mt-12" style="z-index: 5">
       <FooterCompo />
     </div>
   </div>
@@ -40,13 +78,46 @@ import { defineComponent } from "vue";
 import AppBar from "./AppBar.vue";
 import MiniBlogView from "./MiniBlogView.vue";
 import TocView from "./TocView.vue";
+import CommentsView from "./CommentsView.vue";
 import FooterCompo from "./FooterCompo.vue";
 
 export default defineComponent({
-  components: { AppBar, FooterCompo, MiniBlogView, TocView },
+  components: { AppBar, FooterCompo, MiniBlogView, TocView, CommentsView },
   data() {
     return {
       DynamicBlogComponent: null,
+      SocialMediaButtons: [
+        {
+          backgroundColor: "purple-darken-4",
+          TextButton: "FACEBOOK",
+          IconButton: "mdi-facebook",
+        },
+        {
+          backgroundColor: "red",
+          TextButton: "GOOLGE+",
+          IconButton: "mdi-google-plus",
+        },
+        {
+          backgroundColor: "blue",
+          TextButton: "TWITTER",
+          IconButton: "mdi-twitter",
+        },
+        {
+          backgroundColor: "pink-darken-2",
+          TextButton: "INSTAGRAM",
+          IconButton: "mdi-instagram",
+        },
+        {
+          backgroundColor: "red-accent-4",
+          TextButton: "Youtube",
+          IconButton: "mdi-youtube",
+        },
+        {
+          backgroundColor: "orange",
+          TextButton: "RSS",
+          IconButton: "mdi-rss",
+        },
+      ],
       Blogs: [
         {
           title: "Unreal Engine for Fortnite is a Big Deal",
@@ -132,14 +203,20 @@ export default defineComponent({
 <style scoped>
 /* Blog Container */
 
-.Empty-container {
-  min-width: 21%;
+.v-btn {
+  box-shadow: none;
 }
+
+.Empty-container {
+  min-width: 22%;
+}
+
 .Blogs-container {
-  min-width: 54%;
+  min-width: 48%;
+  /* background-color: red; */
 }
 .Recommanded-container {
-  min-width: 25%;
+  min-width: 30%;
 }
 :deep(.mardown-ui h1) {
   text-align: center !important;
