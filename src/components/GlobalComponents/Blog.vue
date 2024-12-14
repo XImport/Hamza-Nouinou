@@ -24,7 +24,10 @@
           <div v-else>Blog not found</div>
           <v-container>
             <!-- Comments Goes Here  -->
-            <CommentsView />
+            <CommentsView
+              :AddCommentToBlog="(payload) => AddCommentToBlog(BlogId, payload)"
+              :BlogId="BlogId"
+            />
           </v-container>
         </v-container>
         <v-container class="Recommanded-container d-none d-lg-flex">
@@ -169,6 +172,9 @@ export default defineComponent({
     },
   },
   methods: {
+    AddCommentToBlog(ID, payload) {
+      this.$store.commit("AddComments", { ID, payload });
+    },
     async loadBlog() {
       // Find the corresponding blog by ID
       const blog = this.GlobalBlogs.find((blog) => blog.id == this.BlogId);

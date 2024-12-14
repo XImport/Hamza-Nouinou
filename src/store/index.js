@@ -12,6 +12,9 @@ export default new Vuex.Store({
         image:
           "https://i.pinimg.com/736x/7e/c5/de/7ec5de0e5f9595fb14e33f8a41ae03a2.jpg",
         category: "Digital Art",
+        Comments: [
+          "This template is so awesome. I didn't expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.",
+        ],
         date: "Mon, 08 May",
         title: "Unreal Engine for Fortnite is a big deal",
         author: {
@@ -60,6 +63,7 @@ export default new Vuex.Store({
         category: "Game Development",
         date: "Tue, 09 May",
         title: "The Future of AI in Modern Gaming",
+        Comments: [],
         BlogName: "Blog2.md",
         author: {
           name: "Hamza Nouinou",
@@ -115,6 +119,7 @@ export default new Vuex.Store({
         category: "Web Design",
         date: "Wed, 10 May",
         title: "Responsive Design Trends in 2024",
+        Comments: [],
         BlogName: "Blog3.md",
         author: {
           name: "Hamza Nouinou",
@@ -177,15 +182,20 @@ export default new Vuex.Store({
     GetBlogs(state) {
       return state.blogs;
     },
+    GetBlogByID(state, ID) {
+      const TargetBlogID = state.blogs.filter((blog) => blog.id == ID);
+      return TargetBlogID;
+    },
   },
 
-  mutations: {},
-  //   plugins: [
-  //     createPersistedState({
-  //       // You can specify where you want to save the state
-  //       storage: window.localStorage, // or use sessionStorage
-  //     }),
-  //   ],
+  mutations: {
+    AddComments(state, { ID, payload }) {
+      // Find the specific blog by matching the index
+      const targetBlog = state.blogs.filter((blog) => blog.id == ID);
+      targetBlog[0].Comments.push(payload);
+    },
+  },
+
   actions: {},
   modules: {},
 });
