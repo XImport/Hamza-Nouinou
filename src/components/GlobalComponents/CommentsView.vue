@@ -51,17 +51,47 @@
       </div>
       <div>
         <v-container>
-          <v-textarea
-            append-inner-icon="mdi-comment"
-            label="Your feedback matters—drop a comment below! "
-            v-model="PostComment"
-          ></v-textarea>
+          <v-container>
+            <v-textarea
+              v-model="message"
+              label="Your Message"
+              variant="outlined"
+              :rules="messageRules"
+              clearable
+              counter
+              rows="4"
+            >
+              <template v-slot:append-inner>
+                <v-menu :close-on-content-click="false" :close-on-back="true">
+                  <template v-slot:activator="{ props }">
+                    <v-icon
+                      v-bind="props"
+                      icon="mdi-emoticon-outline"
+                      color="grey"
+                    ></v-icon>
+                  </template>
+                  <v-card>
+                    <v-card-text class="pa-0">
+                      <EmojiPicker @select="addEmoji" @click.stop />
+                    </v-card-text>
+                  </v-card>
+                </v-menu>
+              </template>
+            </v-textarea>
+          </v-container>
+          <v-container v-if="EmptyForm">
+            <v-alert
+              color="error"
+              icon="$error"
+              text="Please write something before submitting."
+            ></v-alert>
+          </v-container>
 
           <v-container style="max-width: 50%">
             <v-btn
               block
               class="pa-6 mx-auto bg-primary"
-              @click="submitComment(PostComment)"
+              @click="submitComment(message)"
               ><v-icon size="20 " class="pr-2">mdi-comment</v-icon> Post Comment
             </v-btn>
           </v-container>
@@ -75,9 +105,22 @@
 </template>
 
 <script>
+import EmojiPicker from "vue3-emoji-picker";
+import "vue3-emoji-picker/css";
+
 export default {
+  components: {
+    EmojiPicker,
+  },
   data() {
     return {
+      message: "",
+      EmptyForm: false,
+      messageRules: [
+        (v) => !!v || "Message is required",
+        (v) => v.length <= 500 || "Message must be less than 500 characters",
+      ],
+      showEmojiPanel: false, // Toggles the emoji picker visibility
       // Default avatar for users without a profile image
       defaultAvatarUrlLightMode: "https://i.imgur.com/qXOXBdr.png",
       defaultAvatarUrlDarkMode: "https://i.imgur.com/qXOXBdr.png",
@@ -103,6 +146,10 @@ export default {
   },
 
   methods: {
+    handleInput() {
+      // Optional method to handle input changes
+      console.log(this.message);
+    },
     // Date formatting function
     formatDate(date) {
       return new Date(date).toLocaleString("en-US", {
@@ -115,11 +162,19 @@ export default {
       });
     },
     submitComment(UserComment) {
-      // This will call the parent's AddCommentToBlog with BlogId and the comment details
-      this.AddCommentToBlog(UserComment);
-      this.PostComment = "";
+      if (this.message == "") {
+        this.EmptyForm = true;
+      } else {
+        this.EmptyForm = false;
+        // This will call the parent's AddCommentToBlog with BlogId and the comment details
+        this.AddCommentToBlog(UserComment);
+      }
     },
-    ExtractComments() {},
+
+    addEmoji(emoji) {
+      // Add selected emoji to the message
+      this.message += emoji.i;
+    },
   },
   computed: {
     GetUserComments() {
@@ -160,6 +215,18 @@ export default {
       font-weight: bold;
     }
   }
+}
+
+.v-menu__content {
+  overflow: visible !important;
+}
+.emoji-picker {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .comment {
